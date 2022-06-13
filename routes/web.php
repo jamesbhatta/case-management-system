@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\CasesController;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false]);
@@ -17,13 +18,16 @@ Route::resources([
     'municipality' => 'MunicipalityController',
     'ward' => 'WardController',
 ]);
-
+// organization
 Route::get('organization', [OrganizationController::class, 'index'])->name('organization.index');
 Route::get('organization/create', [OrganizationController::class, 'create'])->name('organization.create');
 Route::post('organization', [OrganizationController::class, 'store'])->name('organization.store');
 Route::get('organization/{organization}/edit', [OrganizationController::class, 'edit'])->name('organization.edit');
 Route::put('organization/{organization}', [OrganizationController::class, 'update'])->name('organization.update');
 Route::delete('organization/{organization}', [OrganizationController::class, 'destroy'])->name('organization.destroy');
+
+// cases
+Route::get('cases', [CasesController::class, 'index'])->name('cases.index');
 
 // project routes
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');
