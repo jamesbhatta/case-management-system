@@ -20,6 +20,7 @@
     @include('alerts.all')
 </div>
 <div class="container">
+    
     <div class="card z-depth-0">
         <div class="card-body">
             <form action="{{ $organization->id ? route('organization.update', $organization) : route('organization.store') }}" class="form" method="post">
