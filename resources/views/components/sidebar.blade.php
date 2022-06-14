@@ -16,17 +16,38 @@
             <ul class="list-unstyled collapse" id="homeSubmenu" style="">
                 @hasanyrole('super-admin|admin')
                     <li class="nav-item sub-nav">
-                        <a class="nav-link" href="{{ route('organization.create') }}"><span class="mx-3"><i
+                        <a class="nav-link" href="{{ route('organization.create') }}"><span
+                                class="mx-3"><i class="fas fa-circle"></i></span>Add</a>
+                    </li>
+                @endhasanyrole
+                @hasanyrole('super-admin|admin')
+                    <li class="nav-item sub-nav">
+                        <a class="nav-link" href="{{ route('organization.index') }}"><span class="mx-3"><i
+                                    class="fas fa-circle"></i></span>Manage</a>
+                    </li>
+                @endhasanyrole
+
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a href="#case" data-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle collapsed nav-link"><span class="text-default"><i
+                        class="fas fa-tools"></i></span>Case</a>
+            <ul class="list-unstyled collapse" id="case" style="">
+                @hasanyrole('super-admin|admin')
+                    <li class="nav-item sub-nav">
+                        <a class="nav-link" href="{{ route('cases.index') }}"><span class="mx-3"><i
                                     class="fas fa-circle"></i></span>Add</a>
                     </li>
                 @endhasanyrole
                 @hasanyrole('super-admin|admin')
-                <li class="nav-item sub-nav">
-                    <a class="nav-link" href="{{ route('organization.index') }}"><span class="mx-3"><i
-                                class="fas fa-circle"></i></span>Manage</a>
-                </li>
-            @endhasanyrole
-               
+                    <li class="nav-item sub-nav">
+                        <a class="nav-link" href="{{ route('organization.index') }}"><span class="mx-3"><i
+                                    class="fas fa-circle"></i></span>Manage</a>
+                    </li>
+                @endhasanyrole
+
             </ul>
         </li>
 
@@ -36,7 +57,7 @@
             </a>
         </li>
 
-      
+
 
         @can('user.*')
             <li

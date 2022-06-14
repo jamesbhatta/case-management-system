@@ -28,15 +28,15 @@
                                     <option value="मस्यौदा">मस्यौदा</option>
                                     <option value="बहस">बहस</option>
                                     <option value="मेलमिलाप">मेलमिलाप</option>
-                                    <option value="">फैसला कार्यान्वयन</option>
-                                    <option value="">प्रहरी कार्यालय</option>
-                                    <option value="">जिल्ला अदालत</option>
-                                    <option value="">उच्च अदालत</option>
-                                    <option value="">सर्वोच्च अदालत</option>
-                                    <option value="">अन्य अदालत</option>
-                                    <option value="">स्थानीय तह</option>
-                                    <option value="">निर्णय भइसकेको</option>
-                                    <option value="">अस्वीकार गरिएको</option>
+                                    <option value="फैसला कार्यान्वयन">फैसला कार्यान्वयन</option>
+                                    <option value="प्रहरी कार्यालय">प्रहरी कार्यालय</option>
+                                    <option value="जिल्ला अदालत">जिल्ला अदालत</option>
+                                    <option value="उच्च अदालत">उच्च अदालत</option>
+                                    <option value="सर्वोच्च अदालत">सर्वोच्च अदालत</option>
+                                    <option value="अन्य अदालत">अन्य अदालत</option>
+                                    <option value="स्थानीय तह">स्थानीय तह</option>
+                                    <option value="निर्णय भइसकेको">निर्णय भइसकेको</option>
+                                    <option value="अस्वीकार गरिएको">अस्वीकार गरिएको</option>
                                     
                                    </select>
                                 </div>

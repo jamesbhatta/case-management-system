@@ -9,8 +9,8 @@
 <script src="{{ mix('js/app.js') }}"></script>
 <script>
     $(function() {
-        if ($('.fiscal-year-date')[0]) {
-            $('.fiscal-year-date').nepaliDatePicker({
+        if ($('.nepali-date')[0]) {
+            $('.nepali-date').nepaliDatePicker({
                 ndpYear: true,
                 ndpMonth: true,
                 ndpYearCount: 10

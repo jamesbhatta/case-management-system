@@ -4,6 +4,7 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CasesController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['register' => false]);
 Route::redirect('/', '/login');
@@ -28,6 +29,10 @@ Route::delete('organization/{organization}', [OrganizationController::class, 'de
 
 // cases
 Route::get('cases', [CasesController::class, 'index'])->name('cases.index');
+Route::post('cases', [CasesController::class, 'store'])->name('cases.store');
+Route::delete('cases/{cases}', [CasesController::class, 'destroy'])->name('cases.destroy');
+Route::get('cases/{cases}/edit', [CasesController::class, 'edit'])->name('cases.edit');
+Route::put('cases/{cases}', [CasesController::class, 'update'])->name('cases.update');
 
 // project routes
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');
