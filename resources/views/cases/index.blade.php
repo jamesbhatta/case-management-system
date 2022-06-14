@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="container-fluid">
-        <h3 class="font-weight-bold my-3">मुद्दा अभिलेख</h3>
+        <h3 class="font-weight-bold my-3" id="txt1">मुद्दा अभिलेख</h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                 {{-- <li class="breadcrumb-item"><a href="#"></a></li> --}}
-                <li class="breadcrumb-item active" aria-current="page">मुद्दा अभिलेख</li>
+                <li class="breadcrumb-item active" id="txt2" aria-current="page">मुद्दा अभिलेख</li>
             </ol>
         </nav>
         <div class="container">
@@ -22,21 +22,21 @@
                 <div style="overflow: auto;scrollbar-width: none;">
                     <div>
                         <nav class="nav nav-pills" id="pills-tab" role="tablist">
-                            <a class="nav-link text-dark active" id="pills-home-tab" data-bs-toggle="pill" href="#pills-case"
+                            <a class="nav-link text-dark active" onclick="btn_clicked('मुद्दा अभिलेख')" id="pills-home-tab" data-bs-toggle="pill" href="#pills-case"
                                 role="tab" aria-controls="pills-home" aria-selected="true">मुद्दा अभिलेख</a>
-                            <a class="nav-link text-dark" id="pills-profile-tab" data-bs-toggle="pill"
+                            <a class="nav-link text-dark" onclick="btn_clicked('पक्षको विवरण')" id="pills-profile-tab" data-bs-toggle="pill"
                                 href="#pills-party_details" role="tab" aria-controls="pills-profile"
                                 aria-selected="false">पक्षको विवरण</a>
-                            <a class="nav-link text-dark" id="pills-profile-tab" data-bs-toggle="pill"
+                            <a class="nav-link text-dark" onclick="btn_clicked('विपक्षको विवरण')" id="pills-profile-tab" data-bs-toggle="pill"
                                 href="#pills-opposit_party_details" role="tab" aria-controls="pills-profile"
                                 aria-selected="false">विपक्षको विवरण</a>
-                            <a class="nav-link text-dark" id="pills-profile-tab" data-bs-toggle="pill"
+                            <a class="nav-link text-dark" onclick="btn_clicked('वारिस')" id="pills-profile-tab" data-bs-toggle="pill"
                                 href="#pills-relations" role="tab" aria-controls="pills-profile"
                                 aria-selected="false">वारिस</a>
-                            <a class="nav-link text-dark" id="pills-profile-tab" data-bs-toggle="pill"
+                            <a class="nav-link text-dark" onclick="btn_clicked('मुद्दाको किसिम')" id="pills-profile-tab" data-bs-toggle="pill"
                                 href="#pills-case_type" role="tab" aria-controls="pills-profile"
                                 aria-selected="false">मुद्दाको किसिम</a>
-                            <a class="nav-link text-dark" id="pills-profile-tab" data-bs-toggle="pill"
+                            <a class="nav-link text-dark" onclick="btn_clicked('कानूनी सेवा')" id="pills-profile-tab" data-bs-toggle="pill"
                                 href="#pills-consultation" role="tab" aria-controls="pills-profile"
                                 aria-selected="false">कानूनी सेवा</a>
                             {{-- <a class="nav-link text-dark" id="pills-profile-tab" data-bs-toggle="pill"
@@ -116,10 +116,8 @@
 
                                 <div class="col-md-3   form-group">
                                     <label for="">*मिति</label>
-                                    <input type="text" name="address"
-                                        class="form-control rounded-0 {{ invalid_class('address') }}"
-                                        value="{{ old('address', $organization->address ?? '') }}">
-                                    <x-invalid-feedback field="address"></x-invalid-feedback>
+                                    <input type="text" name="start" id="input-fiscal-year-start" class="form-control fiscal-year-date" value="" placeholder="Nepali YYYY-MM-DD">
+
                                 </div>
 
                                 <div class="col-md-3   form-group">
@@ -730,5 +728,11 @@
             $(".alert").remove();
         }, 1000); // 3 secs
 
-    });
+    }); 
+    function btn_clicked(text) {
+        document.getElementById("txt1").innerHTML=text;
+        document.getElementById("txt2").innerHTML=text;
+        // ("helloo");
+    }
+    
 </script>
