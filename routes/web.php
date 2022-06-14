@@ -32,7 +32,9 @@ Route::get('cases', [CasesController::class, 'index'])->name('cases.index');
 Route::post('cases', [CasesController::class, 'store'])->name('cases.store');
 Route::delete('cases/{cases}', [CasesController::class, 'destroy'])->name('cases.destroy');
 Route::get('cases/{cases}/edit', [CasesController::class, 'edit'])->name('cases.edit');
+Route::get('cases/{cases}/view', [CasesController::class, 'view'])->name('cases.view');
 Route::put('cases/{cases}', [CasesController::class, 'update'])->name('cases.update');
+Route::get('cases/create', [CasesController::class, 'create'])->name('cases.create');
 
 // project routes
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');

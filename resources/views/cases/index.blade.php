@@ -22,10 +22,8 @@
                 <div style="overflow: auto;scrollbar-width: none;">
                     <div>
                         <nav class="nav nav-pills" id="pills-tab" role="tablist">
-                            <a class="nav-link text-dark active" onclick="btn_clicked('मुद्दा अभिलेख')" id="pills-home-tab"
-                                data-bs-toggle="pill" href="#pills-case" role="tab" aria-controls="pills-home"
-                                aria-selected="true">मुद्दा अभिलेख</a>
-                            <a class="nav-link text-dark" onclick="btn_clicked('पक्षको विवरण')" id="pills-profile-tab"
+                            <h4> नयाँ मुद्दा अभिलेख     थप्नुहोस्</h4>
+                            {{-- <a class="nav-link text-dark" onclick="btn_clicked('पक्षको विवरण')" id="pills-profile-tab"
                                 data-bs-toggle="pill" href="#pills-party_details" role="tab" aria-controls="pills-profile"
                                 aria-selected="false">पक्षको विवरण</a>
                             <a class="nav-link text-dark" onclick="btn_clicked('विपक्षको विवरण')" id="pills-profile-tab"
@@ -39,7 +37,7 @@
                                 aria-selected="false">मुद्दाको किसिम</a>
                             <a class="nav-link text-dark" onclick="btn_clicked('कानूनी सेवा')" id="pills-profile-tab"
                                 data-bs-toggle="pill" href="#pills-consultation" role="tab" aria-controls="pills-profile"
-                                aria-selected="false">कानूनी सेवा</a>
+                                aria-selected="false">कानूनी सेवा</a> --}}
                             {{-- <a class="nav-link text-dark" id="pills-profile-tab" data-bs-toggle="pill"
                                 href="#pills-consultation" role="tab" aria-controls="pills-profile"
                                 aria-selected="false">परामर्श</a>
@@ -153,69 +151,10 @@
                             </div>
                         </form>
 
-                        <div class="card z-depth-0 my-5">
-                            <div class="card-header">
-                                <h5 class="my-2">मुद्दा अभिलेख विवरण</h5>
-                            </div>
-                            <div class="card-body">
-
-
-                                <table class="table">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            {{-- <th scope="col">#</th> --}}
-                                            <th scope="col">क्रम संख्या</th>
-                                            <th scope="col">मुद्दा नं. </th>
-                                            <th scope="col">मिति</th>
-                                            <th scope="col">मुद्दाको स्थिति</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        @foreach ($allCases as $item)
-                                            <tr>
-                                                {{-- <td>{{ $loop->iteration }}</td> --}}
-                                                <td>{{ $item->serial_number }}</td>
-                                                <td>{{ $item->case_number }}</td>
-                                                <td>{{ $item->date }}</td>
-                                                <td>{{ $item->case_status }}</td>
-                                                <td>
-                                                    <a class="action-btn text-primary" href="{{route('cases.edit',$item)}}"><i
-                                                            class="far fa-edit"></i></a>
-                                                    <form action="{{ route('cases.destroy', $item) }}" method="post"
-                                                        onsubmit="return confirm('के तपाईँ निश्चित हुनुहुन्छ?')"
-                                                        class="form-inline d-inline">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit" class="action-btn text-danger"><i
-                                                                class="far fa-trash-alt"></i></button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
+                       
                     </div>
 
 
-                    {{-- ==============================================पक्षको विवरण विवरण =================================== --}}
-
-                    <x-party_details></x-party_details>
-                    {{-- ============================================विपक्षको विवरण============================================= --}}
-                    <x-opposit_party_details></x-opposit_party_details>
-
-                    {{-- ======================================पक्ष र विपक्ष बिचको सम्बन्ध/वारिस ========================================= --}}
-                    <x-relations></x-relations>
-
-                    {{-- ============================================मुद्दाको किसिम============================================= --}}
-                    <x-case_type></x-case_type>
-                    {{-- ============================================परामर्श============================================= --}}
-                    <x-consultation></x-consultation>
                 </div>
 
             </div>

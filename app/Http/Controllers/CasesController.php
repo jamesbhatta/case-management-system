@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class CasesController extends Controller
 {
-    public function index()
+    public function index(Cases $cases)
     {
         $allCases = Cases::all();
-        return view('cases.index', compact(['allCases']));
+        return view('cases.manage', compact(['allCases','cases']));
     }
     public function store(Request $request)
     {
@@ -43,5 +43,14 @@ class CasesController extends Controller
             'case_status' => "required",
         ]));
         return redirect()->back()->with('success',"मुद्दा सफलतापूर्वक अपडेट भयो");
+    }
+    public function create(Cases $cases)
+    {
+        $allCases = Cases::all();
+        return view('cases.index', compact(['allCases','cases']));
+    }
+    public function view(Cases $cases)
+    {
+        return $cases;
     }
 }

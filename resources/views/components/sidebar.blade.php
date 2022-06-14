@@ -37,13 +37,13 @@
             <ul class="list-unstyled collapse" id="case" style="">
                 @hasanyrole('super-admin|admin')
                     <li class="nav-item sub-nav">
-                        <a class="nav-link" href="{{ route('cases.index') }}"><span class="mx-3"><i
+                        <a class="nav-link" href="{{ route('cases.create') }}"><span class="mx-3"><i
                                     class="fas fa-circle"></i></span>Add</a>
                     </li>
                 @endhasanyrole
                 @hasanyrole('super-admin|admin')
                     <li class="nav-item sub-nav">
-                        <a class="nav-link" href="{{ route('organization.index') }}"><span class="mx-3"><i
+                        <a class="nav-link" href="{{ route('cases.index') }}"><span class="mx-3"><i
                                     class="fas fa-circle"></i></span>Manage</a>
                     </li>
                 @endhasanyrole
