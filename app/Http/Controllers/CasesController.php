@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cases;
+use App\PartyDetail;
 use Illuminate\Http\Request;
 
 class CasesController extends Controller
@@ -51,6 +52,7 @@ class CasesController extends Controller
     }
     public function view(Cases $cases)
     {
-        return view('cases.detail',compact(['cases']));
+        $partyDetails=PartyDetail::all();
+        return view('cases.detail',compact(['cases','partyDetails']));
     }
 }

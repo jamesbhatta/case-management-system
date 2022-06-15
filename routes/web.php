@@ -3,6 +3,8 @@
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CasesController;
+use App\Http\Controllers\PartyDetailController;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,6 +37,10 @@ Route::get('cases/{cases}/edit', [CasesController::class, 'edit'])->name('cases.
 Route::get('cases/{cases}/view', [CasesController::class, 'view'])->name('cases.view');
 Route::put('cases/{cases}', [CasesController::class, 'update'])->name('cases.update');
 Route::get('cases/create', [CasesController::class, 'create'])->name('cases.create');
+
+// party detail
+Route::post('partydetail', [PartyDetailController::class, 'store'])->name('partydetail.store');
+Route::get('partydetail/{cases}/create', [PartyDetailController::class, 'create'])->name('partydetail.create');
 
 // project routes
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');

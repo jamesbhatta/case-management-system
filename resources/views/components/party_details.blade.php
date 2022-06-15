@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-lg-3 form-group">
                         <label>मुद्दा नं.</label>
-                        <input type="text" class="my-text" value="{{$cases ?? ''}}">
+                        <input type="text" class="my-text" value="{{$cases->case_number ?? ''}}">
                     </div>
                     <div class="col-lg-3 form-group">
                         <label>पहिलो नाम</label>
@@ -119,7 +119,7 @@
                         </select>
                     </div>
         
-                    <div class="col-lg-3 form-group">
+                    <div class="col-lg-4 form-group">
                         <label>अपाङ्गताको अवस्था</label>
                         <select name="" id="" class="my-text">
                             <option value="" disabled selected>कृपया जाति चयन गर्नुहोस्</option>
@@ -128,11 +128,11 @@
                             <option value="छैन">छैन </option>
                         </select>
                     </div>
-                    <div class="col-lg-6 form-group">
+                    <div class="col-lg-4 form-group">
                         <label>परिवारका सदस्यको सङ्ख्या</label>
                         <input type="text" class="my-text">
                     </div>
-                    <div class="col-lg-6 form-group">
+                    <div class="col-lg-4 form-group">
                         <label>परिवारमा अपाङ्गता भएका व्यक्तिहरूको सङ्ख्या</label>
                         <input type="text" class="my-text">
                     </div>
