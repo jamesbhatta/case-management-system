@@ -75,9 +75,9 @@
                 <div class="card z-depth-0">
                     <div class="card-body">
                         <div class="my-4">
-                            
+
                             <col-12>
-                                <a class="float-right  btn btn-info" href="{{route('partydetail.create',$cases)}}">Add</a>
+                                <a class="float-right  btn btn-info" href="{{ route('partydetail.create', $cases) }}">Add</a>
                             </col-12>
                             <table class="table">
                                 <thead class="thead-light">
@@ -86,7 +86,6 @@
                                         <th scope="col">नाम</th>
                                         <th scope="col">जन्म मिति </th>
                                         <th scope="col">लिङ्ग</th>
-                                        <th>वैवाहिक अवस्था</th>
                                         <th>जिल्ला </th>
                                         <th>नगरपालिका/गाउपालिका </th>
                                         <th>वडा नम्बर </th>
@@ -96,17 +95,19 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($partyDetails as $item)
-                                        <th>{{$item->cases_id}}</th>
-                                        <th>{{$item->first_name}} {{$item->last_name}}</th>
-                                        <th>{{$item->dob}}</th>
-                                        <th>{{$item->gender}}</th>
-                                        <th>{{$item->district}}</th>
-                                        <th>{{$item->municipality}}</th>
-                                        <th>{{$item->ward}}</th>
-                                        <th>{{$item->cast}}</th>
-                                        <th>{{$item->religion}}</th>
+                                        <tr>
+                                            <th>{{ $item->cases_id }}</th>
+                                            <th>{{ $item->first_name }} {{ $item->last_name }}</th>
+                                            <th>{{ $item->dob }}</th>
+                                            <th>{{ $item->gender }}</th>
+                                            <th>{{ $item->district }}</th>
+                                            <th>{{ $item->municipality }}</th>
+                                            <th>{{ $item->ward }}</th>
+                                            <th>{{ $item->cast }}</th>
+                                            <th>{{ $item->religion }}</th>
+                                        </tr>
                                     @endforeach
-                                   
+
                                 </tbody>
                             </table>
                         </div>

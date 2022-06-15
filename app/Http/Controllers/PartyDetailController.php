@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cases;
+use App\District;
+use App\Municipality;
 use App\PartyDetail;
 use Illuminate\Http\Request;
 
@@ -37,6 +39,8 @@ class PartyDetailController extends Controller
     }
     public function create(Cases $cases)
     {
-        return view('cases.partyDetails.create',compact(['cases']));
+        $districts=District::all();
+        $municipalities=Municipality::all();
+        return view('cases.partyDetails.create',compact(['cases','districts','municipalities']));
     }
 }

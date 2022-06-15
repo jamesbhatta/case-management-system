@@ -128,11 +128,9 @@
                                         <label>जिल्ला </label>
                                         <select name="district" id="" class="my-text">
                                             <option value="" disabled selected>कृपया जिल्ला चयन गर्नुहोस्</option>
-                                            <option value="विवाहित">विवाहित</option>
-                                            <option value="अविवाहित">अविवाहित</option>
-                                            <option value="सम्बन्ध बिछेदी">सम्बन्ध बिछेदी</option>
-                                            <option value="एकल">एकल</option>
-                                            <option value="संगै बसेको">संगै बसेको</option>
+                                           @foreach ($districts as $item)
+                                               <option value="{{$item->name}}">{{$item->name}}</option>
+                                           @endforeach
                                         </select>
                                     </div>
 
@@ -141,11 +139,9 @@
                                         <select name="municipality" id="" class="my-text">
                                             <option value="" disabled selected>कृपया नगरपालिका/गाउपालिका चयन गर्नुहोस्
                                             </option>
-                                            <option value="विवाहित">विवाहित</option>
-                                            <option value="अविवाहित">अविवाहित</option>
-                                            <option value="सम्बन्ध बिछेदी">सम्बन्ध बिछेदी</option>
-                                            <option value="एकल">एकल</option>
-                                            <option value="संगै बसेको">संगै बसेको</option>
+                                            @foreach ($municipalities as $item)
+                                               <option value="{{$item->name}}">{{$item->name}}</option>
+                                           @endforeach
                                         </select>
                                     </div>
                                     <div class="col-lg-3 form-group">
