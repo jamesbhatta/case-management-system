@@ -51,6 +51,6 @@ class CasesController extends Controller
     }
     public function view(Cases $cases)
     {
-        return $cases;
+        return view('cases.detail',compact(['cases']));
     }
 }

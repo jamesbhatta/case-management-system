@@ -173,9 +173,9 @@
 
     });
 
-    function btn_clicked(text) {
-        document.getElementById("txt1").innerHTML = text;
-        document.getElementById("txt2").innerHTML = text;
-        // ("helloo");
-    }
+    // function btn_clicked(text) {
+    //     document.getElementById("txt1").innerHTML = text;
+    //     document.getElementById("txt2").innerHTML = text;
+    //     // ("helloo");
+    // }
 </script>

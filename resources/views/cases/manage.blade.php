@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="container-fluid">
-        <h3 class="font-weight-bold my-3" id="txt1">मुद्दा अभिलेख</h3>
+        <h3 class="font-weight-bold my-3" id="txt1">मुद्दा अभिलेख व्यवस्थापन</h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                 {{-- <li class="breadcrumb-item"><a href="#"></a></li> --}}
                 <li class="breadcrumb-item active" aria-current="page">मुद्दा अभिलेख</li>
-                <li class="breadcrumb-item active" aria-current="page">Manage</li>
+                <li class="breadcrumb-item active" aria-current="page">व्यवस्थापन</li>
             </ol>
         </nav>
         <div class="container">

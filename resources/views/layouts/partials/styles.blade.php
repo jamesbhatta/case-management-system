@@ -12,8 +12,19 @@
     .unicode-font {
         /* font-family: 'noto'; */
     }
-    .sub-nav{
+
+    .sub-nav {
         background-color: #12213a;
+    }
+
+     .my-text{
+        width: 100%;
+        padding: 9px 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        outline:none
     }
 </style>
 <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
@@ -22,6 +33,6 @@
 <link rel="stylesheet" href="{{ asset('assets/css/nepali.datepicker.v3.min.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 @guest
-<link rel="stylesheet" href="{{ asset('assets/css/guest.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/guest.css') }}">
 @endguest
 <link rel="stylesheet" href="{{ mix('css/app.css') }}">

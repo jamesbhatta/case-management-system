@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-        @isset($title) {{ $title }} | @endisset {{ config('app.name', __('appname')) }}
+        @isset($title)
+            {{ $title }} |
+        @endisset {{ config('app.name', __('appname')) }}
     </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
 
     @include('layouts.partials.styles')
     @stack('styles')
 
+
+
+
 </head>
+
 <body class="sidebar-opened">
-<div id="app">
-    @guest
-    @yield('content')
-    @endguest
-
-    @auth
-    <div id="sidebar" class="bg-deep-blue" data-collapsed="false">
-        <x-sidebar></x-sidebar>
-    </div>
-    <div id="content-area" class="flex-grow-1">
-        <x-navbar></x-navbar>
-        <div class="p-3">
+    <div id="app">
+        @guest
             @yield('content')
-        </div>
-    </div>
-    @endauth
+        @endguest
 
-</div>
+        @auth
+            <div id="sidebar" class="bg-deep-blue" data-collapsed="false">
+                <x-sidebar></x-sidebar>
+            </div>
+            <div id="content-area" class="flex-grow-1">
+                <x-navbar></x-navbar>
+                <div class="p-3">
+                    @yield('content')
+                </div>
+            </div>
+        @endauth
+
+    </div>
     @include('layouts.partials.scripts')
 
     <script>
@@ -82,14 +95,37 @@
                 });
             }
 
-            var today = NepaliFunctions.ConvertDateFormat(NepaliFunctions.GetCurrentBsDate('YYYY-MM-DD'), 'YYYY-MM-DD');
+            var today = NepaliFunctions.ConvertDateFormat(NepaliFunctions.GetCurrentBsDate('YYYY-MM-DD'),
+                'YYYY-MM-DD');
             $(".date-today[value='']").val(today);
 
         });
-
     </script>
     @stack('scripts')
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+    
+
+    $('a[data-toggle="tab"]').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+
+    $('a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
+        var id = $(e.target).attr("href");
+        localStorage.setItem('selectedTab', id)
+    });
+
+    var selectedTab = localStorage.getItem('selectedTab');
+    if (selectedTab != null) {
+        $('a[data-toggle="tab"][href="' + selectedTab + '"]').tab('show');
+    }
+ 
+        
+</script>
 
 </html>
