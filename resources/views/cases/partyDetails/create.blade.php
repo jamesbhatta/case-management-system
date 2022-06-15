@@ -85,24 +85,24 @@
                                     </div>
                                     <div class="col-lg-3 form-group">
                                         <label>पहिलो नाम</label>
-                                        <input type="text" class="my-text" name="first_name" value="{{old('first_name')}}">
+                                        <input type="text" class="my-text" name="first_name" value="{{old('first_name',$partyDetail->first_name)}}">
                                     </div>
                                     <div class="col-lg-3 form-group">
                                         <label>बीचको नाम</label>
-                                        <input type="text" class="my-text" name="middle_name" value="{{old('middle_name')}}">
+                                        <input type="text" class="my-text" name="middle_name" value="{{old('middle_name',$partyDetail->middle_name)}}">
                                     </div>
                                     <div class="col-lg-3 form-group">
                                         <label>थर</label>
-                                        <input type="text" class="my-text" name="last_name" value="{{old('last_name')}}">
+                                        <input type="text" class="my-text" name="last_name" value="{{old('last_name',$partyDetail->last_name)}}">
                                     </div>
                                     <div class="col-lg-3 form-group">
                                         <label>जन्म मिति </label>
                                         <input type="text" name="dob" id="input-fiscal-year-start"
-                                            class=" nepali-date my-text" placeholder="Nepali YYYY-MM-DD" value="{{old('dob')}}">
+                                            class=" nepali-date my-text" placeholder="Nepali YYYY-MM-DD" value="{{old('dob',$partyDetail->dob)}}">
                                     </div>
                                     <div class="col-lg-3 form-group">
                                         <label>उमेर</label>
-                                        <input type="number" class="my-text" name="age" value="{{old('age')}}">
+                                        <input type="number" class="my-text" name="age" value="{{old('age',$partyDetail->age)}}">
                                     </div>
                                     <div class="col-lg-3 form-group" >
                                         <label>लिङ्ग</label>
@@ -146,11 +146,11 @@
                                     </div>
                                     <div class="col-lg-3 form-group">
                                         <label>वडा नम्बर </label>
-                                        <input type="text" class="my-text" name="ward" value="{{old('ward')}}">
+                                        <input type="text" class="my-text" name="ward" value="{{old('ward',$partyDetail->ward)}}">
                                     </div>
                                     <div class="col-lg-3 form-group">
                                         <label>सम्पर्क नम्बर </label>
-                                        <input type="text" class="my-text" name="contact" value="{{old('contact')}}">
+                                        <input type="text" class="my-text" name="contact" value="{{old('contact',$partyDetail->contact)}}">
                                     </div>
                                     <div class="col-lg-3 form-group">
                                         <label>इमेल</label>

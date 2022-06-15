@@ -91,20 +91,35 @@
                                         <th>वडा नम्बर </th>
                                         <th>जाति</th>
                                         <th>धर्म</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($partyDetails as $item)
                                         <tr>
-                                            <th>{{ $item->cases_id }}</th>
-                                            <th>{{ $item->first_name }} {{ $item->last_name }}</th>
-                                            <th>{{ $item->dob }}</th>
-                                            <th>{{ $item->gender }}</th>
-                                            <th>{{ $item->district }}</th>
-                                            <th>{{ $item->municipality }}</th>
-                                            <th>{{ $item->ward }}</th>
-                                            <th>{{ $item->cast }}</th>
-                                            <th>{{ $item->religion }}</th>
+                                            <td>{{ $item->cases_id }}</td>
+                                            <td>{{ $item->first_name }} {{ $item->last_name }}</td>
+                                            <td>{{ $item->dob }}</td>
+                                            <td>{{ $item->gender }}</td>
+                                            <td>{{ $item->district }}</td>
+                                            <td>{{ $item->municipality }}</td>
+                                            <td>{{ $item->ward }}</td>
+                                            <td>{{ $item->cast }}</td>
+                                            <td>{{ $item->religion }}</td>
+                                            <td>
+                                                {{-- <a class="action-btn text-success px-2" href="{{ route('cases.view', $item) }}"><i
+                                                    class="fa fa-eye"></i></a> --}}
+                                                <a class="action-btn text-primary" href="{{ route('partydetail.edit', $item) }}"><i
+                                                        class="far fa-edit"></i></a>
+                                                <form action="{{ route('partydetail.destroy', $item) }}" method="post"
+                                                    onsubmit="return confirm('के तपाईँ निश्चित हुनुहुन्छ?')"
+                                                    class="form-inline d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="action-btn text-danger"><i
+                                                            class="far fa-trash-alt"></i></button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
 

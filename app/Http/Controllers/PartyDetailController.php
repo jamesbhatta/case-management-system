@@ -43,4 +43,15 @@ class PartyDetailController extends Controller
         $municipalities=Municipality::all();
         return view('cases.partyDetails.create',compact(['cases','districts','municipalities']));
     }
+    public function destroy(PartyDetail $partyDetail)
+    {
+        $partyDetail->delete();
+        return redirect()->back()->with('success',"Successfully delete");
+    }
+    public function edit(PartyDetail $partyDetail,Cases $cases)
+    {
+        $districts=District::all();
+        $municipalities=Municipality::all();
+        return view('cases.partyDetails.create',compact(['cases','districts','municipalities','partyDetail']));
+    }
 }

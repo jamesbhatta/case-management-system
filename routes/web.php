@@ -41,6 +41,8 @@ Route::get('cases/create', [CasesController::class, 'create'])->name('cases.crea
 // party detail
 Route::post('partydetail', [PartyDetailController::class, 'store'])->name('partydetail.store');
 Route::get('partydetail/{cases}/create', [PartyDetailController::class, 'create'])->name('partydetail.create');
+Route::delete('partydetail/{partyDetail}', [PartyDetailController::class, 'destroy'])->name('partydetail.destroy');
+Route::get('partydetail/{partyDetail}/edit', [PartyDetailController::class, 'edit'])->name('partydetail.edit');
 
 // project routes
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');
