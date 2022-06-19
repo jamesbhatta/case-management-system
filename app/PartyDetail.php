@@ -29,4 +29,9 @@ class PartyDetail extends Model
             'family_number',
             'disable_family_number',
     ];
+
+    public function cases()
+    {
+        return $this->hasOne(Cases::class);
+    }
 }

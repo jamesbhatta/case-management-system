@@ -47,7 +47,7 @@
                                 <td>{{ $item->date }}</td>
                                 <td>{{ $item->case_status }}</td>
                                 <td>
-                                    <a class="action-btn text-success px-2" href="{{ route('cases.view', $item) }}"><i
+                                    <a class="action-btn text-success px-2" href="{{ route('partydetail.index', $item) }}"><i
                                         class="fa fa-eye"></i></a>
                                     <a class="action-btn text-primary" href="{{ route('cases.edit', $item) }}"><i
                                             class="far fa-edit"></i></a>

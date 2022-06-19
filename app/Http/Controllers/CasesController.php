@@ -50,9 +50,5 @@ class CasesController extends Controller
         $allCases = Cases::all();
         return view('cases.index', compact(['allCases','cases']));
     }
-    public function view(Cases $cases)
-    {
-        $partyDetails=PartyDetail::all();
-        return view('cases.detail',compact(['cases','partyDetails']));
-    }
+    
 }

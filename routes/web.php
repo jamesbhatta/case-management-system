@@ -34,15 +34,17 @@ Route::get('cases', [CasesController::class, 'index'])->name('cases.index');
 Route::post('cases', [CasesController::class, 'store'])->name('cases.store');
 Route::delete('cases/{cases}', [CasesController::class, 'destroy'])->name('cases.destroy');
 Route::get('cases/{cases}/edit', [CasesController::class, 'edit'])->name('cases.edit');
-Route::get('cases/{cases}/view', [CasesController::class, 'view'])->name('cases.view');
+// Route::get('cases/{cases}/view', [CasesController::class, 'view'])->name('cases.view');
 Route::put('cases/{cases}', [CasesController::class, 'update'])->name('cases.update');
 Route::get('cases/create', [CasesController::class, 'create'])->name('cases.create');
 
 // party detail
+Route::get('partydetail/{cases}', [PartyDetailController::class, 'index'])->name('partydetail.index');
 Route::post('partydetail', [PartyDetailController::class, 'store'])->name('partydetail.store');
 Route::get('partydetail/{cases}/create', [PartyDetailController::class, 'create'])->name('partydetail.create');
 Route::delete('partydetail/{partyDetail}', [PartyDetailController::class, 'destroy'])->name('partydetail.destroy');
 Route::get('partydetail/{partyDetail}/edit', [PartyDetailController::class, 'edit'])->name('partydetail.edit');
+Route::put('partydetail/{partyDetail}', [PartyDetailController::class, 'update'])->name('partydetail.update');
 
 // project routes
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');

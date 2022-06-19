@@ -10,9 +10,13 @@ use Illuminate\Http\Request;
 
 class PartyDetailController extends Controller
 {
+    public function index(Cases $cases)
+    {
+        $partyDetails=PartyDetail::all();
+        return view('cases.detail',compact(['cases','partyDetails']));
+    }
     public function store(Request $request)
     {
-        // return $request;
         $data=$request->validate([
             'cases_id'=>"required",
             'first_name'=>"required",
@@ -35,14 +39,20 @@ class PartyDetailController extends Controller
             'disable_family_number'=>"required",
         ]);
         PartyDetail::create($data);
-        return redirect()->back()->with('success',"Added");
+        $cases=Cases::where('id',$request->cases_id)->get()[0];
+        // return $cases;
+        // $partyDetails=PartyDetail::all();
+        // return view('cases.detail',compact(['cases','partyDetails']));
+        return redirect()->route('partydetail.index',$cases)->with('success',"Added");
+            
       
     }
-    public function create(Cases $cases)
+    
+    public function create(Cases $cases, PartyDetail $partyDetail)
     {
         $districts=District::all();
         $municipalities=Municipality::all();
-        return view('cases.partyDetails.create',compact(['cases','districts','municipalities']));
+        return view('cases.partyDetails.create',compact(['cases','districts','municipalities','partyDetail']));
     }
     public function destroy(PartyDetail $partyDetail)
     {
@@ -54,5 +64,33 @@ class PartyDetailController extends Controller
         $districts=District::all();
         $municipalities=Municipality::all();
         return view('cases.partyDetails.create',compact(['cases','districts','municipalities','partyDetail']));
+    }
+
+    public function update(Request $request, PartyDetail $partyDetail)
+    {
+        $partyDetail->update($request->validate([
+            'first_name'=>"required",
+            'middle_name'=>"nullable",
+            'last_name'=>"required",
+            'dob'=>"required",
+            'age'=>"required",
+            'gender'=>"required",
+            'marrige_status'=>"required",
+            'district'=>"required",
+            'municipality'=>"required",
+            'ward'=>"required",
+            'contact'=>"required",
+            'email'=>"nullable",
+            'cast'=>"required",
+            'religion'=>"required",
+            'education'=>"required",
+            'disability_status'=>"required",
+            'family_number'=>"required",
+            'disable_family_number'=>"required",
+        ]));
+
+        $cases=Cases::where('id',$partyDetail->cases_id)->get()[0];
+            // return $cases;
+        return redirect()->route('partydetail.index',$cases)->with('success',"updated");
     }
 }
