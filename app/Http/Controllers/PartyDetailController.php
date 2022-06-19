@@ -35,9 +35,8 @@ class PartyDetailController extends Controller
             'disable_family_number'=>"required",
         ]);
         PartyDetail::create($data);
-        // return redirect()->back()->with('success',"Added");
-        $partyDetails=PartyDetail::all();
-        return view('cases.detail',compact(['cases','partyDetails']));
+        return redirect()->back()->with('success',"Added");
+      
     }
     public function create(Cases $cases)
     {
