@@ -4,6 +4,7 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CasesController;
 use App\Http\Controllers\PartyDetailController;
+use App\Http\Controllers\OppositPartyController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,14 @@ Route::get('partydetail/{cases}/create', [PartyDetailController::class, 'create'
 Route::delete('partydetail/{partyDetail}', [PartyDetailController::class, 'destroy'])->name('partydetail.destroy');
 Route::get('partydetail/{partyDetail}/edit', [PartyDetailController::class, 'edit'])->name('partydetail.edit');
 Route::put('partydetail/{partyDetail}', [PartyDetailController::class, 'update'])->name('partydetail.update');
+
+//Opposit party detail
+Route::get('opposit-party/{cases}', [OppositPartyController::class, 'index'])->name('opposit-party.index');
+Route::post('opposit-party', [OppositPartyController::class, 'store'])->name('opposit-party.store');
+Route::get('opposit-party/{cases}/create', [OppositPartyController::class, 'create'])->name('opposit-party.create');
+Route::delete('opposit-party/{oppositParty}', [OppositPartyController::class, 'destroy'])->name('opposit-party.destroy');
+Route::get('opposit-party/{oppositParty}/edit', [OppositPartyController::class, 'edit'])->name('opposit-party.edit');
+Route::put('opposit-party/{oppositParty}', [OppositPartyController::class, 'update'])->name('opposit-party.update');
 
 // project routes
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');

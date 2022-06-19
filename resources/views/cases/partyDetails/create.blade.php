@@ -9,7 +9,7 @@
                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                 {{-- <li class="breadcrumb-item"><a href="#"></a></li> --}}
                 <li class="breadcrumb-item active" aria-current="page">मुद्दा अभिलेख व्यवस्थापन</li>
-                <li class="breadcrumb-item active" aria-current="page"></li>
+                <li class="breadcrumb-item active" aria-current="page">पक्षको विवरण</li>
             </ol>
         </nav>
         <div class="container">
@@ -223,16 +223,6 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">Lorem ipsum
-                dolor
-                sit amet, consectetur adipisicing elit. Magni, natus sed soluta necessitatibus tempore aspernatur?
-                Praesentium, odit explicabo distinctio dolore adipisci officia iure, ut magnam optio aliquam at similique
-                veritatis.</div>
-            <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab">Lorem ipsum
-                dolor sit amet consectetur, adipisicing elit. Laudantium minima repellat incidunt facilis obcaecati
-                blanditiis corrupti ad officia doloribus ullam sapiente ipsum, nemo a, excepturi voluptatem voluptatibus
-                velit eum dignissimos ut, nam tempora? Reiciendis illo itaque veritatis eligendi fuga, mollitia ratione
-                totam veniam esse in.</div>
         </div>
     </div>
 @endsection

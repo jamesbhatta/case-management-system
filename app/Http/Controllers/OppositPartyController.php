@@ -9,14 +9,15 @@ use App\OppositParty;
 use App\PartyDetail;
 use Illuminate\Http\Request;
 
-class PartyDetailController extends Controller
+class OppositPartyController extends Controller
 {
-    public function index(Cases $cases)
+    public function index(Cases $cases, OppositParty $oppositParty)
     {
-        $partyDetails=PartyDetail::where('cases_id',$cases->id)->get();
-        $oppositParties=OppositParty::where('cases_id',$cases->id)->get();
-        return view('cases.detail',compact(['cases','partyDetails','oppositParties']));
+        $districts=District::get();
+        $municipalities=Municipality::get();
+        return view('cases.opposit_party.index',compact(['cases','oppositParty','districts','municipalities']));
     }
+
     public function store(Request $request)
     {
         $data=$request->validate([
@@ -40,7 +41,7 @@ class PartyDetailController extends Controller
             'family_number'=>"required",
             'disable_family_number'=>"required",
         ]);
-        PartyDetail::create($data);
+        OppositParty::create($data);
         $cases=Cases::where('id',$request->cases_id)->get()[0];
         // return $cases;
         // $partyDetails=PartyDetail::all();
@@ -49,28 +50,16 @@ class PartyDetailController extends Controller
             
       
     }
-    
-    public function create(Cases $cases, PartyDetail $partyDetail)
+    public function edit(OppositParty $oppositParty,Cases $cases)
     {
-        $districts=District::all();
-        $municipalities=Municipality::all();
-        return view('cases.partyDetails.create',compact(['cases','districts','municipalities','partyDetail']));
-    }
-    public function destroy(PartyDetail $partyDetail)
-    {
-        $partyDetail->delete();
-        return redirect()->back()->with('success',"Successfully delete");
-    }
-    public function edit(PartyDetail $partyDetail,Cases $cases)
-    {
-        $districts=District::all();
-        $municipalities=Municipality::all();
-        return view('cases.partyDetails.create',compact(['cases','districts','municipalities','partyDetail']));
+        $districts=District::get();
+        $municipalities=Municipality::get();
+        return view('cases.opposit_party.index',compact(['cases','oppositParty','districts','municipalities']));
     }
 
-    public function update(Request $request, PartyDetail $partyDetail)
+    public function update(Request $request, OppositParty $oppositParty)
     {
-        $partyDetail->update($request->validate([
+        $oppositParty->update($request->validate([
             'first_name'=>"required",
             'middle_name'=>"nullable",
             'last_name'=>"required",
@@ -91,8 +80,13 @@ class PartyDetailController extends Controller
             'disable_family_number'=>"required",
         ]));
 
-        $cases=Cases::where('id',$partyDetail->cases_id)->get()[0];
+        $cases=Cases::where('id',$oppositParty->cases_id)->get()[0];
             // return $cases;
         return redirect()->route('partydetail.index',$cases)->with('success',"updated");
+    }
+    public function destroy(OppositParty $oppositParty)
+    {
+        $oppositParty->delete();
+        return redirect()->back()->with('success',"Successfully delete");
     }
 }
