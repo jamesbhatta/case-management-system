@@ -5,7 +5,7 @@
             <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">स्थानीय तह</label>
             <div class="my-4">
                 <form
-                    action="{{ $consultation->id ? route('police-station.update', $consultation) : route('police-station.store') }}"
+                    action="{{ $consultation->id ? route('local-level.update', $consultation) : route('local-level.store') }}"
                     method="POST">
                     @csrf
                     @isset($consultation->id)
@@ -19,7 +19,7 @@
                                 <input type="text" class="form-control p-4" name="" value="{{ $cases->case_number }}"
                                     disabled>
                                 <input type="hidden" class="form-control p-4" name="cases_id" value="{{ $cases->id }}">
-                                <input type="hidden" class="form-control p-4" name="type" value="masyoda">
+                                <input type="hidden" class="form-control p-4" name="type" value="localLevel">
                             </div>
                         @endisset
 

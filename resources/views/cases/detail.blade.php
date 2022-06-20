@@ -73,7 +73,7 @@
                                 <a href="{{route('other-court.index',$cases)}}">अन्य अदालत</a>
                             </li>
                             <li>
-                                <a href="">स्थानीय तह</a>
+                                <a href="{{route('local-level.index',$cases)}}">स्थानीय तह</a>
                             </li>
                             <li>
                                 <a href="">निर्णय भइसकेको</a>
