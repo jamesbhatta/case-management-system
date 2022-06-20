@@ -2,7 +2,7 @@
 @section('caseContent')
     <div class="card z-depth-0">
         <div class="card-body">
-            <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">मस्यौदा</label>
+            <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">प्रहरी कार्यालय</label>
             <div class="my-4">
                 <form
                     action="{{ $consultation->id ? route('police-station.update', $consultation) : route('police-station.store') }}"
@@ -19,7 +19,7 @@
                                 <input type="text" class="form-control p-4" name="" value="{{ $cases->case_number }}"
                                     disabled>
                                 <input type="hidden" class="form-control p-4" name="cases_id" value="{{ $cases->id }}">
-                                <input type="hidden" class="form-control p-4" name="type" value="masyoda">
+                                <input type="hidden" class="form-control p-4" name="type" value="station">
                             </div>
                         @endisset
 

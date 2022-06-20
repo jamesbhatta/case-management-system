@@ -13,6 +13,7 @@ use App\Http\Controllers\DraftController;
 use App\Http\Controllers\DebateController;
 use App\Http\Controllers\ReconcilationController;
 use App\Http\Controllers\JudgementController;
+use App\Http\Controllers\PoliceStationController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -104,6 +105,14 @@ Route::get('judgement/{cases}/create', [JudgementController::class, 'create'])->
 Route::delete('judgement/{consultation}', [JudgementController::class, 'destroy'])->name('judgement.destroy');
 Route::get('judgement/{consultation}/edit', [JudgementController::class, 'edit'])->name('judgement.edit');
 Route::put('judgement/{consultation}', [JudgementController::class, 'update'])->name('judgement.update');
+
+// PoliceStationController
+Route::get('police-station/{cases}', [PoliceStationController::class, 'index'])->name('police-station.index');
+Route::post('police-station', [PoliceStationController::class, 'store'])->name('police-station.store');
+Route::get('police-station/{cases}/create', [PoliceStationController::class, 'create'])->name('police-station.create');
+Route::delete('police-station/{consultation}', [PoliceStationController::class, 'destroy'])->name('police-station.destroy');
+Route::get('police-station/{consultation}/edit', [PoliceStationController::class, 'edit'])->name('police-station.edit');
+Route::put('police-station/{consultation}', [PoliceStationController::class, 'update'])->name('police-station.update');
 
 // 
 Route::get('debate/{cases}', [DebateController::class, 'index'])->name('debate.index');

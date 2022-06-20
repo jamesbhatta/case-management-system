@@ -58,7 +58,7 @@
                                 <a href="{{route('judgement.index',$cases)}}">फैसला कार्यान्वयन</a>
                             </li>
                             <li>
-                                <a href="">प्रहरी कार्यालय</a>
+                                <a href="{{route('police-station.index',$cases)}}">प्रहरी कार्यालय</a>
                             </li>
                             <li>
                                 <a href="">जिल्ला अदालत</a>
