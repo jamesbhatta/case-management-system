@@ -15,6 +15,7 @@ use App\Http\Controllers\ReconcilationController;
 use App\Http\Controllers\JudgementController;
 use App\Http\Controllers\PoliceStationController;
 use App\Http\Controllers\DistrictCourtController;
+use App\Http\Controllers\HighCourtController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -122,6 +123,14 @@ Route::get('district-court/{cases}/create', [DistrictCourtController::class, 'cr
 Route::delete('district-court/{consultation}', [DistrictCourtController::class, 'destroy'])->name('district-court.destroy');
 Route::get('district-court/{consultation}/edit', [DistrictCourtController::class, 'edit'])->name('district-court.edit');
 Route::put('district-court/{consultation}', [DistrictCourtController::class, 'update'])->name('district-court.update');
+
+// HighCourtController
+Route::get('high-court/{cases}', [HighCourtController::class, 'index'])->name('high-court.index');
+Route::post('high-court', [HighCourtController::class, 'store'])->name('high-court.store');
+Route::get('high-court/{cases}/create', [HighCourtController::class, 'create'])->name('high-court.create');
+Route::delete('high-court/{consultation}', [HighCourtController::class, 'destroy'])->name('high-court.destroy');
+Route::get('high-court/{consultation}/edit', [HighCourtController::class, 'edit'])->name('high-court.edit');
+Route::put('high-court/{consultation}', [HighCourtController::class, 'update'])->name('high-court.update');
 
 // 
 Route::get('debate/{cases}', [DebateController::class, 'index'])->name('debate.index');

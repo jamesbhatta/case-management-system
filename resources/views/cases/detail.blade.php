@@ -64,7 +64,7 @@
                                 <a href="{{route('district-court.index',$cases)}}">जिल्ला अदालत</a>
                             </li>
                             <li>
-                                <a href="">उच्च अदालत</a>
+                                <a href="{{route('high-court.index',$cases)}}">उच्च अदालत</a>
                             </li>
                             <li>
                                 <a href="">सर्वोच्च अदालत</a>
