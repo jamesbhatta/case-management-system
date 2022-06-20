@@ -7,6 +7,7 @@ use App\Http\Controllers\PartyDetailController;
 use App\Http\Controllers\OppositPartyController;
 use App\Http\Controllers\InformToPartyController;
 use App\Http\Controllers\CaseTypeController;
+use App\Http\Controllers\ConsultationController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -73,7 +74,16 @@ Route::delete('case-type/{caseType}', [CaseTypeController::class, 'destroy'])->n
 Route::get('case-type/{caseType}/edit', [CaseTypeController::class, 'edit'])->name('case-type.edit');
 Route::put('case-type/{caseType}', [CaseTypeController::class, 'update'])->name('case-type.update');
 
-// project routes
+
+//Case type
+Route::get('consultation/{cases}', [ConsultationController::class, 'index'])->name('consultation.index');
+Route::post('consultation', [ConsultationController::class, 'store'])->name('consultation.store');
+Route::get('consultation/{cases}/create', [ConsultationController::class, 'create'])->name('consultation.create');
+Route::delete('consultation/{consultation}', [ConsultationController::class, 'destroy'])->name('consultation.destroy');
+Route::get('consultation/{consultation}/edit', [ConsultationController::class, 'edit'])->name('consultation.edit');
+Route::put('consultation/{consultation}', [ConsultationController::class, 'update'])->name('consultation.update');
+
+// consultatioons
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');
 Route::get('project/create', [ProjectController::class, 'create'])->name('project.create');
 Route::post('project/store', [ProjectController::class, 'store'])->name('project.store');

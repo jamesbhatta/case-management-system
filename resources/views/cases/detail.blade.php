@@ -40,7 +40,7 @@
                                 <a href="">कानूनी सेवा</a>
                             </li>
                             <li>
-                                <a href="">परामर्श</a>
+                                <a href="{{route('consultation.index',$cases)}}">परामर्श</a>
                             </li>
                             <li>
                                 <a href="">सहजीकरण</a>
