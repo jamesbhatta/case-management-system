@@ -79,7 +79,7 @@
                                 <a href="{{route('decision.index',$cases)}}">निर्णय भइसकेको</a>
                             </li>
                             <li>
-                                <a href="">अस्वीकार गरिएको</a>
+                                <a href="{{route('rejected.index',$cases)}}">अस्वीकार गरिएको</a>
                             </li>
                         </ul>
                         {{-- <nav class="nav nav-tabs" id="nav-tab" role="tablist">

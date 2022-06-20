@@ -20,6 +20,7 @@ use App\Http\Controllers\SupremeCourtController;
 use App\Http\Controllers\OtherCourtController;
 use App\Http\Controllers\LocalLevelController;
 use App\Http\Controllers\DecisionController;
+use App\Http\Controllers\RejectedController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -167,6 +168,14 @@ Route::get('decision/{cases}/create', [DecisionController::class, 'create'])->na
 Route::delete('decision/{consultation}', [DecisionController::class, 'destroy'])->name('decision.destroy');
 Route::get('decision/{consultation}/edit', [DecisionController::class, 'edit'])->name('decision.edit');
 Route::put('decision/{consultation}', [DecisionController::class, 'update'])->name('decision.update');
+
+// RejectedController
+Route::get('rejected/{cases}', [RejectedController::class, 'index'])->name('rejected.index');
+Route::post('rejected', [RejectedController::class, 'store'])->name('rejected.store');
+Route::get('rejected/{cases}/create', [RejectedController::class, 'create'])->name('rejected.create');
+Route::delete('rejected/{consultation}', [RejectedController::class, 'destroy'])->name('rejected.destroy');
+Route::get('rejected/{consultation}/edit', [RejectedController::class, 'edit'])->name('rejected.edit');
+Route::put('rejected/{consultation}', [RejectedController::class, 'update'])->name('rejected.update');
 
 // 
 Route::get('debate/{cases}', [DebateController::class, 'index'])->name('debate.index');
