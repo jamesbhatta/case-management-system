@@ -13,9 +13,12 @@ class PartyDetailController extends Controller
 {
     public function index(Cases $cases)
     {
-        $partyDetails=PartyDetail::where('cases_id',$cases->id)->get();
-        $oppositParties=OppositParty::where('cases_id',$cases->id)->get();
-        return view('cases.detail',compact(['cases','partyDetails','oppositParties']));
+        $partyDetails=PartyDetail::get();
+        // return $partyDetails;
+        return view('cases.partyDetails.list',compact(['cases','partyDetails']));
+        // $partyDetails=PartyDetail::where('cases_id',$cases->id)->get();
+        // $oppositParties=OppositParty::where('cases_id',$cases->id)->get();
+        // return view('cases.detail',compact(['cases','partyDetails','oppositParties']));
     }
     public function store(Request $request)
     {
@@ -54,18 +57,20 @@ class PartyDetailController extends Controller
     {
         $districts=District::all();
         $municipalities=Municipality::all();
-        return view('cases.partyDetails.create',compact(['cases','districts','municipalities','partyDetail']));
+        return view('cases.partyDetails.index',compact(['cases','districts','municipalities','partyDetail']));
     }
     public function destroy(PartyDetail $partyDetail)
     {
         $partyDetail->delete();
         return redirect()->back()->with('success',"Successfully delete");
     }
-    public function edit(PartyDetail $partyDetail,Cases $cases)
+    public function edit(PartyDetail $partyDetail)
     {
+        $cases  = Cases::where('id',$partyDetail->cases_id)->get()[0];
+        // return $cases;
         $districts=District::all();
         $municipalities=Municipality::all();
-        return view('cases.partyDetails.create',compact(['cases','districts','municipalities','partyDetail']));
+        return view('cases.partyDetails.index',compact(['cases','districts','municipalities','partyDetail']));
     }
 
     public function update(Request $request, PartyDetail $partyDetail)

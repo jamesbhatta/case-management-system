@@ -17,6 +17,15 @@
         background-color: #12213a;
     }
 
+    .my-list{
+        list-style: none;
+        padding: 0;
+    }
+    .my-list li{
+        float: left;
+        margin: 15px
+    }
+
      .my-text{
         width: 100%;
         padding: 9px 20px;

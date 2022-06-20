@@ -5,6 +5,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CasesController;
 use App\Http\Controllers\PartyDetailController;
 use App\Http\Controllers\OppositPartyController;
+use App\Http\Controllers\InformToPartyController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,14 @@ Route::get('opposit-party/{cases}/create', [OppositPartyController::class, 'crea
 Route::delete('opposit-party/{oppositParty}', [OppositPartyController::class, 'destroy'])->name('opposit-party.destroy');
 Route::get('opposit-party/{oppositParty}/edit', [OppositPartyController::class, 'edit'])->name('opposit-party.edit');
 Route::put('opposit-party/{oppositParty}', [OppositPartyController::class, 'update'])->name('opposit-party.update');
+
+//Opposit party detail
+Route::get('inform-to-party/{cases}', [InformToPartyController::class, 'index'])->name('inform-to-party.index');
+Route::post('inform-to-party', [InformToPartyController::class, 'store'])->name('inform-to-party.store');
+Route::get('inform-to-party/{cases}/create', [InformToPartyController::class, 'create'])->name('inform-to-party.create');
+Route::delete('inform-to-party/{informToParty}', [InformToPartyController::class, 'destroy'])->name('inform-to-party.destroy');
+Route::get('inform-to-party/{informToParty}/edit', [InformToPartyController::class, 'edit'])->name('inform-to-party.edit');
+Route::put('inform-to-party/{informToParty}', [InformToPartyController::class, 'update'])->name('inform-to-party.update');
 
 // project routes
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');

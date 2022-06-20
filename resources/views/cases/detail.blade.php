@@ -19,19 +19,81 @@
         <div>
             <div class="card z-depth-0">
                 <div class="card-header" style="overflow: scroll;scrollbar-width: none;">
-                    <div style="width: 2300px">
-                        <nav class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <div style="width: 2220px">
+                        <ul class="my-list">
+                            <li>
+                                <a href="{{route('partydetail.index',$cases)}}">पक्षको विवरण</a>
+                            </li>
+                            <li>
+                                <a href="{{route('opposit-party.index',$cases)}}">विपक्षको विवरण</a>
+                            </li>
+                            <li>
+                                <a href="{{route('inform-to-party.index',$cases)}}">पक्षलाई जानकारी</a>
+                            </li>
+                            <li>
+                                <a href="">वारिस</a>
+                            </li>
+                            <li>
+                                <a href="">मुद्दाको किसिम</a>
+                            </li>
+                            <li>
+                                <a href="">कानूनी सेवा</a>
+                            </li>
+                            <li>
+                                <a href="">परामर्श</a>
+                            </li>
+                            <li>
+                                <a href="">सहजीकरण</a>
+                            </li>
+                            <li>
+                                <a href="">मस्यौदा</a>
+                            </li>
+                            <li>
+                                <a href="">बहस</a>
+                            </li>
+                            <li>
+                                <a href="">मेलमिलाप</a>
+                            </li>
+                            <li>
+                                <a href="">फैसला कार्यान्वयन</a>
+                            </li>
+                            <li>
+                                <a href="">प्रहरी कार्यालय</a>
+                            </li>
+                            <li>
+                                <a href="">जिल्ला अदालत</a>
+                            </li>
+                            <li>
+                                <a href="">उच्च अदालत</a>
+                            </li>
+                            <li>
+                                <a href="">सर्वोच्च अदालत</a>
+                            </li>
+                            <li>
+                                <a href="">अन्य अदालत</a>
+                            </li>
+                            <li>
+                                <a href="">स्थानीय तह</a>
+                            </li>
+                            <li>
+                                <a href="">निर्णय भइसकेको</a>
+                            </li>
+                            <li>
+                                <a href="">अस्वीकार गरिएको</a>
+                            </li>
+                        </ul>
+                        {{-- <nav class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
                                 aria-controls="nav-party-detail" aria-selected="true">पक्षको विवरण</a>
-                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab"
-                                href="#nav-opposit-party-detail" role="tab" aria-controls="nav-opposit-party-detail"
-                                aria-selected="false">विपक्षको विवरण </a>
-                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-party-information"
+                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-opposit-party-detail"
+                                role="tab" aria-controls="nav-opposit-party-detail" aria-selected="false">विपक्षको विवरण
+                            </a>
+                            <a class="nav-link" id="nav-pax-lai-jankari" data-toggle="tab" href="#nav-party-information"
                                 role="tab" aria-controls="nav-profile" aria-selected="false"> पक्षलाई जानकारी</a>
                             <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-heir" role="tab"
                                 aria-controls="nav-profile" aria-selected="false">वारिस</a>
-                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-case-type"
-                                role="tab" aria-controls="nav-profile" aria-selected="false"> मुद्दाको किसिम</a>
+                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-case-type" role="tab"
+                                aria-controls="nav-profile" aria-selected="false"> मुद्दाको किसिम</a>
                             <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-legal-service"
                                 role="tab" aria-controls="nav-profile" aria-selected="false">कानूनी सेवा</a>
                             <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-consultation"
@@ -44,9 +106,8 @@
                                 aria-controls="nav-profile" aria-selected="false">बहस</a>
                             <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-reconciliation"
                                 role="tab" aria-controls="nav-profile" aria-selected="false">मेलमिलाप</a>
-                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab"
-                                href="#nav-judgment-implementation" role="tab" aria-controls="nav-profile"
-                                aria-selected="false">फैसला कार्यान्वयन</a>
+                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-judgment-implementation"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">फैसला कार्यान्वयन</a>
                             <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-police-office"
                                 role="tab" aria-controls="nav-profile" aria-selected="false">प्रहरी कार्यालय</a>
                             <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-district-court"
@@ -61,26 +122,28 @@
                                 role="tab" aria-controls="nav-profile" aria-selected="false">स्थानीय तह</a>
                             <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-discussion-made"
                                 role="tab" aria-controls="nav-profile" aria-selected="false">निर्णय भइसकेको</a>
-                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-rejected" role="tab"
-                                aria-controls="nav-profile" aria-selected="false">अस्वीकार गरिएको</a>
-                        </nav>
+                            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-rejected"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">अस्वीकार गरिएको</a>
+                        </nav> --}}
                     </div>
                 </div>
             </div>
         </div>
         <div class="tab-content" id="nav-tabContent">
             {{-- =================पक्षको विवरण=================== --}}
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                {{-- <x-party_details></x-party_details> --}}
+            @yield('caseContent')
+            {{-- ===============विपक्षको विवरण ================= --}}
+            <div class="tab-pane fade" id="nav-opposit-party-detail" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <div class="card z-depth-0">
                     <div class="card-body">
                         <div class="my-4">
 
                             <col-12>
-                                <a class="float-right  btn btn-info" href="{{ route('partydetail.create', $cases) }}">Add</a>
+                                {{-- <a class="float-right  btn btn-info" --}}
+                                    {{-- href="{{ route('opposit-party.index', $cases) }}">Add</a> --}}
                             </col-12>
                             <table class="table">
-                                <thead class="thead-light">
+                                {{-- <thead class="thead-light">
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">नाम</th>
@@ -93,25 +156,27 @@
                                         <th>धर्म</th>
                                         <th></th>
                                     </tr>
-                                </thead>
+                                </thead> --}}
                                 <tbody>
-                                    @foreach ($partyDetails as $item)
-                                        <tr>
-                                            <td>{{ $item->cases_id }}</td>
-                                            <td>{{ $item->first_name }} {{ $item->last_name }}</td>
-                                            <td>{{ $item->dob }}</td>
-                                            <td>{{ $item->gender }}</td>
-                                            <td>{{ $item->district }}</td>
-                                            <td>{{ $item->municipality }}</td>
-                                            <td>{{ $item->ward }}</td>
-                                            <td>{{ $item->cast }}</td>
-                                            <td>{{ $item->religion }}</td>
-                                            <td>
+                                    {{-- @foreach ($oppositParties as $oppositpariy) --}}
+                                        {{-- <tr>
+                                            <td>{{ $oppositpariy->cases_id }}</td>
+                                            <td>{{ $oppositpariy->first_name }} {{ $oppositpariy->last_name }}</td>
+                                            <td>{{ $oppositpariy->dob }}</td>
+                                            <td>{{ $oppositpariy->gender }}</td>
+                                            <td>{{ $oppositpariy->district }}</td>
+                                            <td>{{ $oppositpariy->municipality }}</td>
+                                            <td>{{ $oppositpariy->ward }}</td>
+                                            <td>{{ $oppositpariy->cast }}</td>
+                                            <td>{{ $oppositpariy->religion }}</td>
+                                            <td> --}}
                                                 {{-- <a class="action-btn text-success px-2" href="{{ route('cases.view', $item) }}"><i
-                                                    class="fa fa-eye"></i></a> --}}
-                                                <a class="action-btn text-primary" href="{{ route('partydetail.edit', $item) }}"><i
+                                                class="fa fa-eye"></i></a> --}}
+                                                {{-- <a class="action-btn text-primary"
+                                                    href="{{ route('opposit-party.edit', $oppositpariy) }}"><i
                                                         class="far fa-edit"></i></a>
-                                                <form action="{{ route('partydetail.destroy', $item) }}" method="post"
+                                                <form action="{{ route('opposit-party.destroy', $oppositpariy) }}"
+                                                    method="post"
                                                     onsubmit="return confirm('के तपाईँ निश्चित हुनुहुन्छ?')"
                                                     class="form-inline d-inline">
                                                     @csrf
@@ -119,74 +184,19 @@
                                                     <button type="submit" class="action-btn text-danger"><i
                                                             class="far fa-trash-alt"></i></button>
                                                 </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                            </td> --}}
+                                        {{-- </tr> --}}
+                                    {{-- @endforeach --}}
 
                                 </tbody>
                             </table>
                         </div>
                     </div>
+
                 </div>
             </div>
-            {{-- ===============विपक्षको विवरण ================= --}}
-            <div class="tab-pane fade" id="nav-opposit-party-detail" role="tabpanel" aria-labelledby="nav-profile-tab">  <div class="card z-depth-0">
-                <div class="card-body">
-                    <div class="my-4">
-
-                        <col-12>
-                            <a class="float-right  btn btn-info" href="{{ route('opposit-party.index', $cases) }}">Add</a>
-                        </col-12>
-                        <table class="table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">नाम</th>
-                                    <th scope="col">जन्म मिति </th>
-                                    <th scope="col">लिङ्ग</th>
-                                    <th>जिल्ला </th>
-                                    <th>नगरपालिका/गाउपालिका </th>
-                                    <th>वडा नम्बर </th>
-                                    <th>जाति</th>
-                                    <th>धर्म</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($oppositParties as $oppositpariy)
-                                    <tr>
-                                        <td>{{ $oppositpariy->cases_id }}</td>
-                                        <td>{{ $oppositpariy->first_name }} {{ $oppositpariy->last_name }}</td>
-                                        <td>{{ $oppositpariy->dob }}</td>
-                                        <td>{{ $oppositpariy->gender }}</td>
-                                        <td>{{ $oppositpariy->district }}</td>
-                                        <td>{{ $oppositpariy->municipality }}</td>
-                                        <td>{{ $oppositpariy->ward }}</td>
-                                        <td>{{ $oppositpariy->cast }}</td>
-                                        <td>{{ $oppositpariy->religion }}</td>
-                                        <td>
-                                            {{-- <a class="action-btn text-success px-2" href="{{ route('cases.view', $item) }}"><i
-                                                class="fa fa-eye"></i></a> --}}
-                                            <a class="action-btn text-primary" href="{{ route('opposit-party.edit', $oppositpariy) }}"><i
-                                                    class="far fa-edit"></i></a>
-                                            <form action="{{ route('opposit-party.destroy', $oppositpariy) }}" method="post"
-                                                onsubmit="return confirm('के तपाईँ निश्चित हुनुहुन्छ?')"
-                                                class="form-inline d-inline">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit" class="action-btn text-danger"><i
-                                                        class="far fa-trash-alt"></i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div></div>
-            <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab">Lorem ipsum
+            {{-- ===============पक्षलाई जानकारी================= --}}
+            <div class="tab-pane fade" id="nav-party-information" role="tabpanel" aria-labelledby="nav-disabled-tab">Lorem ipsum
                 dolor sit amet consectetur, adipisicing elit. Laudantium minima repellat incidunt facilis obcaecati
                 blanditiis corrupti ad officia doloribus ullam sapiente ipsum, nemo a, excepturi voluptatem voluptatibus
                 velit eum dignissimos ut, nam tempora? Reiciendis illo itaque veritatis eligendi fuga, mollitia ratione

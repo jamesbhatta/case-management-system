@@ -13,9 +13,10 @@ class OppositPartyController extends Controller
 {
     public function index(Cases $cases, OppositParty $oppositParty)
     {
-        $districts=District::get();
-        $municipalities=Municipality::get();
-        return view('cases.opposit_party.index',compact(['cases','oppositParty','districts','municipalities']));
+        $oppositParties=OppositParty::get();
+        return view('cases.opposit_party.list',compact(['cases','oppositParty','oppositParties']));
+
+       
     }
 
     public function store(Request $request)
@@ -43,15 +44,20 @@ class OppositPartyController extends Controller
         ]);
         OppositParty::create($data);
         $cases=Cases::where('id',$request->cases_id)->get()[0];
-        // return $cases;
-        // $partyDetails=PartyDetail::all();
-        // return view('cases.detail',compact(['cases','partyDetails']));
-        return redirect()->route('partydetail.index',$cases)->with('success',"Added");
+       
+        return redirect()->route('opposit-party.index',$cases)->with('success',"Added");
             
       
     }
-    public function edit(OppositParty $oppositParty,Cases $cases)
+    public function create(Cases $cases, OppositParty $oppositParty)
     {
+        $districts=District::all();
+        $municipalities=Municipality::all();
+        return view('cases.opposit_party.index',compact(['cases','districts','municipalities','oppositParty']));
+    }
+    public function edit(OppositParty $oppositParty)
+    {
+        $cases=OppositParty::where('id',$oppositParty->id)->get()[0];
         $districts=District::get();
         $municipalities=Municipality::get();
         return view('cases.opposit_party.index',compact(['cases','oppositParty','districts','municipalities']));
