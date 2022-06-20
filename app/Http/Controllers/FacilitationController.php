@@ -6,17 +6,17 @@ use App\Cases;
 use App\Consultation;
 use Illuminate\Http\Request;
 
-class ConsultationController extends Controller
+class FacilitationController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type',"pramarsh")->get();
-        return view('cases.consultation.list', compact(['cases','consultations']));
+        $consultations = Consultation::where('type',"sahajikaran")->get();
+        return view('cases.facilation.list', compact(['cases','consultations']));
     }
-
     public function create(Cases $cases, Consultation $consultation)
     {
-        return view('cases.consultation.index', compact(['cases', 'consultation']));
+       
+        return view('cases.facilation.index', compact(['cases', 'consultation']));
     }
 
     public function store(Request $request)
@@ -33,14 +33,13 @@ class ConsultationController extends Controller
 
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
-        return redirect()->route('consultation.index', $cases)->with('success', "Added");
+        return redirect()->route('facilation.index', $cases)->with('success', "Added");
     }
 
     public function edit(Consultation $consultation)
     {
-       
         $cases=Cases::where('id',$consultation->cases_id)->get()[0];
-        return view('cases.consultation.index', compact(['cases', 'consultation']));
+        return view('cases.facilation.index', compact(['cases', 'consultation']));
     }
 
     public function update(Request $request, Consultation $consultation)
@@ -56,13 +55,13 @@ class ConsultationController extends Controller
 
         $cases = Cases::where('id', $consultation->cases_id)->get()[0];
 
-        return redirect()->route('consultation.index', $cases)->with('success', "Added");
+        return redirect()->route('facilation.index', $cases)->with('success', "Updated");
     }
     public function destroy(Consultation $consultation)
     {
         $consultation->delete();
-        $cases = Cases::where('id', $consultation->cases_id)->get()[0];
-        return redirect()->route('consultation.index', $cases)->with('success', "Deleted");
+       return redirect()->back()->with('success', "Deleted");
     }
-   
+
+    
 }

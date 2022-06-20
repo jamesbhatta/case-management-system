@@ -43,7 +43,7 @@
                                 <a href="{{route('consultation.index',$cases)}}">परामर्श</a>
                             </li>
                             <li>
-                                <a href="">सहजीकरण</a>
+                                <a href="{{route('facilation.index',$cases)}}">सहजीकरण</a>
                             </li>
                             <li>
                                 <a href="">मस्यौदा</a>

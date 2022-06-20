@@ -8,6 +8,7 @@ use App\Http\Controllers\OppositPartyController;
 use App\Http\Controllers\InformToPartyController;
 use App\Http\Controllers\CaseTypeController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\FacilitationController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -65,6 +66,15 @@ Route::get('inform-to-party/{cases}/create', [InformToPartyController::class, 'c
 Route::delete('inform-to-party/{informToParty}', [InformToPartyController::class, 'destroy'])->name('inform-to-party.destroy');
 Route::get('inform-to-party/{informToParty}/edit', [InformToPartyController::class, 'edit'])->name('inform-to-party.edit');
 Route::put('inform-to-party/{informToParty}', [InformToPartyController::class, 'update'])->name('inform-to-party.update');
+
+// 
+Route::get('facilation/{cases}', [FacilitationController::class, 'index'])->name('facilation.index');
+Route::post('facilation', [FacilitationController::class, 'store'])->name('facilation.store');
+Route::get('facilation/{cases}/create', [FacilitationController::class, 'create'])->name('facilation.create');
+Route::delete('facilation/{consultation}', [FacilitationController::class, 'destroy'])->name('facilation.destroy');
+Route::get('facilation/{consultation}/edit', [FacilitationController::class, 'edit'])->name('facilation.edit');
+Route::put('facilation/{consultation}', [FacilitationController::class, 'update'])->name('facilation.update');
+
 
 //Case type
 Route::get('case-type/{cases}', [CaseTypeController::class, 'index'])->name('case-type.index');
