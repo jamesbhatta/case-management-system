@@ -17,7 +17,7 @@
                     @isset($informToParty->id)
                     @else
                         <div class="col-lg-12 form-group">
-                            <label> पक्ष र विपक्ष बिचको सम्बन्ध</label>
+                            <label> मुद्दा नं.</label>
                             <input type="text" class="form-control p-4" name="" value="{{ $cases->case_number }}"
                                 disabled>
                             <input type="hidden" class="form-control p-4" name="cases_id" value="{{ $cases->id }}">

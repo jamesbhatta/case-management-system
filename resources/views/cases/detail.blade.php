@@ -34,7 +34,7 @@
                                 <a href="">वारिस</a>
                             </li>
                             <li>
-                                <a href="">मुद्दाको किसिम</a>
+                                <a href="{{route('case-type.index',$cases)}}">मुद्दाको किसिम</a>
                             </li>
                             <li>
                                 <a href="">कानूनी सेवा</a>
