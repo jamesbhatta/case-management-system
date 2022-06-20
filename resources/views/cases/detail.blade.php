@@ -76,7 +76,7 @@
                                 <a href="{{route('local-level.index',$cases)}}">स्थानीय तह</a>
                             </li>
                             <li>
-                                <a href="">निर्णय भइसकेको</a>
+                                <a href="{{route('decision.index',$cases)}}">निर्णय भइसकेको</a>
                             </li>
                             <li>
                                 <a href="">अस्वीकार गरिएको</a>

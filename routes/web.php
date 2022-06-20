@@ -19,6 +19,7 @@ use App\Http\Controllers\HighCourtController;
 use App\Http\Controllers\SupremeCourtController;
 use App\Http\Controllers\OtherCourtController;
 use App\Http\Controllers\LocalLevelController;
+use App\Http\Controllers\DecisionController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -158,6 +159,14 @@ Route::get('local-level/{cases}/create', [LocalLevelController::class, 'create']
 Route::delete('local-level/{consultation}', [LocalLevelController::class, 'destroy'])->name('local-level.destroy');
 Route::get('local-level/{consultation}/edit', [LocalLevelController::class, 'edit'])->name('local-level.edit');
 Route::put('local-level/{consultation}', [LocalLevelController::class, 'update'])->name('local-level.update');
+
+// DecisionController
+Route::get('decision/{cases}', [DecisionController::class, 'index'])->name('decision.index');
+Route::post('decision', [DecisionController::class, 'store'])->name('decision.store');
+Route::get('decision/{cases}/create', [DecisionController::class, 'create'])->name('decision.create');
+Route::delete('decision/{consultation}', [DecisionController::class, 'destroy'])->name('decision.destroy');
+Route::get('decision/{consultation}/edit', [DecisionController::class, 'edit'])->name('decision.edit');
+Route::put('decision/{consultation}', [DecisionController::class, 'update'])->name('decision.update');
 
 // 
 Route::get('debate/{cases}', [DebateController::class, 'index'])->name('debate.index');
