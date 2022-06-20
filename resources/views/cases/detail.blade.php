@@ -49,7 +49,7 @@
                                 <a href="{{route('draft.index',$cases)}}">मस्यौदा</a>
                             </li>
                             <li>
-                                <a href="">बहस</a>
+                                <a href="{{route('debate.index',$cases)}}">बहस</a>
                             </li>
                             <li>
                                 <a href="">मेलमिलाप</a>

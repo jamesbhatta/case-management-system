@@ -10,6 +10,7 @@ use App\Http\Controllers\CaseTypeController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\FacilitationController;
 use App\Http\Controllers\DraftController;
+use App\Http\Controllers\DebateController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -76,12 +77,21 @@ Route::delete('facilation/{consultation}', [FacilitationController::class, 'dest
 Route::get('facilation/{consultation}/edit', [FacilitationController::class, 'edit'])->name('facilation.edit');
 Route::put('facilation/{consultation}', [FacilitationController::class, 'update'])->name('facilation.update');
 
+// 
 Route::get('draft/{cases}', [DraftController::class, 'index'])->name('draft.index');
 Route::post('draft', [DraftController::class, 'store'])->name('draft.store');
 Route::get('draft/{cases}/create', [DraftController::class, 'create'])->name('draft.create');
 Route::delete('draft/{consultation}', [DraftController::class, 'destroy'])->name('draft.destroy');
 Route::get('draft/{consultation}/edit', [DraftController::class, 'edit'])->name('draft.edit');
 Route::put('draft/{consultation}', [DraftController::class, 'update'])->name('draft.update');
+
+// 
+Route::get('debate/{cases}', [DebateController::class, 'index'])->name('debate.index');
+Route::post('debate', [DebateController::class, 'store'])->name('debate.store');
+Route::get('debate/{cases}/create', [DebateController::class, 'create'])->name('debate.create');
+Route::delete('debate/{consultation}', [DebateController::class, 'destroy'])->name('debate.destroy');
+Route::get('debate/{consultation}/edit', [DebateController::class, 'edit'])->name('debate.edit');
+Route::put('debate/{consultation}', [DebateController::class, 'update'])->name('debate.update');
 
 
 //Case type
