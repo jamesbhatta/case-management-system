@@ -10,30 +10,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
-                class="dropdown-toggle collapsed nav-link"><span class="text-default"><i
-                        class="fas fa-tools"></i></span>Organizations</a>
-            <ul class="list-unstyled collapse" id="homeSubmenu" style="">
-                @hasanyrole('super-admin|admin')
-                    <li class="nav-item sub-nav">
-                        <a class="nav-link" href="{{ route('organization.create') }}"><span
-                                class="mx-3"><i class="fas fa-circle"></i></span>Add</a>
-                    </li>
-                @endhasanyrole
-                @hasanyrole('super-admin|admin')
-                    <li class="nav-item sub-nav">
-                        <a class="nav-link" href="{{ route('organization.index') }}"><span class="mx-3"><i
-                                    class="fas fa-circle"></i></span>Manage</a>
-                    </li>
-                @endhasanyrole
-
-            </ul>
-        </li>
-
-        <li class="nav-item">
             <a href="#case" data-toggle="collapse" aria-expanded="false"
                 class="dropdown-toggle collapsed nav-link"><span class="text-default"><i
-                        class="fas fa-tools"></i></span>Case</a>
+                        class="fas fa-tools"></i></span>मुद्दा</a>
             <ul class="list-unstyled collapse" id="case" style="">
                 @hasanyrole('super-admin|admin')
                     <li class="nav-item sub-nav">
@@ -51,12 +30,7 @@
             </ul>
         </li>
 
-        <li class="nav-item {{ setActive('project.index') }}">
-            <a class="nav-link" href="{{ route('project.index') }}">
-                <span class="text-success"><i class="fa fa-plus"></i></span>Projects
-            </a>
-        </li>
-
+      
 
 
         @can('user.*')
@@ -76,22 +50,7 @@
             </li>
         @endhasrole
 
-        {{-- @unlessrole('user')
-        <li class="nav-item {{ setActive('user.settings.index') }}">
-        <a class="nav-link" href="{{ route('user.settings.index') }}">
-            <span class="text-info"><i class="fas fa-cog"></i></span>@lang('navigation.my_settings')
-        </a>
-        </li>
-        @endunlessrole --}}
-
-        {{-- @hasrole('super-admin')
-        <li class="nav-item {{ request()->routeIs('organization.index') && request()->has('trashed') ? 'active' : '' }} }}">
-        <a class="nav-link" href="{{ route('organization.index', ['trashed' => '1']) }}">
-            <span class="text-danger"><i class="fas fa-trash-alt"></i></span> Trashed
-        </a>
-        </li>
-        @endhasrole --}}
-
+        
         <li class="nav-item">
             <a class="nav-link" href="#!">
                 <span class="text-default"><i class="fas fa-tools"></i></span>@lang('navigation.configurations')</a>

@@ -27,14 +27,21 @@
                         </div>
                     </div>
                 </div>
+                {{-- {{$allCases[0]->}} --}}
                 <table class="table table-hover table-borderless">
                     <thead class="thead-light">
                         <tr>
                             {{-- <th scope="col">#</th> --}}
-                            <th scope="col">क्रम संख्या</th>
+                            {{-- <th scope="col">क्रम संख्या</th> --}}
                             <th scope="col">मुद्दा नं. </th>
                             <th scope="col">मिति</th>
-                            <th scope="col">मुद्दाको स्थिति</th>
+                            <th>मुद्दाको स्थिति</th>
+                            <th>पक्षको नाम </th>
+                            <th>विपक्षको नाम </th>
+                            <th>पक्ष र विपक्ष बिचको सम्बन्ध</th>
+                            <th>वारिस</th>
+                            <th>मुद्दको किसिम</th>
+                            <th>Date Added</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -42,13 +49,27 @@
                         @forelse($allCases as $item)
                             <tr>
                                 {{-- <td>{{ $loop->iteration }}</td> --}}
-                                <td>{{ $item->serial_number }}</td>
+                                {{-- <td>{{ $item->serial_number }}</td> --}}
                                 <td>{{ $item->case_number }}</td>
                                 <td>{{ $item->date }}</td>
                                 <td>{{ $item->case_status }}</td>
+                                @foreach ($item->partyDetail as $item1)
+                                    <td>{{ $item1->first_name }} {{ $item1->middle_name }} {{ $item1->last_name }}</td>
+                                @endforeach
+                                @foreach ($item->oppositParty as $item1)
+                                    <td>{{ $item1->first_name }} {{ $item1->middle_name }} {{ $item1->last_name }}</td>
+                                @endforeach
+                                @foreach ($item->informToParty as $item1)
+                                    <td>{{$item1->relation}}</td>
+                                    <td>{{$item1->heir_name}}</td>
+                                @endforeach
+                                @foreach ($item->caseType as $item1)
+                                    <td>{{$item1->case_type}}</td>
+                                @endforeach
+                                <td>{{ $item->created_at }}</td>
                                 <td>
-                                    <a class="action-btn text-success px-2" href="{{ route('partydetail.index', $item) }}"><i
-                                        class="fa fa-eye"></i></a>
+                                    <a class="action-btn text-success px-2"
+                                        href="{{ route('partydetail.index', $item) }}"><i class="fa fa-eye"></i></a>
                                     <a class="action-btn text-primary" href="{{ route('cases.edit', $item) }}"><i
                                             class="far fa-edit"></i></a>
                                     <form action="{{ route('cases.destroy', $item) }}" method="post"
