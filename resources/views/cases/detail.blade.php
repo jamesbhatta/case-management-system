@@ -70,7 +70,7 @@
                                 <a href="{{route('supreme-court.index',$cases)}}">सर्वोच्च अदालत</a>
                             </li>
                             <li>
-                                <a href="">अन्य अदालत</a>
+                                <a href="{{route('other-court.index',$cases)}}">अन्य अदालत</a>
                             </li>
                             <li>
                                 <a href="">स्थानीय तह</a>
