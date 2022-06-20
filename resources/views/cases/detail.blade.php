@@ -46,7 +46,7 @@
                                 <a href="{{route('facilation.index',$cases)}}">सहजीकरण</a>
                             </li>
                             <li>
-                                <a href="">मस्यौदा</a>
+                                <a href="{{route('draft.index',$cases)}}">मस्यौदा</a>
                             </li>
                             <li>
                                 <a href="">बहस</a>

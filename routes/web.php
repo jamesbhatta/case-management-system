@@ -9,6 +9,7 @@ use App\Http\Controllers\InformToPartyController;
 use App\Http\Controllers\CaseTypeController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\FacilitationController;
+use App\Http\Controllers\DraftController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -74,6 +75,13 @@ Route::get('facilation/{cases}/create', [FacilitationController::class, 'create'
 Route::delete('facilation/{consultation}', [FacilitationController::class, 'destroy'])->name('facilation.destroy');
 Route::get('facilation/{consultation}/edit', [FacilitationController::class, 'edit'])->name('facilation.edit');
 Route::put('facilation/{consultation}', [FacilitationController::class, 'update'])->name('facilation.update');
+
+Route::get('draft/{cases}', [DraftController::class, 'index'])->name('draft.index');
+Route::post('draft', [DraftController::class, 'store'])->name('draft.store');
+Route::get('draft/{cases}/create', [DraftController::class, 'create'])->name('draft.create');
+Route::delete('draft/{consultation}', [DraftController::class, 'destroy'])->name('draft.destroy');
+Route::get('draft/{consultation}/edit', [DraftController::class, 'edit'])->name('draft.edit');
+Route::put('draft/{consultation}', [DraftController::class, 'update'])->name('draft.update');
 
 
 //Case type
