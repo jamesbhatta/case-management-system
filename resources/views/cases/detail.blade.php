@@ -55,7 +55,7 @@
                                 <a href="{{route('reconcilation.index',$cases)}}">मेलमिलाप</a>
                             </li>
                             <li>
-                                <a href="">फैसला कार्यान्वयन</a>
+                                <a href="{{route('judgement.index',$cases)}}">फैसला कार्यान्वयन</a>
                             </li>
                             <li>
                                 <a href="">प्रहरी कार्यालय</a>
