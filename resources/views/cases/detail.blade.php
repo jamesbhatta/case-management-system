@@ -52,7 +52,7 @@
                                 <a href="{{route('debate.index',$cases)}}">बहस</a>
                             </li>
                             <li>
-                                <a href="">मेलमिलाप</a>
+                                <a href="{{route('reconcilation.index',$cases)}}">मेलमिलाप</a>
                             </li>
                             <li>
                                 <a href="">फैसला कार्यान्वयन</a>

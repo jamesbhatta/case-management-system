@@ -11,6 +11,7 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\FacilitationController;
 use App\Http\Controllers\DraftController;
 use App\Http\Controllers\DebateController;
+use App\Http\Controllers\ReconcilationController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -84,6 +85,16 @@ Route::get('draft/{cases}/create', [DraftController::class, 'create'])->name('dr
 Route::delete('draft/{consultation}', [DraftController::class, 'destroy'])->name('draft.destroy');
 Route::get('draft/{consultation}/edit', [DraftController::class, 'edit'])->name('draft.edit');
 Route::put('draft/{consultation}', [DraftController::class, 'update'])->name('draft.update');
+
+
+
+// reconcilation
+Route::get('reconcilation/{cases}', [ReconcilationController::class, 'index'])->name('reconcilation.index');
+Route::post('reconcilation', [ReconcilationController::class, 'store'])->name('reconcilation.store');
+Route::get('reconcilation/{cases}/create', [ReconcilationController::class, 'create'])->name('reconcilation.create');
+Route::delete('reconcilation/{consultation}', [ReconcilationController::class, 'destroy'])->name('reconcilation.destroy');
+Route::get('reconcilation/{consultation}/edit', [ReconcilationController::class, 'edit'])->name('reconcilation.edit');
+Route::put('reconcilation/{consultation}', [ReconcilationController::class, 'update'])->name('reconcilation.update');
 
 // 
 Route::get('debate/{cases}', [DebateController::class, 'index'])->name('debate.index');
