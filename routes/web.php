@@ -21,7 +21,7 @@ use App\Http\Controllers\OtherCourtController;
 use App\Http\Controllers\LocalLevelController;
 use App\Http\Controllers\DecisionController;
 use App\Http\Controllers\RejectedController;
-use App\Http\Controllers\ReportController;
+use App\Http\Controllers\VerspController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -210,6 +210,14 @@ Route::delete('consultation/{consultation}', [ConsultationController::class, 'de
 Route::get('consultation/{consultation}/edit', [ConsultationController::class, 'edit'])->name('consultation.edit');
 Route::put('consultation/{consultation}', [ConsultationController::class, 'update'])->name('consultation.update');
 
+// versp
+Route::get('versp', [VerspController::class, 'index'])->name('versp.index');
+Route::get('versp/create', [VerspController::class, 'create'])->name('versp.create');
+Route::post('vresp/store', [VerspController::class, 'store'])->name('versp.store');
+Route::delete('versp/{versp}', [VerspController::class, 'destroy'])->name('versp.destroy');
+Route::get('versp/{versp}/edit', [VerspController::class, 'edit'])->name('versp.edit');
+Route::put('versp/{versp}', [VerspController::class, 'update'])->name('versp.update');
+
 // consultatioons
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');
 Route::get('project/create', [ProjectController::class, 'create'])->name('project.create');
@@ -258,8 +266,8 @@ Route::group(
     }
 );
 
-Route::any('/{all}', function () {
-    return view('app');
-})->where(['all' => '.*']);
+// Route::any('/{all}', function () {
+//     return view('app');
+// })->where(['all' => '.*']);
 
 

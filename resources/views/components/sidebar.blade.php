@@ -31,6 +31,27 @@
             </ul>
         </li>
 
+        <li class="nav-item">
+            <a href="#versp" data-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle collapsed nav-link"><span class="text-default"><i
+                        class="fas fa-tools"></i></span>VERSP</a>
+            <ul class="list-unstyled collapse" id="versp" style="">
+                @hasanyrole('super-admin|admin')
+                    <li class="nav-item sub-nav">
+                        <a class="nav-link" href="{{ route('versp.index') }}"><span class="mx-3"><i
+                                    class="fas fa-circle"></i></span>Add</a>
+                    </li>
+                @endhasanyrole
+                @hasanyrole('super-admin|admin')
+                    <li class="nav-item sub-nav">
+                        <a class="nav-link" href="{{ route('cases.index') }}"><span class="mx-3"><i
+                                    class="fas fa-circle"></i></span>Manage</a>
+                    </li>
+                @endhasanyrole
+
+            </ul>
+        </li>
+
 
 
 
