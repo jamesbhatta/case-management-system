@@ -10,7 +10,7 @@ class LocalLevelController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type',"localLevel")->get();
+        $consultations = Consultation::where('type',"localLevel")->where('cases_id',$cases->id)->sget();
         return view('cases.local_level.list', compact(['cases','consultations']));
     }
     public function create(Cases $cases, Consultation $consultation)
