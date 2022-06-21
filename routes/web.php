@@ -49,6 +49,8 @@ Route::delete('organization/{organization}', [OrganizationController::class, 'de
 // cases
 Route::get('cases', [CasesController::class, 'index'])->name('cases.index');
 Route::post('cases', [CasesController::class, 'store'])->name('cases.store');
+Route::post('cases/search', [CasesController::class, 'search'])->name('cases.search');
+Route::post('cases/dateFilter', [CasesController::class, 'dateFilter'])->name('cases.dateFilter');
 Route::delete('cases/{cases}', [CasesController::class, 'destroy'])->name('cases.destroy');
 Route::get('cases/{cases}/edit', [CasesController::class, 'edit'])->name('cases.edit');
 // Route::get('cases/{cases}/view', [CasesController::class, 'view'])->name('cases.view');

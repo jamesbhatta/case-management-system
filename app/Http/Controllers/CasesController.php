@@ -52,5 +52,17 @@ class CasesController extends Controller
         $allCases = Cases::all();
         return view('cases.index', compact(['allCases','cases']));
     }
+    public function search(Request $request,Cases $cases)
+    {
+        $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->where('case_number',$request->case_data)->orWhere('case_status',$request->case_data)->get();
+        // return $cases;
+        return view('cases.manage', compact(['allCases','cases']));
+    }
+    public function dateFilter(Request $request,Cases $cases)
+    {
+        $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->whereBetween('date', [$request->start, $request->end])->get();
+        // return $cases;
+        return view('cases.manage', compact(['allCases','cases']));
+    }
     
 }
