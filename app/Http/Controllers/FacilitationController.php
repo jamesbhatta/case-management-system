@@ -10,7 +10,7 @@ class FacilitationController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type',"sahajikaran")->get();
+        $consultations = Consultation::where('type',"sahajikaran")->where('cases_id',$cases->id)->get();
         return view('cases.facilation.list', compact(['cases','consultations']));
     }
     public function create(Cases $cases, Consultation $consultation)

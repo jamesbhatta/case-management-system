@@ -13,7 +13,7 @@ class OppositPartyController extends Controller
 {
     public function index(Cases $cases, OppositParty $oppositParty)
     {
-        $oppositParties=OppositParty::get();
+        $oppositParties=OppositParty::where('cases_id',$cases->id)->get();
         return view('cases.opposit_party.list',compact(['cases','oppositParty','oppositParties']));
 
        

@@ -10,7 +10,7 @@ class ReconcilationController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type',"melmilap")->get();
+        $consultations = Consultation::where('type',"melmilap")->where('cases_id',$cases->id)->get();
         return view('cases.reconcilation.list', compact(['cases','consultations']));
     }
     public function create(Cases $cases, Consultation $consultation)

@@ -13,7 +13,7 @@ class PartyDetailController extends Controller
 {
     public function index(Cases $cases)
     {
-        $partyDetails=PartyDetail::get();
+        $partyDetails=PartyDetail::where('cases_id',$cases->id)->get();
         // return $partyDetails;
         return view('cases.partyDetails.list',compact(['cases','partyDetails']));
         // $partyDetails=PartyDetail::where('cases_id',$cases->id)->get();

@@ -10,7 +10,7 @@ class DistrictCourtController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type',"districtCourt")->get();
+        $consultations = Consultation::where('type',"districtCourt")->where('cases_id',$cases->id)->get();
         return view('cases.district_court.list', compact(['cases','consultations']));
     }
     public function create(Cases $cases, Consultation $consultation)

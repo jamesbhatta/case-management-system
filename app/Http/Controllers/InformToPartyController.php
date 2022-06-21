@@ -12,7 +12,7 @@ class InformToPartyController extends Controller
     {
         // $partyDetails=PartyDetail::get();
         // return $partyDetails;
-        $informToParties = InformToParty::get();
+        $informToParties = InformToParty::where('cases_id',$cases->id)->get();
         return view('cases.inform_to_party.list',compact(['cases','informToParties']));
         // $partyDetails=PartyDetail::where('cases_id',$cases->id)->get();
         // $oppositParties=OppositParty::where('cases_id',$cases->id)->get();

@@ -10,7 +10,7 @@ class PoliceStationController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type',"station")->get();
+        $consultations = Consultation::where('type',"station")->where('cases_id',$cases->id)->get();
         return view('cases.station.list', compact(['cases','consultations']));
     }
     public function create(Cases $cases, Consultation $consultation)

@@ -10,7 +10,7 @@ class JudgementController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type',"judgement")->get();
+        $consultations = Consultation::where('type',"judgement")->where('cases_id',$cases->id)->get();
         return view('cases.judgement.list', compact(['cases','consultations']));
     }
     public function create(Cases $cases, Consultation $consultation)

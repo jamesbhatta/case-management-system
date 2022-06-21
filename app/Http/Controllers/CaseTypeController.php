@@ -10,7 +10,7 @@ class CaseTypeController extends Controller
 {
     public function index(Cases $cases)
     {
-        $caseTypes = CaseType::get();
+        $caseTypes = CaseType::where('cases_id',$cases->id)->get();
         return view('cases.case_type.list', compact(['cases', 'caseTypes']));
     }
     public function create(Cases $cases, CaseType $caseType)
