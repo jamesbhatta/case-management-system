@@ -35,6 +35,17 @@
         box-sizing: border-box;
         outline:none
     }
+    @media only screen and (max-width: 1590px) {
+        .btn-report button{
+            width: 200px;
+            position: relative;
+            /* left: 1000px; */
+            margin-bottom: -10px;
+        }
+    }
+    @media only screen and (max-width: 1569px) {
+       
+    }
 </style>
 <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/utilities.css') }}">

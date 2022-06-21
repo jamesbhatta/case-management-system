@@ -1,6 +1,7 @@
 <div class="py-4 pl-5">
-    <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo"
-        height="80px">
+    {{-- <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo"
+        height="80px"> --}}
+        <img class="rounded-circle" src="{{ asset('logo1.png') }}" height="90px"/>
 </div>
 <div id="sidenav-wrapper">
     <ul id="sidenav" class="nav flex-column font-noto">
@@ -30,7 +31,7 @@
             </ul>
         </li>
 
-      
+
 
 
         @can('user.*')
@@ -50,36 +51,40 @@
             </li>
         @endhasrole
 
-        
         <li class="nav-item">
-            <a class="nav-link" href="#!">
-                <span class="text-default"><i class="fas fa-tools"></i></span>@lang('navigation.configurations')</a>
+            <a href="#configuration" data-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle collapsed nav-link"><span class="text-default"><i
+                        class="fas fa-tools"></i></span>@lang('navigation.configurations')</a>
+            <ul class="list-unstyled collapse" id="configuration" style="">
+                @hasanyrole('super-admin|admin')
+                    <li class="nav-item pl-5 {{ setActive('fiscal-year.*') }} sub-nav">
+                        <a class="nav-link" href="{{ route('fiscal-year.index') }}">@lang('navigation.fiscal_year')</a>
+                    </li>
+                @endhasanyrole
+                @can('province.*')
+                    <li class="nav-item pl-5 {{ setActive('province.*') }} sub-nav" >
+                        <a class="nav-link" href="{{ route('province.index') }}">@lang('navigation.province')</a>
+                    </li>
+                @endcan
+                @can('district.*')
+                    <li class="nav-item pl-5 {{ setActive('district.*') }} sub-nav">
+                        <a class="nav-link" href="{{ route('district.index') }}">@lang('navigation.district')</a>
+                    </li>
+                @endcan
+                @can('municipality.*')
+                    <li class="nav-item pl-5 {{ setActive('municipality.*') }} sub-nav">
+                        <a class="nav-link" href="{{ route('municipality.index') }}">@lang('navigation.municipality')</a>
+                    </li>
+                @endcan
+                @can('ward.*')
+                    <li class="nav-item pl-5 {{ setActive('ward.*') }} sub-nav">
+                        <a class="nav-link" href="{{ route('ward.index') }}">@lang('navigation.ward')</a>
+                    </li>
+                @endcan
+
+            </ul>
         </li>
-        @hasanyrole('super-admin|admin')
-            <li class="nav-item pl-5 {{ setActive('fiscal-year.*') }}">
-                <a class="nav-link" href="{{ route('fiscal-year.index') }}">@lang('navigation.fiscal_year')</a>
-            </li>
-        @endhasanyrole
-        @can('province.*')
-            <li class="nav-item pl-5 {{ setActive('province.*') }}">
-                <a class="nav-link" href="{{ route('province.index') }}">@lang('navigation.province')</a>
-            </li>
-        @endcan
-        @can('district.*')
-            <li class="nav-item pl-5 {{ setActive('district.*') }}">
-                <a class="nav-link" href="{{ route('district.index') }}">@lang('navigation.district')</a>
-            </li>
-        @endcan
-        @can('municipality.*')
-            <li class="nav-item pl-5 {{ setActive('municipality.*') }}">
-                <a class="nav-link" href="{{ route('municipality.index') }}">@lang('navigation.municipality')</a>
-            </li>
-        @endcan
-        @can('ward.*')
-            <li class="nav-item pl-5 {{ setActive('ward.*') }}">
-                <a class="nav-link" href="{{ route('ward.index') }}">@lang('navigation.ward')</a>
-            </li>
-        @endcan
+
 
         @hasanyrole('super-admin')
             <li class="nav-item">

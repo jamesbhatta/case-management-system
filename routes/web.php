@@ -21,6 +21,7 @@ use App\Http\Controllers\OtherCourtController;
 use App\Http\Controllers\LocalLevelController;
 use App\Http\Controllers\DecisionController;
 use App\Http\Controllers\RejectedController;
+use App\Http\Controllers\ReportController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -80,6 +81,10 @@ Route::get('inform-to-party/{cases}/create', [InformToPartyController::class, 'c
 Route::delete('inform-to-party/{informToParty}', [InformToPartyController::class, 'destroy'])->name('inform-to-party.destroy');
 Route::get('inform-to-party/{informToParty}/edit', [InformToPartyController::class, 'edit'])->name('inform-to-party.edit');
 Route::put('inform-to-party/{informToParty}', [InformToPartyController::class, 'update'])->name('inform-to-party.update');
+
+// ReportController
+Route::get('report', [ReportController::class, 'index'])->name('report.index');
+
 
 // 
 Route::get('facilation/{cases}', [FacilitationController::class, 'index'])->name('facilation.index');
