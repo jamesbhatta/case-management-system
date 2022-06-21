@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cases;
 use App\Versp;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,9 @@ class VerspController extends Controller
 {
     public function index(Versp $versp)
     {
-        $versps=Versp::get();
+        $versps = Versp::with('personalDetail')->get();
+        // $versps=Versp::with('versps')->get();
+        // return $versps;
         return view('versp.index',compact(['versp','versps']));
     }
     public function store(Request $request)

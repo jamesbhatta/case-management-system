@@ -17,7 +17,7 @@
 
             <div class="card z-depth-0 font-noto">
                 <div class="card-body">
-                    <form action="{{$versp->id? route('versp.update',$versp):route('versp.store') }}" method="POST">
+                    <form action="{{ $versp->id ? route('versp.update', $versp) : route('versp.store') }}" method="POST">
                         @csrf
                         @isset($versp->id)
                             @method('PUT')
@@ -196,64 +196,74 @@
                     <tr>
                         <th>#</th>
                         <th>मिति</th>
+                        <th>व्यक्तिको नाम</th>
                         <th>किसिम</th>
-                        <th> संस्था बारे जानकारी? </th>
+                        <th> Date Added</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-
+                    {{--  --}}
                     @forelse($versps as $key=> $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->date }}</td>
-                            <td>{{ $item->type }}</td>
-                            <td>{{ $item->info }}</td>
-                            <td>
-                                <a class="action-btn text-success px-2"
-                                    href="{{ route('partydetail.index', $item) }}"><i class="fa fa-user"></i></a>
-                                <a class="action-btn text-primary" href="{{ route('versp.edit', $item) }}"><i
-                                        class="far fa-edit"></i></a>
-                                <form action="{{ route('versp.destroy', $item) }}" method="post"
-                                    onsubmit="return confirm('के तपाईँ निश्चित हुनुहुन्छ?')" class="form-inline d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="action-btn text-danger"><i
-                                            class="far fa-trash-alt"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr class="bg-white">
-                            <td colspan="42" class="text-center">No Records Found</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+                            @if ($item->personalDetail->count() > 0)
+                                @foreach ($item->personalDetail as $item1)
+                                    <td>{{ $item1->first_name }} {{ $item1->middle_name }} {{ $item1->last_name }}
+                                    </td>
+                                @break
+                            @endforeach
+                        @else
+                            <td></td>
+                        @endif
+                        <td>{{ $item->type }}</td>
+                        <td>{{ $item->info }}</td>
+                        <td>
+                            <a class="action-btn text-success px-2"
+                                href="{{ route('personal-detail.index', $item) }}"><i class="fa fa-user"></i><label style="position: relative;top:-8px;font-size:10px"> {{$versps[0]->personalDetail->count()}}</label></a>
+                            <a class="action-btn text-primary" href="{{ route('versp.edit', $item) }}"><i
+                                    class="far fa-edit"></i></a>
+                            <form action="{{ route('versp.destroy', $item) }}" method="post"
+                                onsubmit="return confirm('के तपाईँ निश्चित हुनुहुन्छ?')" class="form-inline d-inline">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="action-btn text-danger"><i
+                                        class="far fa-trash-alt"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr class="bg-white">
+                        <td colspan="42" class="text-center">No Records Found</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
-    </div>
+</div>
+</div>
 @endsection
 
 @push('scripts')
-    <script>
-        $(function() {
-            if ($('.fiscal-year-date')[0]) {
-                $('.fiscal-year-date').nepaliDatePicker({});
-            }
+<script>
+    $(function() {
+        if ($('.fiscal-year-date')[0]) {
+            $('.fiscal-year-date').nepaliDatePicker({});
+        }
 
-        })
-    </script>
+    })
+</script>
 @endpush
 
 @push('scripts')
-    <script>
-        $('.my_checkbox').on('change', function() {
-            $('.my_checkbox').not(this).prop('checked', false);
-        });
+<script>
+    $('.my_checkbox').on('change', function() {
+        $('.my_checkbox').not(this).prop('checked', false);
+    });
 
-        $('.my_checkbox1').on('change', function() {
-            $('.my_checkbox1').not(this).prop('checked', false);
-        });
-    </script>
+    $('.my_checkbox1').on('change', function() {
+        $('.my_checkbox1').not(this).prop('checked', false);
+    });
+</script>
 @endpush

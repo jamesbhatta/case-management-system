@@ -22,6 +22,7 @@ use App\Http\Controllers\LocalLevelController;
 use App\Http\Controllers\DecisionController;
 use App\Http\Controllers\RejectedController;
 use App\Http\Controllers\VerspController;
+use App\Http\Controllers\PersonalDetailController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -210,13 +211,21 @@ Route::delete('consultation/{consultation}', [ConsultationController::class, 'de
 Route::get('consultation/{consultation}/edit', [ConsultationController::class, 'edit'])->name('consultation.edit');
 Route::put('consultation/{consultation}', [ConsultationController::class, 'update'])->name('consultation.update');
 
-// versp
+// versp 
 Route::get('versp', [VerspController::class, 'index'])->name('versp.index');
 Route::get('versp/create', [VerspController::class, 'create'])->name('versp.create');
 Route::post('vresp/store', [VerspController::class, 'store'])->name('versp.store');
 Route::delete('versp/{versp}', [VerspController::class, 'destroy'])->name('versp.destroy');
 Route::get('versp/{versp}/edit', [VerspController::class, 'edit'])->name('versp.edit');
 Route::put('versp/{versp}', [VerspController::class, 'update'])->name('versp.update');
+
+// PersonalDetailController
+Route::get('personal-detail/{versp}', [PersonalDetailController::class, 'index'])->name('personal-detail.index');
+Route::get('personal-detail/{versp}/create', [PersonalDetailController::class, 'create'])->name('personal-detail.create');
+Route::post('personal-detail/store', [PersonalDetailController::class, 'store'])->name('personal-detail.store');
+Route::delete('personal-detail/{personalDetail}', [PersonalDetailController::class, 'destroy'])->name('personal-detail.destroy');
+Route::get('personal-detail/{personalDetail}/edit', [PersonalDetailController::class, 'edit'])->name('personal-detail.edit');
+Route::put('personal-detail/{personalDetail}', [PersonalDetailController::class, 'update'])->name('personal-detail.update');
 
 // consultatioons
 Route::get('project', [ProjectController::class, 'index'])->name('project.index');

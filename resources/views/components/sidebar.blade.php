@@ -42,12 +42,7 @@
                                     class="fas fa-circle"></i></span>Add</a>
                     </li>
                 @endhasanyrole
-                @hasanyrole('super-admin|admin')
-                    <li class="nav-item sub-nav">
-                        <a class="nav-link" href="{{ route('cases.index') }}"><span class="mx-3"><i
-                                    class="fas fa-circle"></i></span>Manage</a>
-                    </li>
-                @endhasanyrole
+              
 
             </ul>
         </li>
