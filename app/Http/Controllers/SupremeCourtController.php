@@ -21,16 +21,23 @@ class SupremeCourtController extends Controller
 
     public function store(Request $request)
     {
-        Consultation::create($request->validate([
+        $input=$request->validate([
             'cases_id' => 'required',
-            'date' => "required",
-            'recomandation' => "nullable",
-            'description' => "nullable",
-            'document' => "nullable",
-            'related_people' => "nullable",
-            'type' => "required",
-        ]));
-
+            'date'=>"required",
+            'recomandation'=>"nullable",
+            'description'=>"nullable",
+            'document'=>"nullable",
+            'related_people'=>"nullable",
+            'type'=>"required",
+        ]);
+        if ($file = $request->file('document')) {
+            // return "hello";
+            $filePath = 'document/';
+            $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($filePath, $Document);
+            $input['document'] = "$Document";
+        }
+        Consultation::create($input);
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
         return redirect()->route('supreme-court.index', $cases)->with('success', "Added");

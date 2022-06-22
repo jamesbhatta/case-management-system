@@ -5,8 +5,8 @@
             <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">स्थानीय तह</label>
             <div class="my-4">
                 <form
-                    action="{{ $consultation->id ? route('police-station.update', $consultation) : route('police-station.store') }}"
-                    method="POST">
+                    action="{{ $consultation->id ? route('draft.update', $consultation) : route('draft.store') }}"
+                    method="POST" enctype="multipart/form-data">
                     @csrf
                     @isset($consultation->id)
                         @method('PUT')

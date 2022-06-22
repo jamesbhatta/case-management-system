@@ -215,6 +215,8 @@ Route::put('consultation/{consultation}', [ConsultationController::class, 'updat
 Route::get('versp', [VerspController::class, 'index'])->name('versp.index');
 Route::get('versp/create', [VerspController::class, 'create'])->name('versp.create');
 Route::post('vresp/store', [VerspController::class, 'store'])->name('versp.store');
+Route::post('vresp/dateFilter', [VerspController::class, 'dateFilter'])->name('versp.dateFilter');
+Route::post('vresp/search', [VerspController::class, 'search'])->name('versp.search');
 Route::delete('versp/{versp}', [VerspController::class, 'destroy'])->name('versp.destroy');
 Route::get('versp/{versp}/edit', [VerspController::class, 'edit'])->name('versp.edit');
 Route::put('versp/{versp}', [VerspController::class, 'update'])->name('versp.update');

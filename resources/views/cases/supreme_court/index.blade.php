@@ -6,7 +6,7 @@
             <div class="my-4">
                 <form
                     action="{{ $consultation->id ? route('supreme-court.update', $consultation) : route('supreme-court.store') }}"
-                    method="POST">
+                    method="POST" enctype="multipart/form-data">
                     @csrf
                     @isset($consultation->id)
                         @method('PUT')

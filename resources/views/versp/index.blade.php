@@ -189,9 +189,60 @@
                     </form>
                 </div>
             </div>
+            <h3 class="font-weight-bold" style="margin-top: 50px" id="txt1">VERSP List</h3>
+            <div class="card z-depth-0 font-noto">
+                <div class="card-header">
+                    <div class="row">
+                       
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false" style="width: 250px">
+                                Date wise Filter
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <form action="{{ route('versp.dateFilter') }}" method="POST" class="p-2">
+                                    @csrf
+                                    <li><input type="text" name="start" class="form-control fiscal-year-date my-2"
+                                            placeholder="From (YYYY-MM-DD)"></li>
+                                    <li><input type="text" name="end" class="form-control fiscal-year-date"
+                                            placeholder="To (YYYY-MM-DD)"></li>
+                                    <li class="col-12"><input type="submit" class="form-control my-2 btn btn-success "
+                                            value="Filter" style="height: 40px;width:240px" placeholder="From"></li>
+                                </form>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-8">
+                            <form action="{{ route('versp.search') }}" method="POST">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="text" class="form-control py-4" name="case_data" placeholder="Search"
+                                        aria-label="Search" aria-describedby="input-group-right">
+
+                                    <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
+                                </div>
+                                <div class="col">
+                            </form>
+                        </div>
+
+
+                    </div>
+
+                    <div>
+                      
+                        <a href="{{ route('versp.index') }}" class="btn  btn-danger float-right"
+                            style="height: 45px">X</a>
+                    </div>
+                    <button class="btn btn-info float-right" onclick="report_print()">Generate report</button>
+                    <div class="col-lg-2 btn-report">
+
+                    </div>
+
+
+                </div>
+            </div>
             {{-- {{$allCases[0]->}} --}}
             <table class="table table-hover table-borderless">
-                <h3 class="font-weight-bold" style="margin-top: 50px" id="txt1">VERSP List</h3>
+                
                 <thead class="thead-light">
                     <tr>
                         <th>#</th>

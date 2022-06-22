@@ -10,7 +10,7 @@ class LocalLevelController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type',"localLevel")->where('cases_id',$cases->id)->sget();
+        $consultations = Consultation::where('type',"localLevel")->where('cases_id',$cases->id)->get();
         return view('cases.local_level.list', compact(['cases','consultations']));
     }
     public function create(Cases $cases, Consultation $consultation)
@@ -21,7 +21,7 @@ class LocalLevelController extends Controller
 
     public function store(Request $request)
     {
-        Consultation::create($request->validate([
+        $input=$request->validate([
             'cases_id' => 'required',
             'date'=>"required",
             'recomandation'=>"nullable",
@@ -29,8 +29,15 @@ class LocalLevelController extends Controller
             'document'=>"nullable",
             'related_people'=>"nullable",
             'type'=>"required",
-        ]));
-
+        ]);
+        if ($file = $request->file('document')) {
+            // return "hello";
+            $filePath = 'document/';
+            $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($filePath, $Document);
+            $input['document'] = "$Document";
+        }
+        Consultation::create($input);
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
         return redirect()->route('local-level.index', $cases)->with('success', "Added");
