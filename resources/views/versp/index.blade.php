@@ -193,7 +193,7 @@
             <div class="card z-depth-0 font-noto">
                 <div class="card-header">
                     <div class="row">
-                       
+
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-bs-toggle="dropdown" aria-expanded="false" style="width: 250px">
@@ -215,8 +215,8 @@
                             <form action="{{ route('versp.search') }}" method="POST">
                                 @csrf
                                 <div class="input-group">
-                                    <input type="text" class="form-control py-4" name="case_data" placeholder="Search"
-                                        aria-label="Search" aria-describedby="input-group-right">
+                                    <input type="text" class="form-control py-4" name="case_data"
+                                        placeholder="Search" aria-label="Search" aria-describedby="input-group-right">
 
                                     <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
                                 </div>
@@ -228,7 +228,7 @@
                     </div>
 
                     <div>
-                      
+
                         <a href="{{ route('versp.index') }}" class="btn  btn-danger float-right"
                             style="height: 45px">X</a>
                     </div>
@@ -242,7 +242,7 @@
             </div>
             {{-- {{$allCases[0]->}} --}}
             <table class="table table-hover table-borderless">
-                
+
                 <thead class="thead-light">
                     <tr>
                         <th>#</th>
@@ -269,10 +269,12 @@
                             <td></td>
                         @endif
                         <td>{{ $item->type }}</td>
-                        <td>{{ $item->info }}</td>
+                        <td>{{ $item->created_at }}</td>
                         <td>
                             <a class="action-btn text-success px-2"
-                                href="{{ route('personal-detail.index', $item) }}"><i class="fa fa-user"></i><label style="position: relative;top:-8px;font-size:10px"> {{$versps[0]->personalDetail->count()}}</label></a>
+                                href="{{ route('personal-detail.index', $item) }}"><i class="fa fa-user"></i><label
+                                    style="position: relative;top:-8px;font-size:10px">
+                                    {{ $versps[0]->personalDetail->count() }}</label></a>
                             <a class="action-btn text-primary" href="{{ route('versp.edit', $item) }}"><i
                                     class="far fa-edit"></i></a>
                             <form action="{{ route('versp.destroy', $item) }}" method="post"
@@ -291,7 +293,52 @@
                 @endforelse
             </tbody>
         </table>
+
+
+
+
+        {{-- ========================== --}}
+        <div id="my_data" style="display: none">
+            <table border="1" style="border: 1px solid #f5f5f5; border-collapse: collapse;">
+                <caption>
+                    <label class="h2" style="font-size:25pp; font-weight:bold">DALIT WOMEN RIGHT FORUM (DWRF)
+                        NEPAL</label>
+                </caption>
+                <caption>
+                    <label class="h4" style="font-size:20pp;">Dhangadhi, Estd 2064</label>
+                </caption>
+                <caption>
+                    <h5 for="" style="font-weight: normal">मुद्दा अभिलेख</h5>
+                </caption>
+                <thead class="thead-light my-5">
+                    <tr>
+                        <th>#</th>
+                        <th>मिति</th>
+                        <th>व्यक्तिको नाम</th>
+                        <th>किसिम</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($versps as $key => $item)
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $item->date }}</td>
+                        @if ($item->personalDetail->count() > 0)
+                            @foreach ($item->personalDetail as $item1)
+                                <td>{{ $item1->first_name }} {{ $item1->middle_name }} {{ $item1->last_name }}
+                                </td>
+                            @break
+                        @endforeach
+                    @else
+                        <td></td>
+                    @endif
+                    <td>{{ $item->type }}</td>
+                    </tr>
+                @endforeach
+
+            </tbody>
+        </table>
     </div>
+</div>
 </div>
 </div>
 @endsection
@@ -316,5 +363,20 @@
     $('.my_checkbox1').on('change', function() {
         $('.my_checkbox1').not(this).prop('checked', false);
     });
+
+
+    function report_print() {
+
+        document.getElementById("my_data").style.display = "block";
+        var prtContent = document.getElementById("my_data");
+        var WinPrint = window.open();
+        WinPrint.document.write(prtContent.outerHTML);
+        WinPrint.document.close();
+        WinPrint.focus();
+        WinPrint.print();
+        WinPrint.close();
+
+        document.getElementById("my_data").style.display = "none";
+    }
 </script>
 @endpush
