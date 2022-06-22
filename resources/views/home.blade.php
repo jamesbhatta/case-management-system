@@ -16,7 +16,7 @@
 
 @section('content')
 <div id="dashboard" class="m-n3">
-    <div class="container font-noto">
+    <div class="container-fluid font-noto">
         <div class="row">
             {{-- Alerts --}}
             <div class="col-md-12 mt-2">
@@ -42,6 +42,8 @@
 @endsection
 
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
 <!-- Chartisan -->
 <script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>

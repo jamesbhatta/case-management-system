@@ -123,7 +123,8 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
     if (selectedTab != null) {
         $('a[data-toggle="tab"][href="' + selectedTab + '"]').tab('show');
     }
- 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
         
 </script>
 

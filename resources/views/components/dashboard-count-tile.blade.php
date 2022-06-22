@@ -1,16 +1,15 @@
-
 {{-- <a class="d-flex align-items-center bg-white p-4 rounded my-3" href="{{ $link ?? '#' }}">
     <h1 class="mr-4">{{ $count ?? null }}</h1>
    <span>{{ $title ?? null }}</span>
 </a> --}}
-    
+
 <div class="container-fluid dashboard-container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
         </ol>
-      </nav>
-      <div class="my-5"></div>
+    </nav>
+    <div class="my-5"></div>
     <div class="row">
         {{-- =======Card1=============== --}}
         <div class="col-lg-4">
@@ -26,13 +25,14 @@
                         </div>
                     </div>
                 </div>
-                
-                    <a href="{{ $link ?? '#' }}">
-                        <div class="col-12 cards-footer">
-                            <label class="m-2 col-12 text-center text-white" >थप जानकारी<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></label>
-                        </div>
-                        
-                    </a>
+
+                <a href="{{ $link ?? '#' }}">
+                    <div class="col-12 cards-footer">
+                        <label class="m-2 col-12 text-center text-white">थप जानकारी<i class="fa fa-arrow-circle-right"
+                                aria-hidden="true"></i></label>
+                    </div>
+
+                </a>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-8">
-                            <h3 class=" text-white">{{$totalEntry}}</h3>
+                            <h3 class=" text-white">{{ $totalEntry }}</h3>
                             <label class="text-white">Case Entered This Month</label>
                         </div>
                         <div class="col-4">
@@ -50,13 +50,14 @@
                         </div>
                     </div>
                 </div>
-                
-                    <a href="{{ $link ?? '#' }}">
-                        <div class="col-12 cards-footer">
-                            <label class="m-2 col-12 text-center text-white" >थप जानकारी<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></label>
-                        </div>
-                        
-                    </a>
+
+                <a href="{{ route('card.index')}}">
+                    <div class="col-12 cards-footer">
+                        <label class="m-2 col-12 text-center text-white">थप जानकारी<i class="fa fa-arrow-circle-right"
+                                aria-hidden="true"></i></label>
+                    </div>
+
+                </a>
             </div>
         </div>
         {{-- ==========Card3==================== --}}
@@ -65,7 +66,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-8">
-                            <h3 class=" text-white">{{$totalCases}}</h3>
+                            <h3 class=" text-white">{{ $totalCases }}</h3>
                             <label class="text-white">Total cases</label>
                         </div>
                         <div class="col-4">
@@ -73,16 +74,22 @@
                         </div>
                     </div>
                 </div>
-                
-                    <a href="{{ $link ?? '#' }}">
-                        <div class="col-12 cards-footer">
-                            <label class="m-2 col-12 text-center text-white" >थप जानकारी<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></label>
-                        </div>
-                        
-                    </a>
+
+                <a href="{{route('cases.index')}}">
+                    <div class="col-12 cards-footer">
+                        <label class="m-2 col-12 text-center text-white">थप जानकारी<i class="fa fa-arrow-circle-right"
+                                aria-hidden="true"></i></label>
+                    </div>
+
+                </a>
             </div>
         </div>
 
-         
+
     </div>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
 </div>
+

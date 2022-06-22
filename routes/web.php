@@ -23,6 +23,7 @@ use App\Http\Controllers\DecisionController;
 use App\Http\Controllers\RejectedController;
 use App\Http\Controllers\VerspController;
 use App\Http\Controllers\PersonalDetailController;
+use App\Http\Controllers\CardController;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +41,10 @@ Route::resources([
     'municipality' => 'MunicipalityController',
     'ward' => 'WardController',
 ]);
+// Card
+Route::get('card', [CardController::class, 'index'])->name('card.index');
+Route::get('card/total', [CardController::class, 'total'])->name('cases.total');
+
 
 // cases
 Route::get('cases', [CasesController::class, 'index'])->name('cases.index');
