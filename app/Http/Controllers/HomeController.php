@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cases;
 use App\Organization;
 use App\User;
 use Illuminate\Http\Request;
@@ -21,6 +22,11 @@ class HomeController extends Controller
 
     public function index()
     {
+        
+        $casesInThisMonth=Cases::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get();
+        $totalCases=Cases::get();
         $title = 'Dashboard';
 
         $onlineFormsCount = 10;
@@ -30,7 +36,7 @@ class HomeController extends Controller
 
         $totalUsersCount = User::count();
 
-     
+
         return view('home', [
             'title' => $title,
             'onlineFormsCount' => $onlineFormsCount,
@@ -38,6 +44,7 @@ class HomeController extends Controller
             'registeredOrganizationsCount' => $registeredOrganizationsCount,
             'closedOrganizationsCount' => $closedOrganizationsCount,
             'totalUsersCount' => $totalUsersCount,
-        ]);
+            
+        ],compact(['totalCases','casesInThisMonth']));
     }
 }

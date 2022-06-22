@@ -24,11 +24,16 @@
             </div>
 
             @can('user.*')
-            <div class="col-md-4">
+            <div class="col-12">
+                
                 <x-dashboard-count-tile :link="route('user.index')">
                     <x-slot name="count">{{ $totalUsersCount }}</x-slot>
                     <x-slot name="title">प्रयोगकर्ताहरू</x-slot>
+                    <x-slot name="totalEntry">{{$casesInThisMonth->count()}}</x-slot>
+                    <x-slot name="totalCases">{{$totalCases->count()}}</x-slot>
+                    
                 </x-dashboard-count-tile>
+                
             </div>
             @endcan
         </div>

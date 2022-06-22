@@ -43,8 +43,16 @@
             margin-bottom: -10px;
         }
     }
-    @media only screen and (max-width: 1569px) {
-       
+    /* .dashboard-container {
+        width: 60vw;
+    } */
+    .cards-footer {
+        background-color: rgba(255, 255, 255, 0.5);
+
+    }
+
+    .cards-footer label {
+        cursor: pointer;
     }
 </style>
 <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">

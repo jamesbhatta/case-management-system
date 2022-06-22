@@ -8,7 +8,8 @@
     <title>
         @isset($title)
             {{ $title }} |
-        @endisset {{ config('app.name', __('appname')) }}
+        {{-- @endisset {{ config('app.name', __('appname')) }} --}}
+        @endisset Case Management
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
