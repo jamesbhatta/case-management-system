@@ -72,11 +72,7 @@
                 class="dropdown-toggle collapsed nav-link"><span class="text-default"><i
                         class="fas fa-tools"></i></span>@lang('navigation.configurations')</a>
             <ul class="list-unstyled collapse" id="configuration" style="">
-                @hasanyrole('super-admin|admin')
-                    <li class="nav-item pl-5 {{ setActive('fiscal-year.*') }} sub-nav">
-                        <a class="nav-link" href="{{ route('fiscal-year.index') }}">@lang('navigation.fiscal_year')</a>
-                    </li>
-                @endhasanyrole
+              
                 @can('province.*')
                     <li class="nav-item pl-5 {{ setActive('province.*') }} sub-nav" >
                         <a class="nav-link" href="{{ route('province.index') }}">@lang('navigation.province')</a>
@@ -92,11 +88,7 @@
                         <a class="nav-link" href="{{ route('municipality.index') }}">@lang('navigation.municipality')</a>
                     </li>
                 @endcan
-                @can('ward.*')
-                    <li class="nav-item pl-5 {{ setActive('ward.*') }} sub-nav">
-                        <a class="nav-link" href="{{ route('ward.index') }}">@lang('navigation.ward')</a>
-                    </li>
-                @endcan
+             
 
             </ul>
         </li>
