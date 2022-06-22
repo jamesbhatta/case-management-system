@@ -77,6 +77,7 @@ class DistrictCourtController extends Controller
 
         return redirect()->route('district-court.index', $cases)->with('success', "Updated");
     }
+    
     public function destroy(Consultation $consultation)
     {
         if($consultation->document!=""){

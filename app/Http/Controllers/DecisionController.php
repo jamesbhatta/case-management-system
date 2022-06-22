@@ -14,6 +14,7 @@ class DecisionController extends Controller
         $consultations = Consultation::where('type', "decision")->where('cases_id',$cases->id)->get();
         return view('cases.decision.list', compact(['cases', 'consultations']));
     }
+
     public function create(Cases $cases, Consultation $consultation)
     {
 
@@ -77,6 +78,7 @@ class DecisionController extends Controller
 
         return redirect()->route('decision.index', $cases)->with('success', "Updated");
     }
+    
     public function destroy(Consultation $consultation)
     {
         if($consultation->document!=""){

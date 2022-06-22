@@ -79,6 +79,7 @@ class ConsultationController extends Controller
 
         return redirect()->route('consultation.index', $cases)->with('success', "Update Successfully");
     }
+    
     public function destroy(Consultation $consultation)
     {
         if($consultation->document!=""){

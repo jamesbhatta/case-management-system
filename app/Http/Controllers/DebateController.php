@@ -14,6 +14,7 @@ class DebateController extends Controller
         $consultations = Consultation::where('type',"debate")->where('cases_id',$cases->id)->get();
         return view('cases.debate.list', compact(['cases','consultations']));
     }
+
     public function create(Cases $cases, Consultation $consultation)
     {
        
@@ -77,6 +78,7 @@ class DebateController extends Controller
 
         return redirect()->route('debate.index', $cases)->with('success', "Updated");
     }
+    
     public function destroy(Consultation $consultation)
     {
         if($consultation->document!=""){

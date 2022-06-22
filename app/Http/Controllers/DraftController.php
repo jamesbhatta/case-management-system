@@ -14,6 +14,7 @@ class DraftController extends Controller
         $consultations = Consultation::where('type',"masyoda")->where('cases_id',$cases->id)->get();
         return view('cases.draft.list', compact(['cases','consultations']));
     }
+
     public function create(Cases $cases, Consultation $consultation)
     {
        
@@ -77,6 +78,7 @@ class DraftController extends Controller
 
         return redirect()->route('draft.index', $cases)->with('success', "Updated");
     }
+    
     public function destroy(Consultation $consultation)
     {
         if($consultation->document!=""){

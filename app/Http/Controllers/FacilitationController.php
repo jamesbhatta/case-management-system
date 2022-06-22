@@ -77,6 +77,7 @@ class FacilitationController extends Controller
 
         return redirect()->route('facilation.index', $cases)->with('success', "Updated");
     }
+    
     public function destroy(Consultation $consultation)
     {
         if($consultation->document!=""){

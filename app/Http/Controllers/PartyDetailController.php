@@ -14,11 +14,7 @@ class PartyDetailController extends Controller
     public function index(Cases $cases)
     {
         $partyDetails=PartyDetail::where('cases_id',$cases->id)->get();
-        // return $partyDetails;
         return view('cases.partyDetails.list',compact(['cases','partyDetails']));
-        // $partyDetails=PartyDetail::where('cases_id',$cases->id)->get();
-        // $oppositParties=OppositParty::where('cases_id',$cases->id)->get();
-        // return view('cases.detail',compact(['cases','partyDetails','oppositParties']));
     }
     public function store(Request $request)
     {
@@ -97,7 +93,7 @@ class PartyDetailController extends Controller
         ]));
 
         $cases=Cases::where('id',$partyDetail->cases_id)->get()[0];
-            // return $cases;
+
         return redirect()->route('partydetail.index',$cases)->with('success',"updated");
     }
 }
