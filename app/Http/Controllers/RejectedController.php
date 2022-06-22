@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cases;
 use App\Consultation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File; 
 
 class RejectedController extends Controller
 {
@@ -51,14 +52,26 @@ class RejectedController extends Controller
 
     public function update(Request $request, Consultation $consultation)
     {
-        $consultation->update($request->validate([
-
-            'date' => "required",
-            'recomandation' => "nullable",
-            'description' => "nullable",
-            'document' => "nullable",
-            'related_people' => "nullable",
-        ]));
+        $input=$request->validate([
+           
+            'date'=>"required",
+            'recomandation'=>"nullable",
+            'description'=>"nullable",
+            'document'=>"nullable",
+            'related_people'=>"nullable",
+          
+        ]);
+        
+        if ($file = $request->file('document')) {
+            
+            // return "hello";
+            $filePath = 'document/';
+            File::delete($filePath.$consultation->document);
+            $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($filePath, $Document);
+            $input['document'] = "$Document";
+        }
+        $consultation->update($input);
 
         $cases = Cases::where('id', $consultation->cases_id)->get()[0];
 

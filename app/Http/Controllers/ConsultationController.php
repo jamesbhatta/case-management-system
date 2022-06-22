@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cases;
 use App\Consultation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File; 
 
 class ConsultationController extends Controller
 {
@@ -53,18 +54,30 @@ class ConsultationController extends Controller
 
     public function update(Request $request, Consultation $consultation)
     {
-        $consultation->update($request->validate([
-            
+        $input=$request->validate([
+           
             'date'=>"required",
             'recomandation'=>"nullable",
             'description'=>"nullable",
             'document'=>"nullable",
             'related_people'=>"nullable",
-        ]));
+          
+        ]);
+        
+        if ($file = $request->file('document')) {
+            
+            // return "hello";
+            $filePath = 'document/';
+            File::delete($filePath.$consultation->document);
+            $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($filePath, $Document);
+            $input['document'] = "$Document";
+        }
+        $consultation->update($input);
 
         $cases = Cases::where('id', $consultation->cases_id)->get()[0];
 
-        return redirect()->route('consultation.index', $cases)->with('success', "Added");
+        return redirect()->route('consultation.index', $cases)->with('success', "Update Successfully");
     }
     public function destroy(Consultation $consultation)
     {
