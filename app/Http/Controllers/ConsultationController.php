@@ -81,6 +81,10 @@ class ConsultationController extends Controller
     }
     public function destroy(Consultation $consultation)
     {
+        if($consultation->document!=""){
+            $filePath = 'document/';
+            File::delete($filePath.$consultation->document);
+        }
         $consultation->delete();
         $cases = Cases::where('id', $consultation->cases_id)->get()[0];
         return redirect()->route('consultation.index', $cases)->with('success', "Deleted");

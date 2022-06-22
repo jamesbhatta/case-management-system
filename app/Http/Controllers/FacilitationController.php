@@ -79,6 +79,10 @@ class FacilitationController extends Controller
     }
     public function destroy(Consultation $consultation)
     {
+        if($consultation->document!=""){
+            $filePath = 'document/';
+            File::delete($filePath.$consultation->document);
+        }
         $consultation->delete();
        return redirect()->back()->with('success', "Deleted");
     }
