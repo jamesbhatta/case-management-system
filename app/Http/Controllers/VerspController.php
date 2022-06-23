@@ -12,6 +12,7 @@ class VerspController extends Controller
     public function index(Versp $versp)
     {
         $versps = Versp::with('personalDetail')->get();
+        
         // $versps=Versp::with('versps')->get();
         // return $versps;
         return view('versp.index', compact(['versp', 'versps']));
@@ -49,13 +50,24 @@ class VerspController extends Controller
     }
     public function search(Request $request, Versp $versp)
     {
-        // $versps = DB::table('versps')->join('personal_details', 'versp_id', '=', 'versps.id')->where('versps.id', 1)->get();
-    
-
-        // return $versp;
-        $versps=Versp::with('personalDetail')->where('first_name','=',$request->case_data)->get();
-        return $versps;
-        // return view('versp.index', compact(['versps','versp']));
+        $versps = Versp::with('personalDetail')
+        ->when($request->filled('search'), function ($query) {
+            $query->where('type','like', '%'.request('search').'%')
+               
+                ->orWhereHas('personalDetail', function ($q) {
+                    $q->where('first_name','like','%'. request('search').'%')
+                        ->orWhere('last_name','like','%'. request('search').'%');
+                });
+               
+                
+            // ->orWhere('')
+        })
+        // ->where('case_number',$request->case_data)
+        // ->orWhere('case_status',$request->case_data)
+        ->get();
+        // $versps=Versp::with('personalDetail')->where('first_name','=',$request->search)->get();
+        // return $versps;
+        return view('versp.index', compact(['versps','versp']));
     }
     public function dateFilter(Request $request, Versp $versp)
     {

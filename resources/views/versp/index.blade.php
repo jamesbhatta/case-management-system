@@ -190,56 +190,33 @@
                 </div>
             </div>
             <h3 class="font-weight-bold" style="margin-top: 50px" id="txt1">VERSP List</h3>
-            <div class="card z-depth-0 font-noto">
-                <div class="card-header">
-                    <div class="row">
-
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="width: 250px">
-                                Date wise Filter
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <form action="{{ route('versp.dateFilter') }}" method="POST" class="p-2">
-                                    @csrf
-                                    <li><input type="text" name="start" class="form-control fiscal-year-date my-2"
-                                            placeholder="From (YYYY-MM-DD)"></li>
-                                    <li><input type="text" name="end" class="form-control fiscal-year-date"
-                                            placeholder="To (YYYY-MM-DD)"></li>
-                                    <li class="col-12"><input type="submit" class="form-control my-2 btn btn-success "
-                                            value="Filter" style="height: 40px;width:240px" placeholder="From"></li>
-                                </form>
-                            </ul>
+            <div class="d-flex bg-white p-2">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle z-depth-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Filter by Date &nbsp;</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <form action="{{ route('versp.dateFilter') }}" method="POST" class="p-2">
+                            @csrf
+                            <div class="form-group">
+                                <input type="text" name="start" class="form-control fiscal-year-date my-2" placeholder="From (YYYY-MM-DD)">
+                                <input type="text" name="end" class="form-control fiscal-year-date" placeholder="To (YYYY-MM-DD)">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block z-depth-0">Filter</button>
+                        </form>
+                    </div>
+                </div>
+                    <form action="{{ route('versp.search') }}" method="POST" class="form-inline">
+                        @csrf
+                        <div class="input-group">
+                            <input type="text" class="form-control rounded-0" name="search" placeholder="Search" aria-label="Search" aria-describedby="input-group-right">
+                            <button type="submit" class="input-group-text rounded-0"><i class="fa fa-search"></i></button>
                         </div>
-                        <div class="col-lg-4 col-md-8">
-                            <form action="{{ route('versp.search') }}" method="POST">
-                                @csrf
-                                <div class="input-group">
-                                    <input type="text" class="form-control py-4" name="case_data"
-                                        placeholder="Search" aria-label="Search" aria-describedby="input-group-right">
-
-                                    <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-                                </div>
-                                <div class="col">
-                            </form>
-                        </div>
-
-
-                    </div>
-
-                    <div>
-
-                        <a href="{{ route('versp.index') }}" class="btn  btn-danger float-right"
-                            style="height: 45px">X</a>
-                    </div>
-                    <button class="btn btn-info float-right" onclick="report_print()">Generate report</button>
-                    <div class="col-lg-2 btn-report">
-
-                    </div>
-
-
+                    </form>
+                <a href="{{ route('versp.index') }}" class="btn btn-danger z-depth-0"><i class="fa fa-times"></i></a>
+                <div class="ml-auto">
+                    <button class="btn btn-primary z-depth-0" onclick="report_print()">Generate report</button>
                 </div>
             </div>
+          
             {{-- {{$allCases[0]->}} --}}
             <table class="table table-hover table-borderless">
 
@@ -272,9 +249,7 @@
                         <td>{{ $item->created_at }}</td>
                         <td>
                             <a class="action-btn text-success px-2"
-                                href="{{ route('personal-detail.index', $item) }}"><i class="fa fa-user"></i><label
-                                    style="position: relative;top:-8px;font-size:10px">
-                                    {{ $versps[0]->personalDetail->count() }}</label></a>
+                                href="{{ route('personal-detail.index', $item) }}"><i class="fa fa-user"></i></a>
                             <a class="action-btn text-primary" href="{{ route('versp.edit', $item) }}"><i
                                     class="far fa-edit"></i></a>
                             <form action="{{ route('versp.destroy', $item) }}" method="post"
