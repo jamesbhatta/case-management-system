@@ -38,12 +38,12 @@
                                 @method('PUT')
                             @endisset
                             <div class="row">
-                                <div class="col-md-3 form-group  ">
+                                {{-- <div class="col-md-3 form-group  ">
                                     <label for="" class="required">*क्रम संख्या</label>
                                     <input type="text" name="serial_number" class="form-control romanized rounded-0"
                                         value="{{ old('serial_number',$cases->serial_number) }}">
                                     <x-invalid-feedback field="name"></x-invalid-feedback>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-md-3 form-group  ">
                                     <label for="" class="required">*मुद्दा नं. </label>

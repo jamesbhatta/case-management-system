@@ -34,7 +34,7 @@
                     <form action="{{ route('cases.search') }}" method="POST" class="form-inline">
                         @csrf
                         <div class="input-group">
-                            <input type="text" class="form-control rounded-0" name="case_data" placeholder="Search" aria-label="Search" aria-describedby="input-group-right">
+                            <input type="text" class="form-control rounded-0" name="search" placeholder="Search" aria-label="Search" aria-describedby="input-group-right">
                             <button type="submit" class="input-group-text rounded-0"><i class="fa fa-search"></i></button>
                         </div>
                     </form>
@@ -48,7 +48,7 @@
             <table class="table table-hover table-borderless">
                 <thead class="thead-light">
                     <tr>
-                        {{-- <th scope="col">#</th> --}}
+                        <th scope="col">#</th>
                         {{-- <th scope="col">क्रम संख्या</th> --}}
                         <th scope="col">मुद्दा नं. </th>
                         <th scope="col">मिति</th>
@@ -66,7 +66,7 @@
 
                     @forelse($allCases as $key=> $item)
                         <tr>
-                            {{-- <td>{{ $loop->iteration }}</td> --}}
+                            <td>{{ $loop->iteration }}</td>
                             {{-- <td>{{ $item->serial_number }}</td> --}}
                             <td>{{ $item->case_number }}</td>
                             <td>{{ $item->date }}</td>

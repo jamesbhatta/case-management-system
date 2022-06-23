@@ -15,7 +15,6 @@ class CreateCasesTable extends Migration
     {
         Schema::create('cases', function (Blueprint $table) {
             $table->id();
-            $table->string('serial_number');
             $table->string('case_number');
             $table->string('date');
             $table->date('date_ad')->nullable();

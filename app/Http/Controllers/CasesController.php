@@ -20,7 +20,6 @@ class CasesController extends Controller
     {
 
         Cases::create($request->validate([
-            'serial_number' => "required",
             'case_number' => "required",
             'date' => "required",
             'case_status' => "required",
@@ -44,7 +43,6 @@ class CasesController extends Controller
     public function update(Request $request,Cases $cases)
     {
         $cases->update($request->validate([
-            'serial_number' => "required",
             'case_number' => "required",
             'date' => "required",
             'case_status' => "required",
@@ -60,8 +58,23 @@ class CasesController extends Controller
 
     public function search(Request $request,Cases $cases)
     {
-        $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->where('case_number',$request->case_data)->orWhere('case_status',$request->case_data)->get();
+        
+        // $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->where('case_number',$request->case_data)->orWhere('case_status',$request->case_data)->get();
         // return $cases;
+        $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')
+        ->with('caseType')
+        ->when($request->filled('search'), function ($query) {
+            $query->where('case_number', request('search'))
+                ->orWhere('case_status', request('search'))
+                ->orWhereHas('partyDetail', function ($q) {
+                    $q->where('first_name', request('search'));
+                });
+            // ->orWhere('')
+        })
+        // ->where('case_number',$request->case_data)
+        // ->orWhere('case_status',$request->case_data)
+        ->get();
+        // return $allCases;
         return view('cases.manage', compact(['allCases','cases']));
     }
     
