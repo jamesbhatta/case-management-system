@@ -6,7 +6,8 @@
         
         <a href="{{route('opposit-party.create',$cases)}}" class="btn btn-info float-right mx-5">Add</a>
        </div>
-    <table class="table bg-white">
+       <div class="overflow-auto">
+         <table class="table bg-white">
         <thead class="thead-light">
             <tr>
                 <th scope="col">#</th>
@@ -52,5 +53,6 @@
 
         </tbody>
     </table>
+       </div>
 </div>
 @endsection
