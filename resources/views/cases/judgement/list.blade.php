@@ -26,8 +26,6 @@
                     <td>{{$item->related_people}}</td>
                     <td><a href="{{ url('document') }}{{'/'}}{{$item->document}}" class="btn btn-success">Download</a></td>
                     <td>
-                        <a class="action-btn text-success px-2" href=""><i
-                        class="fa fa-eye"></i></a>
                         <a class="action-btn text-primary"
                             href="{{ route('judgement.edit', $item) }}"><i
                                 class="far fa-edit"></i></a>

@@ -34,7 +34,6 @@
                         {{-- <iframe src="" frameborder="0">view</iframe> --}}
 
                         <td>
-                            <a class="action-btn text-success px-2" href=""><i class="fa fa-eye"></i></a>
                             <a class="action-btn text-primary" href="{{ route('consultation.edit', $item) }}"><i
                                     class="far fa-edit"></i></a>
                             <form action="{{ route('consultation.destroy', $item) }}" method="post"

@@ -25,8 +25,6 @@
                     <td>{{ $oppositpariy->heir_name}}</td>
                     
                     <td>
-                        <a class="action-btn text-success px-2" href=""><i
-                        class="fa fa-eye"></i></a>
                         <a class="action-btn text-primary"
                             href="{{ route('inform-to-party.edit', $oppositpariy) }}"><i
                                 class="far fa-edit"></i></a>

@@ -33,8 +33,6 @@
                     <td>{{ $item->cast }}</td>
                     <td>{{ $item->religion }}</td>
                     <td> 
-                         <a class="action-btn text-success px-2" href=""><i
-                        class="fa fa-eye"></i></a> 
                         <a class="action-btn text-primary"
                             href="{{ route('partydetail.edit', $item) }}"><i
                                 class="far fa-edit"></i></a>
