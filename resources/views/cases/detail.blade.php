@@ -28,14 +28,14 @@
                 <li>
                     <a href="{{route('inform-to-party.index',$cases)}}" class="{{ setActive('inform-to-party.*') }}">पक्षलाई जानकारी</a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="">वारिस</a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="{{route('case-type.index',$cases)}}" class="{{ setActive('case-type.*') }}">मुद्दाको किसिम</a>
                 </li>
                 <li>
-                    <a href="">कानूनी सेवा</a>
+                    <a href="{{route('consultation.index',$cases)}}">कानूनी सेवा</a>
                 </li>
                 <li>
                     <a href="{{route('consultation.index',$cases)}}" class="{{ setActive('consultation.*') }}">परामर्श</a>
