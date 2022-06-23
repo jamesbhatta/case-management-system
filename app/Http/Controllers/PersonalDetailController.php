@@ -15,7 +15,7 @@ class PersonalDetailController extends Controller
     {
        
         $versps=Versp::get();
-        $personalDetails=PersonalDetail::get();
+        $personalDetails=PersonalDetail::where('versp_id',$versp->id)-> get();
         // return $personalDetails;
         return view('versp.personal_detail.list',compact(['versp','personalDetails','personalDetail']));
     }
