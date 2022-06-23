@@ -12,38 +12,38 @@
                     @method('PUT')
                 @endisset
                 <div class="row">
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>मुद्दा नं.</label>
                         <input type="text" class="form-control p-4" style="" value="{{ $cases->case_number }}" disabled>
                         <input type="hidden" name="cases_id" value="{{ $cases->id }}">
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>पहिलो नाम</label>
                         <input type="text" class="form-control p-4" name="first_name"
                             value="{{ old('first_name', $partyDetail->first_name) }}">
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>बीचको नाम</label>
                         <input type="text" class="form-control p-4" name="middle_name"
                             value="{{ old('middle_name', $partyDetail->middle_name) }}">
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>थर</label>
                         <input type="text" class="form-control p-4" name="last_name"
                             value="{{ old('last_name', $partyDetail->last_name) }}">
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>जन्म मिति </label>
                         <input type="text" name="dob" id="input-fiscal-year-start"
                             class=" nepali-date form-control p-4" placeholder="Nepali YYYY-MM-DD"
                             value="{{ old('dob', $partyDetail->dob) }}">
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>उमेर</label>
                         <input type="number" class="form-control p-4" name="age"
                             value="{{ old('age', $partyDetail->age) }}">
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>लिङ्ग</label>
                         <select name="gender" id="" class="form-control" style="height: 50px">
                             <option value="" selected>कृपया लिङ्ग चयन गर्नुहोस्</option>
@@ -56,7 +56,7 @@
                             <option value="अन्य">अन्य</option>
                         </select>
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>वैवाहिक अवस्था</label>
                         <select name="marrige_status" id="" class="form-control" style="height: 50px">
                             <option value="" disabled selected>कृपया वैवाहिक अवस्था चयन गर्नुहोस्
@@ -72,7 +72,7 @@
                             <option value="संगै बसेको">संगै बसेको</option>
                         </select>
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>जिल्ला </label>
                         <select name="district" id="" class="form-control" style="height: 50px">
                             <option value="" disabled selected>कृपया जिल्ला चयन गर्नुहोस्</option>
@@ -86,7 +86,7 @@
                         </select>
                     </div>
 
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>नगरपालिका/गाउपालिका </label>
                         <select name="municipality" id="" class="form-control" style="height: 50px">
                             <option value="" disabled selected>कृपया नगरपालिका/गाउपालिका चयन
@@ -101,22 +101,22 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>वडा नम्बर </label>
                         <input type="text" class="form-control p-4" name="ward"
                             value="{{ old('ward', $partyDetail->ward) }}">
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>सम्पर्क नम्बर </label>
                         <input type="text" class="form-control p-4" name="contact"
                             value="{{ old('contact', $partyDetail->contact) }}">
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>इमेल</label>
                         <input type="text" class="form-control p-4" name="email"
                             value="{{ old('email', $partyDetail->email) }}">
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>जाति</label>
                         <select name="cast" id="" class="form-control" style="height: 50px">
                             <option value="" disabled selected>कृपया जाति चयन गर्नुहोस्</option>
@@ -131,7 +131,7 @@
                             <option value="अन्य">अन्य</option>
                         </select>
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>धर्म</label>
                         <select name="religion" id="" class="form-control" style="height: 50px">
                             <option value="" disabled selected>कृपया धर्म चयन गर्नुहोस्</option>
@@ -146,7 +146,7 @@
                             <option value="अन्य">अन्य</option>
                         </select>
                     </div>
-                    <div class="col-lg-3 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>शिक्षा</label>
                         <select name="education" id="" class="form-control" style="height: 50px">
                             <option value="" disabled selected>कृपया जाति चयन गर्नुहोस्</option>
@@ -165,7 +165,7 @@
                         </select>
                     </div>
 
-                    <div class="col-lg-4 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>अपाङ्गताको अवस्था</label>
                         <select name="disability_status" id="" class="form-control" style="height: 50px">
                             <option value="" disabled selected>कृपया जाति चयन गर्नुहोस्</option>
@@ -178,17 +178,17 @@
                             <option value="छैन">छैन </option>
                         </select>
                     </div>
-                    <div class="col-lg-4 form-group">
+                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>परिवारका सदस्यको सङ्ख्या</label>
                         <input type="number" class="form-control p-4" name="family_number"
                             value="{{ old('family_number', $partyDetail->family_number) }}">
                     </div>
-                    <div class="col-lg-4 form-group">
+                    <div class="col-xl-6  form-group">
                         <label>परिवारमा अपाङ्गता भएका व्यक्तिहरूको सङ्ख्या</label>
                         <input type="number" class="form-control p-4" name="disable_family_number"
                             value="{{ old('disable_family_number', $partyDetail->disable_family_number) }}">
                     </div>
-                    <div class="col-lg-6 form-group">
+                    <div class="col-xl-4 form-group">
 
                         <input type="submit" name="" id="" class="btn btn-info"
                             value="Submiit">

@@ -10,9 +10,9 @@
         </ol>
     </nav>
     <div class="my-5"></div>
-    <div class="row">
+    <div class="row ">
         {{-- =======Card1=============== --}}
-        <div class="col-lg-4">
+        <div class="col-lg-4 my-3">
             <div class="card bg-warning">
                 <div class="card-body">
                     <div class="row">
@@ -37,7 +37,7 @@
         </div>
 
         {{-- =============Card 2=============== --}}
-        <div class="col-lg-4">
+        <div class="col-lg-4 my-3">
             <div class="card bg-primary">
                 <div class="card-body">
                     <div class="row">
@@ -61,7 +61,7 @@
             </div>
         </div>
         {{-- ==========Card3==================== --}}
-        <div class="col-lg-4">
+        <div class="col-lg-4 my-3">
             <div class="card bg-success">
                 <div class="card-body">
                     <div class="row">

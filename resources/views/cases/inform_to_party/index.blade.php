@@ -29,7 +29,7 @@
                     <div class="col-lg-12 form-group ">
                         <label>पक्षलाई जानकारी?</label>
                         <div class="container-fluid">
-                            <div class="row border p-3" style="height: 50px">
+                            <div class="row border p-3" style="height: auto">
                                 <div class="form-check mx-3">
                                     <input class="form-check-input sifaris" type="checkbox"
                                         @if ($informToParty->info == 'सिफारिश') checked @endif name="info" value="सिफारिश"
@@ -112,7 +112,7 @@
                     <div class="col-lg-12 form-group ">
                         <label>वारिस</label>
                         <div class="container-fluid">
-                            <div class="row border p-3" style="height: 50px">
+                            <div class="row border p-3" style="height: auto">
                                 <div class="form-check mx-3">
                                     <input class="form-check-input waris" name="heir_name" type="checkbox"
                                         @if ($informToParty->heir_name == 'स्वयम') checked @endif value="स्वयम"

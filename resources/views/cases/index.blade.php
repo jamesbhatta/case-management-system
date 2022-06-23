@@ -38,28 +38,22 @@
                                 @method('PUT')
                             @endisset
                             <div class="row">
-                                {{-- <div class="col-md-3 form-group  ">
-                                    <label for="" class="required">*क्रम संख्या</label>
-                                    <input type="text" name="serial_number" class="form-control romanized rounded-0"
-                                        value="{{ old('serial_number',$cases->serial_number) }}">
-                                    <x-invalid-feedback field="name"></x-invalid-feedback>
-                                </div> --}}
-
-                                <div class="col-md-3 form-group  ">
+                               
+                                <div class="col-lg-4 col-md-12 form-group  ">
                                     <label for="" class="required">*मुद्दा नं. </label>
                                     <input type="text" name="case_number" class="form-control romanized rounded-0"
                                         value="{{ old('case_number',$cases->case_number) }}">
                                     <x-invalid-feedback field="type"></x-invalid-feedback>
                                 </div>
 
-                                <div class="col-md-3   form-group">
+                                <div class="col-lg-4   form-group">
                                     <label for="">*मिति</label>
                                     <input type="text" name="date" id="input-fiscal-year-start"
                                         class="form-control nepali-date" value="{{ old('date',$cases->date) }}"
                                         placeholder="Nepali YYYY-MM-DD">
                                 </div>
 
-                                <div class="col-md-3   form-group">
+                                <div class="col-lg-4   form-group">
                                     <label for="">*मुद्दाको स्थिति</label>
                                     <select class="form-control" name="case_status" id="">
                                         @isset($cases->id)

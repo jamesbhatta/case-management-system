@@ -24,7 +24,7 @@
 
                         <label>मुद्दाको किसिम</label>
                         <div class="container-fluid">
-                            <div class="row border p-3" style="height: 50px">
+                            <div class="row border p-3" style="height: auto">
                                 <div class="form-check mx-3">
                                     <input class="form-check-input sifaris" type="checkbox"
                                         @if ($caseType->case_type == 'नागरिकता') checked @endif name="case_type" value="नागरिकता"
