@@ -274,7 +274,7 @@
 
         {{-- ========================== --}}
         <div id="my_data" style="display: none">
-            <table border="1" style="border:1px solid ; border-collapse: collapse;">
+            <table border="1" style="border: 1px solid #f5f5f5; border-collapse: collapse;">
                 <caption>
                     <label class="h2" style="font-size:25pp; font-weight:bold">DALIT WOMEN RIGHT FORUM (DWRF)
                         NEPAL</label>
@@ -283,7 +283,7 @@
                     <label class="h4" style="font-size:20pp;">Dhangadhi, Estd 2064</label>
                 </caption>
                 <caption>
-                    <h5 for="" style="font-weight: normal">मुद्दा अभिलेख</h5>
+                    <h5 for="" style="font-weight: normal">VERSP</h5>
                 </caption>
                 <thead class="thead-light my-5">
                     <tr>
@@ -345,11 +345,16 @@
         document.getElementById("my_data").style.display = "block";
         var prtContent = document.getElementById("my_data");
         var WinPrint = window.open();
+        WinPrint.document.write('<div style="display: flex;justify-content: center;">');
+      WinPrint.document.write('<div class="row">');
+      WinPrint.document.write('<div class="col-12">');
         WinPrint.document.write(prtContent.outerHTML);
+        WinPrint.document.write("</div>");
+      WinPrint.document.write("</div>");
         WinPrint.document.close();
         WinPrint.focus();
         WinPrint.print();
-        // WinPrint.close();
+        WinPrint.close();
 
         document.getElementById("my_data").style.display = "none";
     }
