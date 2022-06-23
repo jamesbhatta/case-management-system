@@ -48,10 +48,10 @@
                     <a href="{{ route('cases.create') }}" class="btn btn-primary z-depth-0"> <i
                             class="fa fa-plus mr-2"></i>Add</a>
                    
-                </div>
                 <button class="btn btn-primary z-depth-0" onclick="report_print()">Generate report</button>
+                </div>
             </div>
-            <div class="card z-depth-0 font-noto">
+            <div class="card z-depth-0 font-noto overflow-auto">
                 <table class="table table-hover table-borderless">
                     <thead class="thead-light">
                         <tr>
