@@ -1,8 +1,5 @@
 @extends('cases.detail')
 @section('caseContent')
-<div class="container">
-    @include('alerts.all')
-</div>
 <div class="card z-depth-0">
     <div class="card-body">
         <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">विपक्षको विवरण</label>
