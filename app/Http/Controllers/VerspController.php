@@ -52,7 +52,7 @@ class VerspController extends Controller
     {
         $versps = Versp::with('personalDetail')
         ->when($request->filled('search'), function ($query) {
-            $query->where('type','like', '%'.request('search').'%')
+            $query->where('type','like', '%'.request('search'))
                
                 ->orWhereHas('personalDetail', function ($q) {
                     $q->where('first_name','like','%'. request('search').'%')
