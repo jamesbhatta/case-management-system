@@ -5,7 +5,7 @@
     <label class="h3 font-weight-bold mt-3 mx-4">पक्षको विवरणहरू</label>
     <a href="{{route('partydetail.create',$cases)}}" class="btn btn-info float-right mx-5">Add</a>
    </div>
-    <table class="table">
+    <table class="table bg-white">
         <thead class="thead-light">
             <tr>
                 <th scope="col">#</th>
