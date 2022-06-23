@@ -132,9 +132,10 @@
             <td colspan="42" class="text-center">No Records Found</td>
         </tr>
     @endforelse
+    
 </tbody>
 </table>
-
+{{$allCases->links('pagination::bootstrap-4')}}
 {{-- ================== --}}
 <div id="my_data" style="display: none">
 <table border="1" style="border: 1px solid #f5f5f5; border-collapse: collapse;">

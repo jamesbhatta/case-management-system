@@ -10,7 +10,7 @@ class CasesController extends Controller
 {
     public function index(Cases $cases)
     {
-        $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->get();
+        $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->paginate(10);
         // return json_decode($allCases);
         // return $allCases;
         return view('cases.manage', compact(['allCases','cases']));

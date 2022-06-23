@@ -9,7 +9,7 @@
         @isset($title)
             {{ $title }} |
         {{-- @endisset {{ config('app.name', __('appname')) }} --}}
-        @endisset Case Management
+        @endisset Case Management System
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
