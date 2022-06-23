@@ -14,6 +14,7 @@ class PartyDetail extends Model
             'middle_name',
             'last_name',
             'dob',
+            'dob_ad',
             'age',
             'gender',
             'marrige_status',
@@ -33,5 +34,24 @@ class PartyDetail extends Model
     public function cases()
     {
         return $this->hasOne(Cases::class);
+    }
+
+    protected static function booted()
+    {
+        static::creating(function ($partyDetail) {
+            $partyDetail->fillAdDates();
+        });
+
+        static::updating(function ($partyDetail) {
+            $partyDetail->fillAdDates();
+        });
+    }
+
+
+    public function fillAdDates()
+    {
+        if ($this->date) {
+            $this->dob_ad = bs_to_ad($this->date);
+        }
     }
 }

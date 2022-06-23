@@ -67,8 +67,14 @@ class CasesController extends Controller
             $query->where('case_number', request('search'))
                 ->orWhere('case_status', request('search'))
                 ->orWhereHas('partyDetail', function ($q) {
-                    $q->where('first_name', request('search'));
+                    $q->where('first_name','like','%'. request('search').'%')
+                        ->orWhere('last_name','like','%'. request('search').'%');
+                })
+                ->orWhereHas('oppositParty', function ($q) {
+                    $q->where('first_name','like','%'. request('search').'%')
+                        ->orWhere('last_name','like','%'. request('search').'%');
                 });
+                
             // ->orWhere('')
         })
         // ->where('case_number',$request->case_data)
