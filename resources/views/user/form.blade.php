@@ -49,32 +49,6 @@
                                 </div>
                                 @endforeach
                             </div>
-                            <div class="form-group">
-                                <label>Municipality</label>
-                                <select name="municipality_id" id="" class="custom-select">
-                                    @foreach ($municipalities as $municipality)
-                                    <option value="{{ $municipality->id }}" @if(old('municipality_id', $user->municipality_id) == $municipality->id) selected @endif>{{ $municipality->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" name="is_ward_login" id="ward-toggler" @if(($user->id && isset($user->ward_id)) || !isset($user->id)) checked @endif>
-                                    <label class="custom-control-label" for="ward-toggler">Ward Login</label>
-                                    <small class="form-text text-muted">
-                                        Check this field for ward employees and make sure to select the ward from dropdown below.
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="form-group @if($user->id && !isset($user->ward_id)) d-none @endif;" id="ward-selector">
-                                <label>Ward</label>
-                                <select name="ward_id" class="custom-select">
-                                    <option value="">Select Ward</option>
-                                    @foreach ($wards as $ward)
-                                    <option value="{{ $ward->id }}" @if(old('ward_id', $user->ward_id) == $ward->id) selected @endif>{{ $ward->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
 
                             @if($user->id == null)
                             <div class="form-group">
@@ -103,14 +77,3 @@
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    $(function() {
-        $('#ward-toggler').change(function() {
-            $('#ward-selector').toggleClass('d-none');;
-        })
-    })
-
-</script>
-@endpush

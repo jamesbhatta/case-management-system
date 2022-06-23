@@ -6,7 +6,6 @@ use App\Http\Requests\StoreUserRequest;
 use App\Municipality;
 use App\Services\UserService;
 use App\User;
-use App\Ward;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Role;
@@ -14,6 +13,7 @@ use Spatie\Permission\Models\Role;
 class UserController extends Controller
 {
     private $userService;
+
     public function __construct(UserService $userService)
     {
         $this->middleware(['permission:user.*']);
@@ -44,9 +44,7 @@ class UserController extends Controller
         $title = 'नयाँ प्रयोगकर्ता दर्ता';
         $user = new User();
         $roles = Role::latest()->get();
-        $municipalities = Municipality::all();
-        $wards = Ward::all();
-        return view('user.form', compact('user', 'roles', 'municipalities', 'wards', 'title'));
+        return view('user.form', compact('user', 'roles', 'title'));
     }
 
     /**
@@ -58,7 +56,6 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         Gate::authorize('user.create');
-        // $attributes = $request->has('is_ward_login') ? $request->all() : $request->except('ward_id');
         $user = $this->userService->create($request);
         if ($user) {
             $user->syncRoles($request->roles);
@@ -89,13 +86,10 @@ class UserController extends Controller
         Gate::authorize('user.edit');
         $title = 'प्रयोगकर्ता';
         $user = $this->userService->find($id);
-        // $user->load(['municipality', 'ward']);
         // return $user->getRoleNames();
         $roles = Role::latest()->get();
-        $municipalities = Municipality::all();
-        $wards = Ward::all();
 
-        return view('user.form', compact('user', 'roles', 'municipalities', 'wards'));
+        return view('user.form', compact('user', 'roles'));
     }
 
     /**

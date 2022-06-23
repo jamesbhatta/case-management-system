@@ -32,12 +32,8 @@ class UserService
             'name' => $request['name'],
             'email' => $request['email'],
             'username' => $request['username'],
-            'municipality_id' => $request['municipality_id'],
         ]);
         $user->password =  Hash::make($request['password']);
-        if ($request->has('is_ward_login')) {
-            $user->ward_id = $request->ward_id;
-        }
         $user->save();
         return $user;
     }
@@ -47,9 +43,7 @@ class UserService
         $user->fill([
             'name' => $request['name'],
             'username' => $request['username'],
-            'municipality_id' => $request['municipality_id'],
         ]);
-        $user->ward_id = $request->has('is_ward_login') ? $request->ward_id : null;
         $user->save();
         return $user;
     }
