@@ -21,6 +21,7 @@ class CreatePersonalDetailsTable extends Migration
             $table->string('middle_name')->nullable();
             $table->string('last_name');
             $table->string('dob');
+            $table->date('dob_ad')->nullable();
             $table->string('age');
             $table->string('gender');
             $table->string('marrige_status');

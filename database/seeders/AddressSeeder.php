@@ -51,29 +51,7 @@ class AddressSeeder extends Seeder
 
         $this->command->getOutput()->progressStart();
         // Create wards
-        Ward::firstOrCreate(['name' => '१', 'name_en' => '1']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '२', 'name_en' => '2']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '३', 'name_en' => '3']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '४', 'name_en' => '4']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '५', 'name_en' => '5']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '६', 'name_en' => '5']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '७', 'name_en' => '7']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '८', 'name_en' => '8']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '९', 'name_en' => '9']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '१०', 'name_en' => '10']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '११', 'name_en' => '11']);
-        $this->command->getOutput()->progressAdvance();
-        Ward::firstOrCreate(['name' => '१२', 'name_en' => '12']);
+       
         $this->command->getOutput()->progressAdvance();
 
         $this->command->getOutput()->progressFinish();

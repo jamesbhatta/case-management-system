@@ -18,6 +18,7 @@ class CreateConsultationsTable extends Migration
             $table->unsignedBigInteger('cases_id');
             $table->foreign('cases_id')->references('id')->on('cases')->onDelete('cascade');
             $table->date('date');
+            $table->date('date_ad')->nullable();
             $table->string('recomandation')->nullable();
             $table->string('description')->nullable();
             $table->string('document')->nullable();
