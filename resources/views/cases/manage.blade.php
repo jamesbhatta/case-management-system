@@ -49,7 +49,6 @@
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">#</th>
-                        {{-- <th scope="col">क्रम संख्या</th> --}}
                         <th scope="col">मुद्दा नं. </th>
                         <th scope="col">मिति</th>
                         <th>मुद्दाको स्थिति</th>
@@ -67,7 +66,6 @@
                     @forelse($allCases as $key=> $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            {{-- <td>{{ $item->serial_number }}</td> --}}
                             <td>{{ $item->case_number }}</td>
                             <td>{{ $item->date }}</td>
                             <td>{{ $item->case_status }}</td>
@@ -141,11 +139,9 @@
 <table border="1" style="border: 1px solid #f5f5f5; border-collapse: collapse;">
     <caption>
         <label class="h2" style="font-size:25pp; font-weight:bold">DALIT WOMEN RIGHT FORUM (DWRF) NEPAL</label>
+        <h4 class="h4" style="font-size:20pp;" >Dhangadhi, Estd 2064</h4>
+        <h5 for="" style="font-weight: normal">मुद्दा अभिलेख</h5>
     </caption>
-    <caption>
-        <label class="h4" style="font-size:20pp;" >Dhangadhi, Estd 2064</label>
-    </caption>
-    <caption><h5 for="" style="font-weight: normal">मुद्दा अभिलेख</h5></caption>
     <thead class="thead-light my-5">
         <tr>
             <th scope="col">#</th>
