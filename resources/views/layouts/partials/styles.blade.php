@@ -20,10 +20,32 @@
     .my-list{
         list-style: none;
         padding: 0;
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 0;
+        padding: 1rem;
+        flex-wrap: wrap
     }
-    .my-list li{
+    .my-list li {
         float: left;
-        margin: 15px
+        white-space: nowrap;
+    }
+    .my-list li a {
+        color: inherit;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 1.1rem;
+        font-weight: 500
+    }
+    .my-list li a.active {
+        background: #1c4267;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .my-list li a:hover {
+        background: #dae9f7;
+        color: #1c2228;
     }
 
      .my-text{

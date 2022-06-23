@@ -126,6 +126,24 @@ body {
 }
 
 /*============
+* Breadcrumbs 
+*=============*/
+.breadcrumb {
+    background-color: #fff;
+}
+.breadcrumb .breadcrumb-item {
+    color: inherit;
+}
+.breadcrumb .breadcrumb-item a {
+    color: #2c353d;
+    font-weight: 600;
+    opacity: 1;
+}
+.breadcrumb .breadcrumb-item.active {
+    opacity: .85;
+}
+
+/*============
 * Action Bar 
 *=============*/
 
