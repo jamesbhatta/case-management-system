@@ -10,6 +10,17 @@ class Cases extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    protected static function booted()
+    {
+        static::creating(function ($cases) {
+            $cases->fillAdDates();
+        });
+
+        static::updating(function ($cases) {
+            $cases->fillAdDates();
+        });
+    }
+
     public function partyDetail()
     {
         return $this->hasMany(PartyDetail::class);
@@ -25,5 +36,11 @@ class Cases extends Model
     public function caseType()
     {
         return $this->hasMany(CaseType::class);
+    }
+    public function fillAdDates()
+    {
+        if ($this->date) {
+            $this->date_ad = bs_to_ad($this->date);
+        }
     }
 }

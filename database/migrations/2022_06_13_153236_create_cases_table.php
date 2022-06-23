@@ -18,6 +18,7 @@ class CreateCasesTable extends Migration
             $table->string('serial_number');
             $table->string('case_number');
             $table->string('date');
+            $table->date('date_ad')->nullable();
             $table->string('case_status');
             $table->timestamps();
         });
