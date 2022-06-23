@@ -299,7 +299,7 @@
 
         {{-- ========================== --}}
         <div id="my_data" style="display: none">
-            <table border="1" style="border: 1px solid #f5f5f5; border-collapse: collapse;">
+            <table border="1" style="border:1px solid ; border-collapse: collapse;">
                 <caption>
                     <label class="h2" style="font-size:25pp; font-weight:bold">DALIT WOMEN RIGHT FORUM (DWRF)
                         NEPAL</label>
@@ -374,7 +374,7 @@
         WinPrint.document.close();
         WinPrint.focus();
         WinPrint.print();
-        WinPrint.close();
+        // WinPrint.close();
 
         document.getElementById("my_data").style.display = "none";
     }

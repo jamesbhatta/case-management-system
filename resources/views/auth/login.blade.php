@@ -8,7 +8,7 @@
                 <div class="card font-roboto card-shadow z-depth-0">
                     <div class="card-body pt-0 px-5 pb-5">
                         <div class="text-center">
-                            {{-- <img class="img-responsive rounded-circle bg-white" src="{{ asset('assets/img/nep-gov-logo-sm.png') }}" alt="" style="height: 90px; margin-top: -30px;"> --}}
+                            <img class="img-responsive rounded-circle bg-white" src="{{ asset('assets/img/logo.png') }}" alt="" style="height: 90px; margin-top: -30px;">
                         </div>
                         <h2 class="h2-responsive text-center font-weight-bold my-4">{{ __('Login') }}</h2>
                         <div class="my-5"></div>

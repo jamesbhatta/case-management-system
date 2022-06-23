@@ -1,8 +1,8 @@
 <?php
 return [
     'nep_gov' => [
-        'logo' => 'assets/img/nep-gov-logo.png',
-        'logo_sm' => 'assets/img/nep-gov-logo-sm.png'
+        'logo' => 'assets/img/logo.png',
+        'logo_sm' => 'assets/img/logo.png'
     ],
 
     'organization' => [
