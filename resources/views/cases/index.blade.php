@@ -14,30 +14,20 @@
             @include('alerts.all')
         </div>
 
-
-
-
         <div class="card z-depth-0">
             <div class="card-header">
                 <div style="overflow: auto;scrollbar-width: none;">
                     <div>
                         <nav class="nav nav-pills" id="pills-tab" role="tablist">
-                            <h4> नयाँ मुद्दा अभिलेख     थप्नुहोस्</h4>
-                           
-
+                            <h4> नयाँ मुद्दा अभिलेख थप्नुहोस्</h4>
                         </nav>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
 
         <div class="card z-depth-0">
             <div class="card-body ">
-
-
                 <div class="tab-content" id="pills-tabContent">
                     {{-- ================================================मुद्दा अभिलेख===================================== --}}
                     {{-- <x-case></x-case> --}}
@@ -62,14 +52,11 @@
                                     <x-invalid-feedback field="type"></x-invalid-feedback>
                                 </div>
 
-
-
                                 <div class="col-md-3   form-group">
                                     <label for="">*मिति</label>
                                     <input type="text" name="date" id="input-fiscal-year-start"
                                         class="form-control nepali-date" value="{{ old('date',$cases->date) }}"
                                         placeholder="Nepali YYYY-MM-DD">
-
                                 </div>
 
                                 <div class="col-md-3   form-group">
@@ -78,7 +65,6 @@
                                         @isset($cases->id)
                                             <option value="{{$cases->case_status}}" selected>{{$cases->case_status}}</option>
                                             @else
-                                            
                                             <option value="" disabled selected>मुद्दाको स्थिति चयन गर्नुहोस्</option>
                                         @endisset
                                         <option value="परामर्श">परामर्श</option>
@@ -97,8 +83,6 @@
                                         <option value="अस्वीकार गरिएको">अस्वीकार गरिएको</option>
                                     </select>
                                 </div>
-
-
                             </div>
 
                             <div class="col-md-12 d-flex">
@@ -107,18 +91,10 @@
                                 </div>
                             </div>
                         </form>
-
-                       
                     </div>
-
-
                 </div>
-
             </div>
-
         </div>
-
-
     </div>
 @endsection
 

@@ -17,74 +17,35 @@
 
         <div class="container-flluid">
 
-            <div class="card z-depth-0 font-noto">
-                <div class="card-header">
-                    <div class="row">
-                        {{-- <div class="col-lg-6">
-                            <form action="{{ route('cases.dateFilter') }}" method="POST">
-                                @csrf
-                                <div class="row m-1">
-                                    <label class="p-3">From:</label>
-                                    <input type="text" name="start" id="input-fiscal-year-start"
-                                        class="form-control fiscal-year-date col-md-3 m-2" placeholder="Nepali YYYY-MM-DD">
-                                    <label class="p-3">To:</label>
-                                    <input type="text" name="end" id="input-fiscal-year-end"
-                                        class="form-control fiscal-year-date m-2 col-md-3" placeholder="Nepali YYYY-MM-DD">
-                                    <input type="submit" value="Filter" class="btn btn-success">
-                                </div>
-                            </form>
-                        </div> --}}
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="width: 250px">
-                                Date wise Filter
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <form action="{{ route('cases.dateFilter') }}" method="POST" class="p-2">
-                                    @csrf
-                                    <li><input type="text" name="start" class="form-control fiscal-year-date my-2"
-                                            placeholder="From (YYYY-MM-DD)"></li>
-                                    <li><input type="text" name="end" class="form-control fiscal-year-date"
-                                            placeholder="To (YYYY-MM-DD)"></li>
-                                    <li class="col-12"><input type="submit" class="form-control my-2 btn btn-success "
-                                            value="Filter" style="height: 40px;width:240px" placeholder="From"></li>
-                                </form>
-                            </ul>
+            <div class="d-flex bg-white p-2">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle z-depth-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Filter by Date &nbsp;</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <form action="{{ route('cases.dateFilter') }}" method="POST" class="p-2">
+                            @csrf
+                            <div class="form-group">
+                                <input type="text" name="start" class="form-control fiscal-year-date my-2" placeholder="From (YYYY-MM-DD)">
+                                <input type="text" name="end" class="form-control fiscal-year-date" placeholder="To (YYYY-MM-DD)">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block z-depth-0">Filter</button>
+                        </form>
+                    </div>
+                </div>
+                    <form action="{{ route('cases.search') }}" method="POST" class="form-inline">
+                        @csrf
+                        <div class="input-group">
+                            <input type="text" class="form-control rounded-0" name="case_data" placeholder="Search" aria-label="Search" aria-describedby="input-group-right">
+                            <button type="submit" class="input-group-text rounded-0"><i class="fa fa-search"></i></button>
                         </div>
-                        <div class="col-lg-4 col-md-8">
-                            <form action="{{ route('cases.search') }}" method="POST">
-                                @csrf
-                                <div class="input-group">
-                                    <input type="text" class="form-control py-4" name="case_data" placeholder="Search"
-                                        aria-label="Search" aria-describedby="input-group-right">
-
-                                    <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-                                </div>
-                                <div class="col">
-                            </form>
-                        </div>
-
-
-                    </div>
-
-                    <div>
-                        <a href="{{ route('cases.create') }}" class="btn btn-info float-right" style="height: 45px"> <i
-                                class="fa fa-plus"></i>
-                            Add</a>
-                        <a href="{{ route('cases.index') }}" class="btn  btn-danger float-right"
-                            style="height: 45px">X</a>
-                    </div>
-                    <button class="btn btn-info float-right" onclick="report_print()">Generate report</button>
-                    <div class="col-lg-2 btn-report">
-
-                    </div>
-
-
+                    </form>
+                <a href="{{ route('cases.index') }}" class="btn btn-danger z-depth-0"><i class="fa fa-times"></i></a>
+                <div class="ml-auto">
+                    <a href="{{ route('cases.create') }}" class="btn btn-primary z-depth-0"> <i class="fa fa-plus mr-2"></i>Add</a>
+                    <button class="btn btn-primary z-depth-0" onclick="report_print()">Generate report</button>
                 </div>
             </div>
-            {{-- {{$allCases[0]->}} --}}
+            <div class="card z-depth-0 font-noto">
             <table class="table table-hover table-borderless">
-
                 <thead class="thead-light">
                     <tr>
                         {{-- <th scope="col">#</th> --}}
@@ -173,7 +134,6 @@
     @endforelse
 </tbody>
 </table>
-
 
 {{-- ================== --}}
 <div id="my_data" style="display: none">
