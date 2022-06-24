@@ -23,6 +23,64 @@ class HomeController extends Controller
     public function index()
     {
         
+        $nagrita=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"नागरिकता");
+        })->count();
+
+        $byaktigatGhatna=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"व्यक्तिगत घटना");
+        })->count();
+
+        $manabBechbikhan=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"मानव बेचबिखन");
+        })->count();
+
+        $yonjanyeHinsa=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"यौनजन्य हिंसा");
+        })->count();
+
+        $laingikHinsa=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"लैंगिक हिंसा");
+        })->count();
+
+        $gharelu=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"घरेलु हिंसा");
+        })->count();
+
+        $sampati=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"सम्पत्ति");
+        })->count();
+
+        $rit=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"रिट");
+        })->count();
+
+        $sambandh=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"सम्बन्ध विच्छेद");
+        })->count();
+
+        $punarablokan=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"न्यायिक पुनरावलोकन");
+        })->count();
+
+        $other=Cases::WhereHas('caseType', function ($q) {
+            $q->where('case_type',"अन्य");
+        })->count();
+
+        $datas= $data=[
+            '0'=>$nagrita,
+            '1'=>$byaktigatGhatna,
+            '2'=>$manabBechbikhan,
+            '3'=>$yonjanyeHinsa,
+            '4'=>$laingikHinsa,
+            '5'=>$gharelu,
+            '6'=>$sampati,
+            '7'=>$sampati,
+            '8'=>$rit,
+            '9'=>$sambandh,
+            '10'=>$punarablokan,
+            '11'=>$other
+        ];
         $casesInThisMonth=Cases::whereMonth('created_at', date('m'))
             ->whereYear('created_at', date('Y'))
             ->get();
@@ -45,6 +103,6 @@ class HomeController extends Controller
             'closedOrganizationsCount' => $closedOrganizationsCount,
             'totalUsersCount' => $totalUsersCount,
             
-        ],compact(['totalCases','casesInThisMonth']));
+        ],compact(['totalCases','casesInThisMonth','datas']));
     }
 }

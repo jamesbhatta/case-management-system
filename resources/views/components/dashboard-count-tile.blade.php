@@ -51,7 +51,7 @@
                     </div>
                 </div>
 
-                <a href="{{ route('card.index')}}">
+                <a href="{{ route('card.index') }}">
                     <div class="col-12 cards-footer">
                         <label class="m-2 col-12 text-center text-white">थप जानकारी<i class="fa fa-arrow-circle-right"
                                 aria-hidden="true"></i></label>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
 
-                <a href="{{route('cases.index')}}">
+                <a href="{{ route('cases.index') }}">
                     <div class="col-12 cards-footer">
                         <label class="m-2 col-12 text-center text-white">थप जानकारी<i class="fa fa-arrow-circle-right"
                                 aria-hidden="true"></i></label>
@@ -88,8 +88,14 @@
 
     </div>
     <div>
-        <canvas id="myChart"></canvas>
+        
+       
     </div>
 
 </div>
 
+@push('scripts')
+   
+
+
+@endpush

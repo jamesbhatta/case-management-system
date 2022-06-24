@@ -127,5 +127,5 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
 
         
 </script>
-
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </html>
