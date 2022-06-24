@@ -68,19 +68,19 @@ class HomeController extends Controller
         })->count();
 
         $datas= $data=[
-            '0'=>$nagrita,
-            '1'=>$byaktigatGhatna,
-            '2'=>$manabBechbikhan,
-            '3'=>$yonjanyeHinsa,
-            '4'=>$laingikHinsa,
-            '5'=>$gharelu,
-            '6'=>$sampati,
-            '7'=>$sampati,
-            '8'=>$rit,
-            '9'=>$sambandh,
-            '10'=>$punarablokan,
-            '11'=>$other
+            $nagrita,
+            $byaktigatGhatna,
+            $manabBechbikhan,
+            $yonjanyeHinsa,
+            $laingikHinsa,
+            $gharelu,
+            $sampati,
+            $rit,
+            $sambandh,
+            $punarablokan,
+            $other
         ];
+       
         $casesInThisMonth=Cases::whereMonth('created_at', date('m'))
             ->whereYear('created_at', date('Y'))
             ->get();
@@ -94,7 +94,7 @@ class HomeController extends Controller
 
         $totalUsersCount = User::count();
 
-
+        // return $datas;
         return view('home', [
             'title' => $title,
             'onlineFormsCount' => $onlineFormsCount,
@@ -102,7 +102,8 @@ class HomeController extends Controller
             'registeredOrganizationsCount' => $registeredOrganizationsCount,
             'closedOrganizationsCount' => $closedOrganizationsCount,
             'totalUsersCount' => $totalUsersCount,
+            'datas'=>$datas,
             
-        ],compact(['totalCases','casesInThisMonth','datas']));
+        ],compact(['totalCases','casesInThisMonth']));
     }
 }

@@ -45,8 +45,7 @@
 
 @push('scripts')
     <script>
-        var datas='{!! json_encode($datas)!!}';
-        console.log(datas);
+       
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'bar',
@@ -56,8 +55,9 @@
                 ],
                 datasets: [{
                     label: 'मुद्दाको किसिम',
-                    data: JSON.parse('{!! json_encode($datas)!!}'),
-                    backgroundColor: [
+                    data: <?php echo json_encode($datas) ?>,
+                    backgroundColor: 
+                    [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(255, 206, 86, 0.2)',
