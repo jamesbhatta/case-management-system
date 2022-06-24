@@ -21,7 +21,7 @@ class CreateConsultationsTable extends Migration
             $table->date('date_ad')->nullable();
             $table->string('recomandation')->nullable();
             $table->string('description')->nullable();
-            $table->string('document')->nullable();
+            // $table->string('document')->nullable();
             $table->string('related_people')->nullable();
             $table->string('type');
             $table->timestamps();
