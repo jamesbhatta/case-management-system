@@ -94,6 +94,6 @@ class PartyDetailController extends Controller
 
         $cases=Cases::where('id',$partyDetail->cases_id)->get()[0];
 
-        return redirect()->route('partydetail.index',$cases)->with('success',"पक्षको विवरण परिवर्तन भयो");
+        return redirect()->route('partydetail.index',$cases)->with('success',"पक्षको विवरण सफलतापूर्वक परिवर्तन भयो");
     }
 }

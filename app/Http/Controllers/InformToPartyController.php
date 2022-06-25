@@ -32,13 +32,13 @@ class InformToPartyController extends Controller
         ]));
         $cases=Cases::where('id',$request->cases_id)->get()[0];
      
-        return redirect()->route('inform-to-party.index',$cases)->with('success',"Added");
+        return redirect()->route('inform-to-party.index',$cases)->with('success',"पक्षलाई जानकारी सफलतापूर्वक थपियो");
     }
 
     public function destroy(InformToParty $informToParty)
     {
         $informToParty->delete();
-        return redirect()->back()->with('success',"Deleted");
+        return redirect()->back()->with('success',"पक्षलाई जानकारी सफलतापूर्वक हटाइयो");
     }
     public function edit(InformToParty $informToParty)
     {
@@ -59,6 +59,6 @@ class InformToPartyController extends Controller
 
         $cases=Cases::where('id',$informToParty->cases_id)->get()[0];
      
-        return redirect()->route('inform-to-party.index',$cases)->with('success',"Updated");
+        return redirect()->route('inform-to-party.index',$cases)->with('success',"पक्षलाई जानकारी सफलतापूर्वक परिवर्तन भयो");
     }
 }
