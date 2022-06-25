@@ -45,7 +45,7 @@ class OppositPartyController extends Controller
         OppositParty::create($data);
         $cases=Cases::where('id',$request->cases_id)->get()[0];
        
-        return redirect()->route('opposit-party.index',$cases)->with('success',"Added");
+        return redirect()->route('opposit-party.index',$cases)->with('success',"विपक्षको विवरण सफलतापूर्वक थपियो");
             
       
     }
@@ -88,11 +88,11 @@ class OppositPartyController extends Controller
 
         $cases=Cases::where('id',$oppositParty->cases_id)->get()[0];
             // return $cases;
-        return redirect()->route('partydetail.index',$cases)->with('success',"updated");
+        return redirect()->route('partydetail.index',$cases)->with('success',"विपक्षको विवरण सफलतापूर्वक परिवर्तन भयो");
     }
     public function destroy(OppositParty $oppositParty)
     {
         $oppositParty->delete();
-        return redirect()->back()->with('success',"Successfully delete");
+        return redirect()->back()->with('success',"विपक्षको विवरण सफलतापूर्वक हटाइयो");
     }
 }
