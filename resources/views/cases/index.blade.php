@@ -61,20 +61,20 @@
                                             @else
                                             <option value="" disabled selected>मुद्दाको स्थिति चयन गर्नुहोस्</option>
                                         @endisset
-                                        <option value="परामर्श">परामर्श</option>
-                                        <option value="सहजीकरण">सहजीकरण</option>
-                                        <option value="मस्यौदा">मस्यौदा</option>
-                                        <option value="बहस">बहस</option>
-                                        <option value="मेलमिलाप">मेलमिलाप</option>
-                                        <option value="फैसला कार्यान्वयन">फैसला कार्यान्वयन</option>
-                                        <option value="प्रहरी कार्यालय">प्रहरी कार्यालय</option>
-                                        <option value="जिल्ला अदालत">जिल्ला अदालत</option>
-                                        <option value="उच्च अदालत">उच्च अदालत</option>
-                                        <option value="सर्वोच्च अदालत">सर्वोच्च अदालत</option>
-                                        <option value="अन्य अदालत">अन्य अदालत</option>
-                                        <option value="स्थानीय तह">स्थानीय तह</option>
-                                        <option value="निर्णय भइसकेको">निर्णय भइसकेको</option>
-                                        <option value="अस्वीकार गरिएको">अस्वीकार गरिएको</option>
+                                        <option value="परामर्श" @if (old('case_status')=="परामर्श")selected @endif>परामर्श</option>
+                                        <option value="सहजीकरण" @if (old('case_status')=="सहजीकरण")selected @endif>सहजीकरण</option>
+                                        <option value="मस्यौदा" @if (old('case_status')=="मस्यौदा")selected @endif>मस्यौदा</option>
+                                        <option value="बहस" @if (old('case_status')=="बहस")selected @endif>बहस</option>
+                                        <option value="मेलमिलाप" @if (old('case_status')=="मेलमिलाप")selected @endif>मेलमिलाप</option>
+                                        <option value="फैसला कार्यान्वयन"@if (old('case_status')=="फैसला कार्यान्वयन")selected @endif>फैसला कार्यान्वयन</option>
+                                        <option value="प्रहरी कार्यालय" @if (old('case_status')=="प्रहरी कार्यालय")selected @endif>प्रहरी कार्यालय</option>
+                                        <option value="जिल्ला अदालत" @if (old('case_status')=="जिल्ला अदालत")selected @endif>जिल्ला अदालत</option>
+                                        <option value="उच्च अदालत" @if (old('case_status')=="उच्च अदालत")selected @endif>उच्च अदालत</option>
+                                        <option value="सर्वोच्च अदालत" @if (old('case_status')=="सर्वोच्च अदालत")selected @endif>सर्वोच्च अदालत</option>
+                                        <option value="अन्य अदालत" @if (old('case_status')=="अन्य अदालत")selected @endif>अन्य अदालत</option>
+                                        <option value="स्थानीय तह" @if (old('case_status')=="स्थानीय तह")selected @endif>स्थानीय तह</option>
+                                        <option value="निर्णय भइसकेको" @if (old('case_status')=="निर्णय भइसकेको")selected @endif>निर्णय भइसकेको</option>
+                                        <option value="अस्वीकार गरिएको" @if (old('case_status')=="अस्वीकार गरिएको")selected @endif>अस्वीकार गरिएको</option>
                                     </select>
                                 </div>
                             </div>
