@@ -20,22 +20,22 @@ class PartyDetailController extends Controller
     {
         $data=$request->validate([
             'cases_id'=>"required",
-            'first_name'=>"required",
-            'middle_name'=>"nullable",
-            'last_name'=>"required",
+            'first_name'=>"required|max:30",
+            'middle_name'=>"nullable|max:30",
+            'last_name'=>"required|max:30",
             'dob'=>"required",
             'age'=>"required",
-            'gender'=>"required",
-            'marrige_status'=>"required",
-            'district'=>"required",
-            'municipality'=>"required",
+            'gender'=>"required|max:20",
+            'marrige_status'=>"required|max:30",
+            'district'=>"required|max:40",
+            'municipality'=>"required|max:60",
             'ward'=>"required",
-            'contact'=>"required",
-            'email'=>"nullable",
-            'cast'=>"required",
-            'religion'=>"required",
-            'education'=>"required",
-            'disability_status'=>"required",
+            'contact'=>"required|max:10",
+            'email'=>"nullable|max:70|email",
+            'cast'=>"required|max:15",
+            'religion'=>"required|max:15",
+            'education'=>"required|max:20",
+            'disability_status'=>"required|max:50",
             'family_number'=>"required",
             'disable_family_number'=>"required",
         ]);
@@ -44,7 +44,7 @@ class PartyDetailController extends Controller
         // return $cases;
         // $partyDetails=PartyDetail::all();
         // return view('cases.detail',compact(['cases','partyDetails']));
-        return redirect()->route('partydetail.index',$cases)->with('success',"Added");
+        return redirect()->route('partydetail.index',$cases)->with('success',"पक्षको विवरण सफलतापूर्वक थपियो");
             
       
     }
@@ -58,7 +58,7 @@ class PartyDetailController extends Controller
     public function destroy(PartyDetail $partyDetail)
     {
         $partyDetail->delete();
-        return redirect()->back()->with('success',"Successfully delete");
+        return redirect()->back()->with('success',"पक्षको विवरण सफलतापूर्वक हटाइयो");
     }
     public function edit(PartyDetail $partyDetail)
     {
@@ -94,6 +94,6 @@ class PartyDetailController extends Controller
 
         $cases=Cases::where('id',$partyDetail->cases_id)->get()[0];
 
-        return redirect()->route('partydetail.index',$cases)->with('success',"updated");
+        return redirect()->route('partydetail.index',$cases)->with('success',"पक्षको विवरण परिवर्तन भयो");
     }
 }
