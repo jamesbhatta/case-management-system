@@ -51,7 +51,7 @@
                                 <option value="{{ $partyDetail->gender }}" selected>
                                     {{ $partyDetail->gender }}</option>
                             @endisset
-                            <option value="महिला"@if (old('gender')=="महिला")selected @endif>महिला</option>
+                            <option value="महिला" @if (old('gender')=="महिला")selected @endif>महिला</option>
                             <option value="पुरुष" @if (old('gender')=="पुरुष")selected @endif>पुरुष</option>
                             <option value="अन्य" @if (old('gender')=="अन्य")selected @endif>अन्य</option>
                         </select>
