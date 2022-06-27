@@ -18,8 +18,13 @@
             @foreach ($caseTypes as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{ $item->case_type}}</td>
-                    
+                    <td>
+                        {{ $item->case_type}}
+                        @isset($item->personal_event)
+                            ({{$item->personal_event}})
+                        @endisset
+                    </td>
+                   
                     <td>
                         <a class="action-btn text-primary"
                             href="{{ route('case-type.edit', $item) }}"><i

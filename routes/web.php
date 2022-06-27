@@ -24,7 +24,7 @@ use App\Http\Controllers\RejectedController;
 use App\Http\Controllers\VerspController;
 use App\Http\Controllers\PersonalDetailController;
 use App\Http\Controllers\CardController;
-
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,6 +45,8 @@ Route::resources([
 Route::get('card', [CardController::class, 'index'])->name('card.index');
 Route::get('card/total', [CardController::class, 'total'])->name('cases.total');
 
+// Report
+Route::get('report', [ReportController::class, 'index'])->name('report.index');
 
 // cases
 Route::get('cases', [CasesController::class, 'index'])->name('cases.index');
@@ -234,6 +236,9 @@ Route::get('settings', 'SettingsController@index')->name('settings.index');
 Route::post('settings', 'SettingsController@sync')->name('settings.sync');
 
 Route::get('configuration-checklist', 'ConfigurationChecklistController@index')->name('configuration-checklist.index');
+
+
+
 
 Route::group(
     [

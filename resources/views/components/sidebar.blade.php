@@ -93,7 +93,12 @@
             </ul>
         </li>
 
-
+        <li
+        class="nav-item {{ setActive('report.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
+        <a class="nav-link" href="{{ route('report.index') }}">
+            <span class=""><i class="fa fa-users"></i></span>रिपोर्ट
+        </a>
+    </li>
         @hasanyrole('super-admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">

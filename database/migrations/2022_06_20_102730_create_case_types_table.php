@@ -18,6 +18,7 @@ class CreateCaseTypesTable extends Migration
             $table->unsignedBigInteger('cases_id');
             $table->foreign('cases_id')->references('id')->on('cases')->onDelete('cascade');
             $table->string('case_type');
+            $table->string('personal_event')->nullable();
             $table->timestamps();
         });
     }

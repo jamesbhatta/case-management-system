@@ -24,10 +24,11 @@ class CaseTypeController extends Controller
         CaseType::create($request->validate([
             'cases_id' => 'required',
             'case_type' => "required",
+            'personal_event'=>"nullable",
         ]));
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
-        return redirect()->route('case-type.index', $cases)->with('success', "Added");
+        return redirect()->route('case-type.index', $cases)->with('success', "मुद्दाको किसिम सफलतापूर्वक थपियो");
     }
 
     public function edit(CaseType $caseType)
@@ -40,16 +41,17 @@ class CaseTypeController extends Controller
     public function update(Request $request, CaseType $caseType)
     {
         $caseType->update($request->validate([
-            'case_type' => "required"
+            'case_type' => "required",
+            'personal_event'=>"nullable",
         ]));
         $cases = Cases::where('id', $caseType->cases_id)->get()[0];
 
-        return redirect()->route('case-type.index', $cases)->with('success', "Updated");
+        return redirect()->route('case-type.index', $cases)->with('success', "मुद्दाको किसिम सफलतापूर्वक परिवर्तन");
     }
 
     public function destroy(CaseType $caseType)
     {
         $caseType->delete();
-        return redirect()->back()->with('success', "Deleted");
+        return redirect()->back()->with('success', "मुद्दाको किसिम सफलतापूर्वक हटाइयो");
     }
 }
