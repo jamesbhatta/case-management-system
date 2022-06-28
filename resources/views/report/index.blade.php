@@ -88,9 +88,31 @@
                   
                     <div class="dropdown-menu">
                         <a href="{{route('witness.witness',['witness'=>'स्वयम'])}}" class="m-3 p-2">स्वयम</a> <br>
-                        <a href="{{route('witness.witness',['witness'=>'स्व नियुक्ति '])}}" class="m-3 p-2">स्व नियुक्ति </a><br>
+                        <a href="{{route('witness.witness',['witness'=>'स्व नियुक्ति'])}}" class="m-3 p-2">स्व नियुक्ति </a><br>
                         <a href="{{route('witness.witness',['witness'=>'BWAN'])}}" class="m-3 p-2">BWAN</a><br>
                         <a href="{{route('witness.witness',['witness'=>'अन्य'])}}" class="m-3 p-2">अन्य</a><br>
+                       
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        मुद्दको किसिम
+                    </button>
+                  
+                    <div class="dropdown-menu" style="width: 180px">
+                        <a href="{{route('case-type.caseType',['type'=>'नागरिकता'])}}" class="m-3 p-2">नागरिकता</a> <br>
+                        <a href="{{route('case-type.caseType',['type'=>'व्यक्तिगत घटना'])}}" class="m-3 p-2">व्यक्तिगत घटना</a><br>
+                        <a href="{{route('case-type.caseType',['type'=>'मानव बेचबिखन'])}}" class="m-3 p-2">मानव बेचबिखन</a><br>
+                        <a href="{{route('case-type.caseType',['type'=>'यौनजन्य हिंसा'])}}" class="m-3 p-2">यौनजन्य हिंसा</a><br>
+                        <a href="{{route('case-type.caseType',['type'=>'लैंगिक हिंसा'])}}" class="m-3 p-2">लैंगिक हिंसा</a><br>
+                        <a href="{{route('case-type.caseType',['type'=>'घरेलु हिंसा'])}}" class="m-3 p-2">घरेलु हिंसा</a><br>
+                        <a href="{{route('case-type.caseType',['type'=>'सम्पत्ति'])}}" class="m-3 p-2">सम्पत्ति</a><br>
+                        <a href="{{route('case-type.caseType',['type'=>'रिट'])}}" class="m-3 p-2">रिट</a><br>
+                        <a href="{{route('case-type.caseType',['type'=>'सम्बन्ध विच्छेद'])}}" class="m-3 p-2">सम्बन्ध विच्छेद</a><br>
+                        <a href="{{route('case-type.caseType',['type'=>'न्यायिक पुनरावलोकन'])}}" class="m-3 p-2">न्यायिक पुनरावलोकन</a><br>
+                        <a href="{{route('case-type.caseType',['type'=>'अन्य'])}}" class="m-3 p-2">अन्य</a><br>
                        
                     </div>
                 </div>
