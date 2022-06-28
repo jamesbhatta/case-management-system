@@ -54,6 +54,8 @@
                     </div>
                 </div>
 
+                
+
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -75,6 +77,21 @@
                         <a href="{{route('status.caseStatus',['key'=>'स्थानीय तह'])}}" class="m-3 p-2">स्थानीय तह</a><br>
                         <a href="{{route('status.caseStatus',['key'=>'निर्णय भइसकेको'])}}" class="m-3 p-2">निर्णय भइसकेको</a><br>
                         <a href="{{route('status.caseStatus',['key'=>'अस्वीकार गरिएको'])}}" class="m-3 p-2">अस्वीकार गरिएको</a><br>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        वारिस
+                    </button>
+                  
+                    <div class="dropdown-menu">
+                        <a href="{{route('witness.witness',['witness'=>'स्वयम'])}}" class="m-3 p-2">स्वयम</a> <br>
+                        <a href="{{route('witness.witness',['witness'=>'स्व नियुक्ति '])}}" class="m-3 p-2">स्व नियुक्ति </a><br>
+                        <a href="{{route('witness.witness',['witness'=>'BWAN'])}}" class="m-3 p-2">BWAN</a><br>
+                        <a href="{{route('witness.witness',['witness'=>'अन्य'])}}" class="m-3 p-2">अन्य</a><br>
+                       
                     </div>
                 </div>
                 

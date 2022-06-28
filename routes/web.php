@@ -50,6 +50,7 @@ Route::get('report', [ReportController::class, 'index'])->name('report.index');
 Route::post('report/search', [ReportController::class, 'search'])->name('report.search');
 Route::post('report/dateFilter', [ReportController::class, 'dateFilter'])->name('report.dateFilter');
 Route::get('status/{key}', [ReportController::class, 'caseStatus'])->name('status.caseStatus');
+Route::get('witness/{witness}', [ReportController::class, 'witness'])->name('witness.witness');
 
 
 // cases

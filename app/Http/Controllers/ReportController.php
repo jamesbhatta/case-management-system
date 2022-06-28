@@ -61,4 +61,16 @@ class ReportController extends Controller
         return view('report.index', compact(['allCases','cases']));
     }
     
+
+    public function witness($witness,Cases $cases)
+    {
+        $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')
+        ->with('caseType')
+        ->WhereHas('informToParty', function ($q) use($witness){
+            $q->where('heir_name',$witness);
+        })->get();
+
+        return view('report.index', compact(['allCases','cases']));
+    }
+    
 }
