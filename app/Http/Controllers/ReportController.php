@@ -55,10 +55,9 @@ class ReportController extends Controller
         return view('report.index', compact(['allCases','cases']));
     }
 
-    public function caseStatus(Request $key,Cases $cases)
+    public function caseStatus($key,Cases $cases)
     {
-        // return $key;
-        $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->where('case_status', $key->status)->paginate(10);
+        $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->where('case_status', $key)->paginate(10);
         return view('report.index', compact(['allCases','cases']));
     }
     

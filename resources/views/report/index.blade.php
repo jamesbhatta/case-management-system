@@ -61,34 +61,20 @@
                     </button>
                   
                     <div class="dropdown-menu">
-                        <a href="{{route('status.caseStatus',['status'=>'परामर्श'])}}" class="m-3 p-2">परामर्श</a> <br>
-                        <a href="{{route('status.caseStatus',['status'=>'सहजीकरण'])}}" class="m-3 p-2">सहजीकरण</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'मस्यौदा'])}}" class="m-3 p-2">मस्यौदा</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'बहस'])}}" class="m-3 p-2">बहस</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'मेलमिलाप'])}}" class="m-3 p-2">मेलमिलाप</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'फैसला कार्यान्वयन'])}}" class="m-3 p-2">फैसला कार्यान्वयन</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'प्रहरी कार्यालय'])}}" class="m-3 p-2">प्रहरी कार्यालय</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'जिल्ला अदालत'])}}" class="m-3 p-2">जिल्ला अदालत</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'उच्च अदालत'])}}" class="m-3 p-2">उच्च अदालत</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'सर्वोच्च अदालत'])}}" class="m-3 p-2">सर्वोच्च अदालत</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'अन्य अदालत'])}}" class="m-3 p-2">अन्य अदालत</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'स्थानीय तह'])}}" class="m-3 p-2">स्थानीय तह</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'निर्णय भइसकेको'])}}" class="m-3 p-2">निर्णय भइसकेको</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'अस्वीकार गरिएको'])}}" class="m-3 p-2">अस्वीकार गरिएको</a><br>
-                    </div>
-                </div>
-
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        वारिस
-                    </button>
-                  
-                    <div class="dropdown-menu">
-                        <a href="{{route('status.caseStatus',['status'=>'स्वयम'])}}" class="m-3 p-2">स्वयम</a> <br>
-                        <a href="{{route('status.caseStatus',['status'=>'स्व नियुक्ति'])}}" class="m-3 p-2">स्व नियुक्ति</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'BWAN'])}}" class="m-3 p-2">BWAN</a><br>
-                        <a href="{{route('status.caseStatus',['status'=>'अन्य'])}}" class="m-3 p-2">अन्य</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'परामर्श'])}}" class="m-3 p-2">परामर्श</a> <br>
+                        <a href="{{route('status.caseStatus',['key'=>'सहजीकरण'])}}" class="m-3 p-2">सहजीकरण</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'मस्यौदा'])}}" class="m-3 p-2">मस्यौदा</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'बहस'])}}" class="m-3 p-2">बहस</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'मेलमिलाप'])}}" class="m-3 p-2">मेलमिलाप</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'फैसला कार्यान्वयन'])}}" class="m-3 p-2">फैसला कार्यान्वयन</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'प्रहरी कार्यालय'])}}" class="m-3 p-2">प्रहरी कार्यालय</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'जिल्ला अदालत'])}}" class="m-3 p-2">जिल्ला अदालत</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'उच्च अदालत'])}}" class="m-3 p-2">उच्च अदालत</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'सर्वोच्च अदालत'])}}" class="m-3 p-2">सर्वोच्च अदालत</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'अन्य अदालत'])}}" class="m-3 p-2">अन्य अदालत</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'स्थानीय तह'])}}" class="m-3 p-2">स्थानीय तह</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'निर्णय भइसकेको'])}}" class="m-3 p-2">निर्णय भइसकेको</a><br>
+                        <a href="{{route('status.caseStatus',['key'=>'अस्वीकार गरिएको'])}}" class="m-3 p-2">अस्वीकार गरिएको</a><br>
                     </div>
                 </div>
                 
