@@ -17,7 +17,7 @@
         <div class="container-flluid">
 
             <div class="d-flex bg-white p-2">
-                <div class="dropdown">
+                {{-- <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle z-depth-0 date-filter" type="button"
                         id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">Filter by Date
                         &nbsp;</button>
@@ -33,7 +33,65 @@
                             <button type="submit" class="btn btn-success btn-block z-depth-0">Filter</button>
                         </form>
                     </div>
+                </div> --}}
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Date Filter
+                    </button>
+                    <div class="dropdown-menu">
+                        <form action="{{ route('report.dateFilter') }}" method="POST" class="p-2">
+                            @csrf
+                            <div class="form-group">
+                                <input type="text" name="start" class="form-control fiscal-year-date my-2"
+                                    placeholder="From (YYYY-MM-DD)">
+                                <input type="text" name="end" class="form-control fiscal-year-date"
+                                    placeholder="To (YYYY-MM-DD)">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block z-depth-0">Filter</button>
+                        </form>
+                    </div>
                 </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        मुद्दाको स्थिति
+                    </button>
+                  
+                    <div class="dropdown-menu">
+                        <a href="{{route('status.caseStatus',['status'=>'परामर्श'])}}" class="m-3 p-2">परामर्श</a> <br>
+                        <a href="{{route('status.caseStatus',['status'=>'सहजीकरण'])}}" class="m-3 p-2">सहजीकरण</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'मस्यौदा'])}}" class="m-3 p-2">मस्यौदा</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'बहस'])}}" class="m-3 p-2">बहस</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'मेलमिलाप'])}}" class="m-3 p-2">मेलमिलाप</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'फैसला कार्यान्वयन'])}}" class="m-3 p-2">फैसला कार्यान्वयन</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'प्रहरी कार्यालय'])}}" class="m-3 p-2">प्रहरी कार्यालय</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'जिल्ला अदालत'])}}" class="m-3 p-2">जिल्ला अदालत</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'उच्च अदालत'])}}" class="m-3 p-2">उच्च अदालत</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'सर्वोच्च अदालत'])}}" class="m-3 p-2">सर्वोच्च अदालत</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'अन्य अदालत'])}}" class="m-3 p-2">अन्य अदालत</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'स्थानीय तह'])}}" class="m-3 p-2">स्थानीय तह</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'निर्णय भइसकेको'])}}" class="m-3 p-2">निर्णय भइसकेको</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'अस्वीकार गरिएको'])}}" class="m-3 p-2">अस्वीकार गरिएको</a><br>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        वारिस
+                    </button>
+                  
+                    <div class="dropdown-menu">
+                        <a href="{{route('status.caseStatus',['status'=>'स्वयम'])}}" class="m-3 p-2">स्वयम</a> <br>
+                        <a href="{{route('status.caseStatus',['status'=>'स्व नियुक्ति'])}}" class="m-3 p-2">स्व नियुक्ति</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'BWAN'])}}" class="m-3 p-2">BWAN</a><br>
+                        <a href="{{route('status.caseStatus',['status'=>'अन्य'])}}" class="m-3 p-2">अन्य</a><br>
+                    </div>
+                </div>
+                
                 <form action="{{ route('report.search') }}" method="POST" class="form-inline">
                     @csrf
                     <div class="input-group data-search">
@@ -47,8 +105,8 @@
                     {{-- <a href="{{ route('cases.create') }}" class="btn btn-primary z-depth-0"> <i
                             class="fa fa-plus mr-2"></i>Add</a> --}}
 
-                    <button class="btn btn-primary z-depth-0" data-toggle="modal"
-                        data-target="#exampleModal">Generate report</button>
+                    <button class="btn btn-primary z-depth-0" data-toggle="modal" data-target="#exampleModal">Generate
+                        report</button>
                 </div>
             </div>
 
@@ -254,10 +312,12 @@
             <div class="modal-content" style="height: 80vh;">
 
                 <div style="heihtt:80vh; overflow: auto" id="my_data">
-                    <h2 class="mt-5" style="font-size:25pp; font-weight:bold;margin-left:22vw">DALIT WOMEN RIGHT FORUM (DWRF) NEPAL</h2>
+                    <h2 class="mt-5" style="font-size:25pp; font-weight:bold;margin-left:22vw">DALIT WOMEN
+                        RIGHT FORUM (DWRF) NEPAL</h2>
                     <h4 style="font-size:20pp;margin-left:35vw">Dhangadhi, Estd 2064</h4>
-                    <h5  for="" style="font-weight: normal;margin-left:40vw">मुद्दा अभिलेख</h5>
-                    <table class="table  mt-5"  border="1" style="border: 1px solid #f5f5f5; border-collapse: collapse;">
+                    <h5 for="" style="font-weight: normal;margin-left:40vw">मुद्दा अभिलेख</h5>
+                    <table class="table  mt-5" border="1"
+                        style="border: 1px solid #f5f5f5; border-collapse: collapse;">
 
                         <thead class="thead-light">
                             <tr>
@@ -342,7 +402,7 @@
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button class="btn btn-primary btnPrint" id="btnPrint"
-    onclick="report_print()">Print</button>
+        onclick="report_print()">Print</button>
 </div>
 
 </div>

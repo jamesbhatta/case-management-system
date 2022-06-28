@@ -50,8 +50,16 @@ class ReportController extends Controller
     
     public function dateFilter(Request $request,Cases $cases)
     {
-        $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->whereBetween('date', [$request->start, $request->end])->get();
+        $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->whereBetween('date', [$request->start, $request->end])->paginate(10);
         // return $cases;
-        return view('cases.manage', compact(['allCases','cases']));
+        return view('report.index', compact(['allCases','cases']));
     }
+
+    public function caseStatus(Request $key,Cases $cases)
+    {
+        // return $key;
+        $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->where('case_status', $key->status)->paginate(10);
+        return view('report.index', compact(['allCases','cases']));
+    }
+    
 }

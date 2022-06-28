@@ -48,6 +48,9 @@ Route::get('card/total', [CardController::class, 'total'])->name('cases.total');
 // Report
 Route::get('report', [ReportController::class, 'index'])->name('report.index');
 Route::post('report/search', [ReportController::class, 'search'])->name('report.search');
+Route::post('report/dateFilter', [ReportController::class, 'dateFilter'])->name('report.dateFilter');
+Route::get('status/{key}', [ReportController::class, 'caseStatus'])->name('status.caseStatus');
+
 
 // cases
 Route::get('cases', [CasesController::class, 'index'])->name('cases.index');
