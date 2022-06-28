@@ -33,8 +33,8 @@
                                 <div class="form-check mx-3">
                                     <input class="form-check-input sifaris" type="checkbox"
                                         @if ( $informToParty->info == 'सिफारिश'|| old('info')=="सिफारिश") checked @endif name="info" value="सिफारिश"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="sifaris">
+                                    <label class="form-check-label" for="sifaris">
                                         सिफारिश
                                     </label>
                                 </div>
@@ -42,48 +42,48 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox"
                                         @if ($informToParty->info == 'पत्रपत्रिका'|| old('info')=="पत्रपत्रिका") checked @endif name="info" value="पत्रपत्रिका"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="patrika">
+                                    <label class="form-check-label" for="patrika">
                                         पत्रपत्रिका
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox" name="info"
                                         @if ($informToParty->info == 'रेडियो'|| old('info')=="रेडियो") checked @endif value="रेडियो"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="radio">
+                                    <label class="form-check-label" for="radio">
                                         रेडियो
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox" name="info"
                                         @if ($informToParty->info == 'साथीभाई/नातेदार'|| old('info')=="साथीभाई/नातेदार") checked @endif value="साथीभाई/नातेदार"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="friends">
+                                    <label class="form-check-label" for="friends">
                                         साथीभाई/नातेदार
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox" name="info"
                                         @if ($informToParty->info == 'वेबसाइट'|| old('info')=="वेबसाइट") checked @endif value="वेबसाइट"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="website">
+                                    <label class="form-check-label" for="website">
                                         वेबसाइट
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox" name="info"
                                         @if ($informToParty->info == 'कार्यक्रम'|| old('info')=="कार्यक्रम") checked @endif value="कार्यक्रम"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="program">
+                                    <label class="form-check-label" for="program">
                                         कार्यक्रम
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox" name="info"
                                         @if ($informToParty->info == 'टिभी'|| old('info')=="टिभी") checked @endif value="टिभी"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="tv">
+                                    <label class="form-check-label" for="tv">
                                         टिभी
                                     </label>
                                 </div>
@@ -91,8 +91,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox" name="info"
                                         @if ($informToParty->info == 'सामाजिक संजाल'|| old('info')=="सामाजिक संजाल") checked @endif value="सामाजिक संजाल"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="social_media">
+                                    <label class="form-check-label" for="social_media">
                                         सामाजिक संजाल
                                     </label>
                                 </div>
@@ -100,8 +100,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox" name="info"
                                         @if ($informToParty->info == 'अन्य'|| old('info')=="अन्य") checked @endif value="अन्य"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="other">
+                                    <label class="form-check-label" for="other">
                                         अन्य
                                     </label>
                                 </div>
@@ -116,8 +116,8 @@
                                 <div class="form-check mx-3">
                                     <input class="form-check-input waris" name="heir_name" type="checkbox"
                                         @if ($informToParty->heir_name == 'स्वयम'||old('heir_name')=="स्वयम") checked @endif value="स्वयम"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="self">
+                                    <label class="form-check-label" for="self">
                                         स्वयम
                                     </label>
                                 </div>
@@ -125,24 +125,24 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input waris" name="heir_name" type="checkbox"
                                         @if ($informToParty->heir_name == 'स्व नियुक्ति'||old('heir_name')=="स्व नियुक्ति") checked @endif value="स्व नियुक्ति"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="self_hire">
+                                    <label class="form-check-label" for="self_hire">
                                         स्व नियुक्ति
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input waris" name="heir_name" type="checkbox"
                                         @if ($informToParty->heir_name == 'BWAN'||old('heir_name')=="BWAN") checked @endif value="BWAN"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="bwan">
+                                    <label class="form-check-label" for="bwan">
                                         BWAN
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input waris" name="heir_name" type="checkbox"
                                         @if ($informToParty->heir_name == 'अन्य'||old('heir_name')=="अन्य") checked @endif value="अन्य"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="others">
+                                    <label class="form-check-label" for="others">
                                         अन्य
                                     </label>
                                 </div>

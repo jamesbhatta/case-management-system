@@ -51,7 +51,7 @@ Route::post('report/search', [ReportController::class, 'search'])->name('report.
 Route::post('report/dateFilter', [ReportController::class, 'dateFilter'])->name('report.dateFilter');
 Route::get('status/{key}', [ReportController::class, 'caseStatus'])->name('status.caseStatus');
 Route::get('witness/{witness}', [ReportController::class, 'witness'])->name('witness.witness');
-Route::get('case-type/{type}', [ReportController::class, 'caseType'])->name('case-type.caseType');
+Route::get('type/{type}', [ReportController::class, 'caseType'])->name('type.caseType');
 
 
 // cases

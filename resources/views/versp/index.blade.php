@@ -34,8 +34,8 @@
                                 <div class="form-check mx-3">
                                     <input class="form-check-input my_checkbox" name="type" type="checkbox"
                                         @if ($versp->type == 'जन्म दर्ता') checked @endif value="जन्म दर्ता"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="dob">
+                                    <label class="form-check-label" for="dob">
                                         जन्म दर्ता
                                     </label>
                                 </div>
@@ -44,8 +44,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox" name="type" type="checkbox"
                                         @if ($versp->type == 'मृत्यु दर्ता') checked @endif value="मृत्यु दर्ता"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="dod">
+                                    <label class="form-check-label" for="dod">
                                         मृत्यु दर्ता
                                     </label>
                                 </div>
@@ -53,32 +53,32 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox" name="type" type="checkbox"
                                         @if ($versp->type == 'बसाई सराई दर्ता') checked @endif value="बसाई सराई दर्ता"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="basaisarai">
+                                    <label class="form-check-label" for="basaisarai">
                                         बसाई सराई दर्ता
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox" name="type" type="checkbox"
                                         @if ($versp->type == 'विवाह दर्ता') checked @endif value="विवाह दर्ता"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="dom">
+                                    <label class="form-check-label" for="dom">
                                         विवाह दर्ता
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox" name="type" type="checkbox"
                                         @if ($versp->type == 'सम्बन्ध बिछेद दर्ता') checked @endif value="सम्बन्ध बिछेद दर्ता"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="divorce">
+                                    <label class="form-check-label" for="divorce">
                                         सम्बन्ध बिछेद दर्ता
                                     </label>
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox" name="type" type="checkbox"
                                         @if ($versp->type == 'नागरिकता') checked @endif value="नागरिकता"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="nagrikta">
+                                    <label class="form-check-label" for="nagrikta">
                                         नागरिकता
                                     </label>
                                 </div>
@@ -86,8 +86,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox" name="type" type="checkbox"
                                         @if ($versp->type == 'अन्य') checked @endif value="अन्य"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="other">
+                                    <label class="form-check-label" for="other">
                                         अन्य
                                     </label>
                                 </div>
@@ -101,8 +101,8 @@
                                 <div class="form-check mx-3">
                                     <input class="form-check-input my_checkbox1" name="info" type="checkbox"
                                         @if ($versp->info == 'सिफारिश') checked @endif value="सिफारिश"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="sifaris">
+                                    <label class="form-check-label" for="sifaris">
                                         सिफारिश
                                     </label>
                                 </div>
@@ -111,8 +111,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox1" name="info" type="checkbox"
                                         @if ($versp->info == 'पत्रपत्रिका') checked @endif value="पत्रपत्रिका"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="news">
+                                    <label class="form-check-label" for="news">
                                         पत्रपत्रिका
                                     </label>
                                 </div>
@@ -120,8 +120,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox1" name="info" type="checkbox"
                                         @if ($versp->info == 'रेडियो') checked @endif value="रेडियो"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="radio">
+                                    <label class="form-check-label" for="radio">
                                         रेडियो
                                     </label>
                                 </div>
@@ -129,8 +129,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox1" name="info" type="checkbox"
                                         @if ($versp->info == 'साथीभाई/नातेदार') checked @endif value="साथीभाई/नातेदार"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="friends">
+                                    <label class="form-check-label" for="friends">
                                         साथीभाई/नातेदार
                                     </label>
                                 </div>
@@ -138,8 +138,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox1" name="info" type="checkbox"
                                         @if ($versp->info == 'वेबसाइट') checked @endif value="वेबसाइट"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="website">
+                                    <label class="form-check-label" for="website">
                                         वेबसाइट
                                     </label>
                                 </div>
@@ -147,8 +147,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox1" name="info" type="checkbox"
                                         @if ($versp->info == 'कार्यक्रम') checked @endif value="कार्यक्रम"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="program">
+                                    <label class="form-check-label" for="program">
                                         कार्यक्रम
                                     </label>
                                 </div>
@@ -156,8 +156,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox1" name="info" type="checkbox"
                                         @if ($versp->info == 'टिभी') checked @endif value="टिभी"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="tv">
+                                    <label class="form-check-label" for="tv">
                                         टिभी
                                     </label>
                                 </div>
@@ -165,8 +165,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox1" name="info" type="checkbox"
                                         @if ($versp->info == 'सामाजिक संजाल') checked @endif value="सामाजिक संजाल"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="social_media">
+                                    <label class="form-check-label" for="social_media">
                                         सामाजिक संजाल
                                     </label>
                                 </div>
@@ -174,8 +174,8 @@
                                 <div class="form-check mx-2">
                                     <input class="form-check-input my_checkbox1" name="info" type="checkbox"
                                         @if ($versp->info == 'अन्य') checked @endif value="अन्य"
-                                        id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                        id="othr">
+                                    <label class="form-check-label" for="othr">
                                         अन्य
                                     </label>
                                 </div>
