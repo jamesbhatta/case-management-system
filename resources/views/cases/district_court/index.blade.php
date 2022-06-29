@@ -42,13 +42,13 @@
                             
 
                         </div>
-                        <div class="col-lg-6 form-group">
+                        {{-- <div class="col-lg-6 form-group">
                             <label> सम्बन्धित कागजातहरू</label>
                             <input type="file" class="form-control p-3" style="height: 50px" name="document"
                                 value="{{ old('document',$consultation->document)}}">
 
-                        </div>
-                        <div class="col-lg-6 form-group">
+                        </div> --}}
+                        <div class="col-lg-12 form-group">
                             <label> अन्य संलग्न व्यक्तिहरु </label>
                             <input type="text" class="form-control p-4" name="related_people"
                                 value="{{  old('related_people',$consultation->related_people)}}">
