@@ -14,7 +14,7 @@
                         <th scope="col">मिति</th>
                         <th scope="col">अन्यन्त्र सिफारिश </th>
                         <th scope="col">अन्य संलग्न व्यक्तिहरु </th>
-                        <th scope="col">सम्बन्धित कागजातहरू</th>
+                        {{-- <th scope="col">सम्बन्धित कागजातहरू</th> --}}
                         <th></th>
                     </tr>
                 </thead>
@@ -25,8 +25,8 @@
                             <td>{{ $item->date }}</td>
                             <td>{{ $item->recomandation }}</td>
                             <td>{{ $item->related_people }}</td>
-                            <td><a href="{{ url('document') }}{{ '/' }}{{ $item->document }}"
-                                    class="btn btn-success">Download</a></td>
+                            {{-- <td><a href="{{ url('document') }}{{ '/' }}{{ $item->document }}"
+                                    class="btn btn-success">Download</a></td> --}}
                             <td>
                                 <a class="action-btn text-primary" href="{{ route('document.index', $item) }}">
                                     <i class="far fa-file"></i>
