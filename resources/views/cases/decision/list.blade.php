@@ -33,6 +33,9 @@
 
                             </td>
                             <td>
+                                <a class="action-btn text-primary" href="{{ route('document.index', $item) }}">
+                                    <i class="far fa-file"></i>
+                                </a>
                                 <a class="action-btn text-primary" href="{{ route('decision.edit', $item) }}"><i
                                         class="far fa-edit"></i></a>
                                 <form action="{{ route('decision.destroy', $item) }}" method="post"

@@ -28,6 +28,9 @@
                             <td><a href="{{ url('document') }}{{ '/' }}{{ $item->document }}"
                                     class="btn btn-success">Download</a></td>
                             <td>
+                                <a class="action-btn text-primary" href="{{ route('document.index', $item) }}">
+                                    <i class="far fa-file"></i>
+                                </a>
                                 <a class="action-btn text-primary" href="{{ route('judgement.edit', $item) }}"><i
                                         class="far fa-edit"></i></a>
                                 <form action="{{ route('judgement.destroy', $item) }}" method="post"
