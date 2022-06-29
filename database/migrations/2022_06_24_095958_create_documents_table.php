@@ -18,6 +18,7 @@ class CreateDocumentsTable extends Migration
             $table->unsignedBigInteger('consultations_id');
             $table->foreign('consultations_id')->references('id')->on('consultations')->onDelete('cascade');
             $table->string('document')->nullable();
+            $table->string('type');
             $table->timestamps();
         });
     }

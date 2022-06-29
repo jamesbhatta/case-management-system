@@ -35,6 +35,9 @@
                             {{-- <iframe src="" frameborder="0">view</iframe> --}}
 
                             <td>
+                                @php
+                                    $value="Bishal";
+                                @endphp
                                 <a class="action-btn text-primary" href="{{ route('document.index', $item) }}">
                                     <i class="far fa-file"></i>
                                 </a>

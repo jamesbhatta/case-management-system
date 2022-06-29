@@ -2,7 +2,7 @@
 @section('caseContent')
     <div class="card z-depth-0">
         <div class="card-body">
-            <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">परामर्श  सम्बन्धित कागजात</label>
+            <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">{{$value}}  सम्बन्धित कागजात</label>
             <div class="my-4">
                 <form action="{{route('document.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -16,7 +16,8 @@
 
                     </div>
                     <input type="hidden" name="consultations_id" value="{{$consultation->id}}">
-                    <input type="submit" name="" id="" class="btn btn-info" value="Submiit">
+                    <input type="hidden" name="type" value="{{$value}}">
+                    <input type="submit" name="" id="" class="btn btn-info" value="Upload">
 
                 </form>
 
@@ -27,9 +28,8 @@
 
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
         <div class="bg-light mt-3">
-            <label class="h3 font-weight-bold mt-3 mx-4">परामर्श सम्बन्धित कागजातहरू</label>
+            <label class="h3 font-weight-bold mt-3 mx-4">{{$value}} सम्बन्धित कागजातहरू</label>
 
-            <a href="{{ route('consultation.create', $cases) }}" class="btn btn-info float-right mx-5">Add</a>
         </div>
         <div class="overflow-auto">
             <table class="table bg-white">

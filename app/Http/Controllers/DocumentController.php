@@ -5,17 +5,27 @@ namespace App\Http\Controllers;
 use App\Cases;
 use App\Consultation;
 use App\Document;
+use Dotenv\Parser\Value;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File; 
 class DocumentController extends Controller
 {
     public function index(Document $document, Consultation $consultation)
     {
-        // return $consultation;
         $cases = Cases::where('id', $consultation->cases_id)->get()[0];
-        $documents=Document::where('consultations_id',$consultation->id)->get();
+        if($consultation->type=="pramarsh"){
+            $value="परामर्श";
+            $documents=Document::where('consultations_id',$consultation->id)->where('type','परामर्श')->get();
+            return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
+        } elseif($consultation->type=="sahajikaran"){
+            $value="सहजीकरण";
+            $documents=Document::where('consultations_id',$consultation->id)->where('type','सहजीकरण')->get();
+            return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
+        }
+       
+        
         // return $documents;
-        return view('document.index', compact(['document', 'cases', 'consultation','documents']));
+        
     }
 
     public function store(Request $request)
@@ -24,7 +34,8 @@ class DocumentController extends Controller
         $input = $request->validate([
 
             'document' => "required",
-            'consultations_id'=>"required"
+            'consultations_id'=>"required",
+            'type'=>"required",
         ]);
         if ($file = $request->file('document')) {
             // return "hello";
