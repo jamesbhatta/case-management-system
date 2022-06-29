@@ -1,5 +1,6 @@
 <?php
 
+use App\Document;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CasesController;
@@ -25,6 +26,7 @@ use App\Http\Controllers\VerspController;
 use App\Http\Controllers\PersonalDetailController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -214,6 +216,13 @@ Route::delete('consultation/{consultation}', [ConsultationController::class, 'de
 Route::get('consultation/{consultation}/edit', [ConsultationController::class, 'edit'])->name('consultation.edit');
 Route::put('consultation/{consultation}', [ConsultationController::class, 'update'])->name('consultation.update');
 
+// document
+Route::get('document/{consultation}', [DocumentController::class, 'index'])->name('document.index');
+// Route::post('documents', [DocumentController::class, 'store'])->name('documents.store');
+Route::post('document/store', 'DocumentController@store')->name('document.store');
+Route::get('document/{cases}/create', [DocumentController::class, 'create'])->name('document.create');
+Route::delete('document/{document}', [DocumentController::class, 'destroy'])->name('document.destroy');
+
 // versp 
 Route::get('versp', [VerspController::class, 'index'])->name('versp.index');
 Route::get('versp/create', [VerspController::class, 'create'])->name('versp.create');
@@ -231,6 +240,7 @@ Route::post('personal-detail/store', [PersonalDetailController::class, 'store'])
 Route::delete('personal-detail/{personalDetail}', [PersonalDetailController::class, 'destroy'])->name('personal-detail.destroy');
 Route::get('personal-detail/{personalDetail}/edit', [PersonalDetailController::class, 'edit'])->name('personal-detail.edit');
 Route::put('personal-detail/{personalDetail}', [PersonalDetailController::class, 'update'])->name('personal-detail.update');
+
 
 Route::get('change-password/{user}', 'UserPasswordController@form')->name('password.change.form');
 Route::put('change-password/{user}', 'UserPasswordController@change')->name('password.change');

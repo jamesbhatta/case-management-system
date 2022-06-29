@@ -12,12 +12,12 @@ class Cases extends Model
 
     protected static function booted()
     {
-        static::creating(function ($cases) {
-            $cases->fillAdDates();
+        static::creating(function ($case) {
+            $case->fillAdDates();
         });
 
-        static::updating(function ($cases) {
-            $cases->fillAdDates();
+        static::updating(function ($case) {
+            $case->fillAdDates();
         });
     }
 

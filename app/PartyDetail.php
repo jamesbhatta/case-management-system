@@ -38,6 +38,7 @@ class PartyDetail extends Model
 
     protected static function booted()
     {
+        
         static::creating(function ($partyDetail) {
             $partyDetail->fillAdDates();
         });
@@ -50,8 +51,8 @@ class PartyDetail extends Model
 
     public function fillAdDates()
     {
-        if ($this->date) {
-            $this->dob_ad = bs_to_ad($this->date);
+        if ($this->dob) {
+            $this->dob_ad = bs_to_ad($this->dob);
         }
     }
 }

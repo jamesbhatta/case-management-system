@@ -16,8 +16,8 @@
                         @else
                             <div class="col-lg-4 form-group">
                                 <label> मुद्दा नं.</label>
-                                <input type="text" class="form-control p-4" name="" value="{{ $cases->case_number }}"
-                                    disabled>
+                                <input type="text" class="form-control p-4" name=""
+                                    value="{{ $cases->case_number }}" disabled>
                                 <input type="hidden" class="form-control p-4" name="cases_id" value="{{ $cases->id }}">
                                 <input type="hidden" class="form-control p-4" name="type" value="pramarsh">
                             </div>
@@ -25,35 +25,41 @@
 
                         <div class="col-lg-4 form-group">
                             <label> मिति</label>
-                            <input type="text" name="date" id="input-fiscal-year-start" class="form-control fiscal-year-date p-4" value="{{ old('date', $consultation->date) }}" placeholder="Nepali YYYY-MM-DD">
+                            <input type="text" name="date" id="input-fiscal-year-start"
+                                class="form-control fiscal-year-date p-4" value="{{ old('date', $consultation->date) }}"
+                                placeholder="Nepali YYYY-MM-DD">
 
                         </div>
                         <div class="col-lg-4 form-group">
                             <label> अन्यन्त्र सिफारिश </label>
                             <input type="text" class="form-control p-4" name="recomandation"
-                                value="{{old('recomandation',$consultation->recomandation)}}">
+                                value="{{ old('recomandation', $consultation->recomandation) }}">
 
                         </div>
                         <div class="col-lg-12 form-group">
                             <label> विवरण</label>
                             <textarea class="form-control" name="description" id="" cols="30" rows="10">
-                                {{old('description',$consultation->description)}}
+                                {{ old('description', $consultation->description) }}
                             </textarea>
-                            
+
 
                         </div>
-                        <div class="col-lg-6 form-group">
+                        {{-- <div class="col-lg-6 form-group">
                             <label> सम्बन्धित कागजातहरू</label>
                             <input type="file" class="form-control p-3" style="height: 50px" name="document"
-                                value="{{ old('document',$consultation->document)}}">
+                                value="{{ old('document', $consultation->document) }}">
 
-                        </div>
-                        <div class="col-lg-6 form-group">
+                        </div> --}}
+                        <div class="col-lg-12 form-group">
                             <label> अन्य संलग्न व्यक्तिहरु </label>
                             <input type="text" class="form-control p-4" name="related_people"
-                                value="{{  old('related_people',$consultation->related_people)}}">
+                                value="{{ old('related_people', $consultation->related_people) }}">
 
                         </div>
+                        {{-- <div class="col-lg-6 form-group">
+                            
+                            <a href="#" class="btn btn-info">सम्बन्धित कागजातहरू थप्नुहोस्</a>
+                        </div> --}}
                     </div>
                     <input type="submit" name="" id="" class="btn btn-info" value="Submiit">
 
@@ -66,14 +72,12 @@
     </div>
 @endsection
 @push('scripts')
-<script>
-    $(function() {
-        if ($('.fiscal-year-date')[0]) {
-            $('.fiscal-year-date').nepaliDatePicker({});
-        }
+    <script>
+        $(function() {
+            if ($('.fiscal-year-date')[0]) {
+                $('.fiscal-year-date').nepaliDatePicker({});
+            }
 
-    })
-
-</script>
+        })
+    </script>
 @endpush
-
