@@ -31,7 +31,7 @@
             </ul>
         </li>
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a href="#versp" data-toggle="collapse" aria-expanded="false"
                 class="dropdown-toggle collapsed nav-link"><span class="text-default"><i
                         class="fas fa-tools"></i></span>VERSP</a>
@@ -45,7 +45,7 @@
               
 
             </ul>
-        </li>
+        </li> --}}
 
 
 

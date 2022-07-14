@@ -54,29 +54,36 @@
                     </div>
                 </div>
 
-                
+
 
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         मुद्दाको स्थिति
                     </button>
-                  
+
                     <div class="dropdown-menu">
                         <a href="{{route('status.caseStatus',['key'=>'परामर्श'])}}" class="m-3 p-2">परामर्श</a> <br>
-                        <a href="{{route('status.caseStatus',['key'=>'सहजीकरण'])}}" class="m-3 p-2">सहजीकरण</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'मस्यौदा'])}}" class="m-3 p-2">मस्यौदा</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'बहस'])}}" class="m-3 p-2">बहस</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'मेलमिलाप'])}}" class="m-3 p-2">मेलमिलाप</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'फैसला कार्यान्वयन'])}}" class="m-3 p-2">फैसला कार्यान्वयन</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'प्रहरी कार्यालय'])}}" class="m-3 p-2">प्रहरी कार्यालय</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'जिल्ला अदालत'])}}" class="m-3 p-2">जिल्ला अदालत</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'उच्च अदालत'])}}" class="m-3 p-2">उच्च अदालत</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'सर्वोच्च अदालत'])}}" class="m-3 p-2">सर्वोच्च अदालत</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'अन्य अदालत'])}}" class="m-3 p-2">अन्य अदालत</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'स्थानीय तह'])}}" class="m-3 p-2">स्थानीय तह</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'निर्णय भइसकेको'])}}" class="m-3 p-2">निर्णय भइसकेको</a><br>
-                        <a href="{{route('status.caseStatus',['key'=>'अस्वीकार गरिएको'])}}" class="m-3 p-2">अस्वीकार गरिएको</a><br>
+                        {{-- <a href="#" class="m-3 p-2" onclick="appendCaseStstus('परामर्श')">परामर्श</a> <br> --}}
+                        <a href="{{ route('status.caseStatus', ['key' => 'सहजीकरण']) }}" class="m-3 p-2">सहजीकरण</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'मस्यौदा']) }}" class="m-3 p-2">मस्यौदा</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'बहस']) }}" class="m-3 p-2">बहस</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'मेलमिलाप']) }}" class="m-3 p-2">मेलमिलाप</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'फैसला कार्यान्वयन']) }}" class="m-3 p-2">फैसला
+                            कार्यान्वयन</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'प्रहरी कार्यालय']) }}" class="m-3 p-2">प्रहरी
+                            कार्यालय</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'जिल्ला अदालत']) }}" class="m-3 p-2">जिल्ला
+                            अदालत</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'उच्च अदालत']) }}" class="m-3 p-2">उच्च अदालत</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'सर्वोच्च अदालत']) }}" class="m-3 p-2">सर्वोच्च
+                            अदालत</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'अन्य अदालत']) }}" class="m-3 p-2">अन्य अदालत</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'स्थानीय तह']) }}" class="m-3 p-2">स्थानीय तह</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'निर्णय भइसकेको']) }}" class="m-3 p-2">निर्णय
+                            भइसकेको</a><br>
+                        <a href="{{ route('status.caseStatus', ['key' => 'अस्वीकार गरिएको']) }}" class="m-3 p-2">अस्वीकार
+                            गरिएको</a><br>
                     </div>
                 </div>
 
@@ -85,13 +92,14 @@
                         aria-haspopup="true" aria-expanded="false">
                         वारिस
                     </button>
-                  
+
                     <div class="dropdown-menu">
-                        <a href="{{route('witness.witness',['witness'=>'स्वयम'])}}" class="m-3 p-2">स्वयम</a> <br>
-                        <a href="{{route('witness.witness',['witness'=>'स्व नियुक्ति'])}}" class="m-3 p-2">स्व नियुक्ति </a><br>
-                        <a href="{{route('witness.witness',['witness'=>'BWAN'])}}" class="m-3 p-2">BWAN</a><br>
-                        <a href="{{route('witness.witness',['witness'=>'अन्य'])}}" class="m-3 p-2">अन्य</a><br>
-                       
+                        <a href="{{ route('witness.witness', ['witness' => 'स्वयम']) }}" class="m-3 p-2">स्वयम</a> <br>
+                        <a href="{{ route('witness.witness', ['witness' => 'स्व नियुक्ति']) }}" class="m-3 p-2">स्व नियुक्ति
+                        </a><br>
+                        <a href="{{ route('witness.witness', ['witness' => 'BWAN']) }}" class="m-3 p-2">BWAN</a><br>
+                        <a href="{{ route('witness.witness', ['witness' => 'अन्य']) }}" class="m-3 p-2">अन्य</a><br>
+
                     </div>
                 </div>
 
@@ -100,23 +108,30 @@
                         aria-haspopup="true" aria-expanded="false">
                         मुद्दको किसिम
                     </button>
-                  
+
                     <div class="dropdown-menu" style="width: 180px">
-                        <a href="{{route('type.caseType',['type'=>'नागरिकता'])}}" class="m-3 p-2">नागरिकता</a> <br>
-                        <a href="{{route('type.caseType',['type'=>'व्यक्तिगत घटना'])}}" class="m-3 p-2">व्यक्तिगत घटना</a><br>
-                        <a href="{{route('type.caseType',['type'=>'मानव बेचबिखन'])}}" class="m-3 p-2">मानव बेचबिखन</a><br>
-                        <a href="{{route('type.caseType',['type'=>'यौनजन्य हिंसा'])}}" class="m-3 p-2">यौनजन्य हिंसा</a><br>
-                        <a href="{{route('type.caseType',['type'=>'लैंगिक हिंसा'])}}" class="m-3 p-2">लैंगिक हिंसा</a><br>
-                        <a href="{{route('type.caseType',['type'=>'घरेलु हिंसा'])}}" class="m-3 p-2">घरेलु हिंसा</a><br>
-                        <a href="{{route('type.caseType',['type'=>'सम्पत्ति'])}}" class="m-3 p-2">सम्पत्ति</a><br>
-                        <a href="{{route('type.caseType',['type'=>'रिट'])}}" class="m-3 p-2">रिट</a><br>
-                        <a href="{{route('type.caseType',['type'=>'सम्बन्ध विच्छेद'])}}" class="m-3 p-2">सम्बन्ध विच्छेद</a><br>
-                        <a href="{{route('type.caseType',['type'=>'न्यायिक पुनरावलोकन'])}}" class="m-3 p-2">न्यायिक पुनरावलोकन</a><br>
-                        <a href="{{route('type.caseType',['type'=>'अन्य'])}}" class="m-3 p-2">अन्य</a><br>
-                       
+                        <a href="{{ route('type.caseType', ['type' => 'नागरिकता']) }}" class="m-3 p-2">नागरिकता</a> <br>
+                        <a href="{{ route('type.caseType', ['type' => 'व्यक्तिगत घटना']) }}" class="m-3 p-2">व्यक्तिगत
+                            घटना</a><br>
+                        <a href="{{ route('type.caseType', ['type' => 'मानव बेचबिखन']) }}" class="m-3 p-2">मानव
+                            बेचबिखन</a><br>
+                        <a href="{{ route('type.caseType', ['type' => 'यौनजन्य हिंसा']) }}" class="m-3 p-2">यौनजन्य
+                            हिंसा</a><br>
+                        <a href="{{ route('type.caseType', ['type' => 'लैंगिक हिंसा']) }}" class="m-3 p-2">लैंगिक
+                            हिंसा</a><br>
+                        <a href="{{ route('type.caseType', ['type' => 'घरेलु हिंसा']) }}" class="m-3 p-2">घरेलु
+                            हिंसा</a><br>
+                        <a href="{{ route('type.caseType', ['type' => 'सम्पत्ति']) }}" class="m-3 p-2">सम्पत्ति</a><br>
+                        <a href="{{ route('type.caseType', ['type' => 'रिट']) }}" class="m-3 p-2">रिट</a><br>
+                        <a href="{{ route('type.caseType', ['type' => 'सम्बन्ध विच्छेद']) }}" class="m-3 p-2">सम्बन्ध
+                            विच्छेद</a><br>
+                        <a href="{{ route('type.caseType', ['type' => 'न्यायिक पुनरावलोकन']) }}" class="m-3 p-2">न्यायिक
+                            पुनरावलोकन</a><br>
+                        <a href="{{ route('type.caseType', ['type' => 'अन्य']) }}" class="m-3 p-2">अन्य</a><br>
+
                     </div>
                 </div>
-                
+
                 <form action="{{ route('report.search') }}" method="POST" class="form-inline">
                     @csrf
                     <div class="input-group data-search">
@@ -330,14 +345,15 @@
 </div>
 </div> --}}
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="position: absolute;width:80vw;">
         <div style="width: 80vw;margin-left:10vw;margin-top:10vh">
             <div class="modal-content" style="height: 80vh;">
 
                 <div style="heihtt:80vh; overflow: auto" id="my_data">
-                    <h2 class="mt-5" style="font-size:25pp; font-weight:bold;margin-left:22vw">DALIT WOMEN
+                    <h2 class="mt-5" style="font-size:25pp; font-weight:bold;margin-left:22vw">DALIT
+                        WOMEN
                         RIGHT FORUM (DWRF) NEPAL</h2>
                     <h4 style="font-size:20pp;margin-left:35vw">Dhangadhi, Estd 2064</h4>
                     <h5 for="" style="font-weight: normal;margin-left:40vw">मुद्दा अभिलेख</h5>
@@ -382,6 +398,7 @@
                                 @endif
 
                                 @if ($item->oppositParty->count() > 0)
+                                    परामर्श
                                     @foreach ($item->oppositParty as $item1)
                                         <td>{{ $item1->first_name }} {{ $item1->middle_name }}
                                             {{ $item1->last_name }}
@@ -449,6 +466,12 @@
         WinPrint.focus();
         WinPrint.print();
         WinPrint.close();
+    }
+
+    function appendCaseStstus(status) {
+        const url = new URL(window.location.href);
+        document.location.search =url.searchParams.append('x','lkj');
+        console.log(newUrl.search);
     }
 </script>
 @endsection
