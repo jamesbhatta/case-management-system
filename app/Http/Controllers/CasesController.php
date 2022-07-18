@@ -23,6 +23,8 @@ class CasesController extends Controller
             'case_number' => "required",
             'date' => "required",
             'case_status' => "required",
+            'case_type'=>'required',
+            'inform_to_org'=>"required"
         ]));
 
         return redirect()->back()->with('success', "मुद्दा सफलतापूर्वक दर्ता भयो");
@@ -46,6 +48,8 @@ class CasesController extends Controller
             'case_number' => "required",
             'date' => "required",
             'case_status' => "required",
+            'case_type'=>'required',
+            'inform_to_org'=>"required"
         ]));
         return redirect()->back()->with('success',"मुद्दा सफलतापूर्वक अपडेट भयो");
     }

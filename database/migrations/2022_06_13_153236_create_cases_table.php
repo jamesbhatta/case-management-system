@@ -19,6 +19,8 @@ class CreateCasesTable extends Migration
             $table->string('date');
             $table->date('date_ad')->nullable();
             $table->string('case_status');
+            $table->string('case_type');
+            $table->string('inform_to_org');
             $table->timestamps();
         });
     }
