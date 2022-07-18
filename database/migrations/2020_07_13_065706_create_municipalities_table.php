@@ -17,7 +17,7 @@ class CreateMunicipalitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('name_en');
-            $table->integer('area');
+            $table->string('area');
             $table->integer('number');
             $table->foreignId('district_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
