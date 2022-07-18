@@ -2,7 +2,12 @@
 @section('caseContent')
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
         <div class="bg-light mt-3">
-            <label class="h3 font-weight-bold mt-3 mx-4">पक्षको विवरणहरू</label>
+            <label class="h3 font-weight-bold mt-3 mx-4">पक्षको विवरणहरू
+                
+            </label>
+            (<b>Case Number</b>:{{$cases->case_number}})
+            (<b>Case Type</b>:{{$cases->case_type}})
+            (<b>Case Status</b>:{{$cases->case_status}})
             <a href="{{ route('partydetail.create', $cases) }}" class="btn btn-info float-right mx-5">Add</a>
         </div>
         <div class="overflow-auto">
