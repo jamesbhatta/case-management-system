@@ -50,7 +50,8 @@
                             
                             <td>
                                 @if ($item->document)
-                                    <a href="{{ url('document') }}{{ '/' }}{{ $item->document }}" style="height: 20pc;width:30px"><i class="fa fa-download" aria-hidden="true"></i></a>
+                                {{-- <a href="{{ url('storage/app/documents/'.$item->document) }}">Download</a> --}}
+                                    <a href="{{ Storage::url($item->document)}}" style="height: 20px;width:30px"><i class="fa fa-download" aria-hidden="true"></i></a>
                                 @endif
 
                             </td>
