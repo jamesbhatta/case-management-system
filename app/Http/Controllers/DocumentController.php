@@ -7,7 +7,9 @@ use App\Consultation;
 use App\Document;
 use Dotenv\Parser\Value;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
 class DocumentController extends Controller
 {
     public function index(Document $document, Consultation $consultation)
@@ -83,20 +85,23 @@ class DocumentController extends Controller
     public function store(Request $request)
     {
         // return $request;
-        $input = $request->validate([
+        $datas = $request->validate([
 
             'document' => "required",
             'consultations_id'=>"required",
             'type'=>"required",
         ]);
-        if ($file = $request->file('document')) {
-            // return "hello";
-            $filePath = 'document/';
-            $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($filePath, $Document);
-            $input['document'] = "$Document";
+        // if ($file = $request->file('document')) {
+        //     // return "hello";
+        //     $filePath = 'document/';
+        //     $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
+        //     $file->move($filePath, $Document);
+        //     $input['document'] = "$Document";
+        // }
+        if ($request->hasFile('document')) {
+            $datas['document'] = $request->file('document')->store('documents');
         }
-        Document::create($input);
+        Document::create($datas);
         // $cases = Cases::where('id', $request->cases_id)->get()[0];
 
         return redirect()->back()->with('success', "Added");
@@ -105,8 +110,11 @@ class DocumentController extends Controller
     public function destroy(Document $document)
     {
         // return $document;
-        $filePath = 'document/';
-        File::delete($filePath.$document->document);
+        // $filePath = 'document/';
+        // File::delete($filePath.$document->document);
+        // $document->delete();
+        // return $document->document;
+        Storage::delete($document->document);
         $document->delete();
         return redirect()->back()->with('success',"Removed");
     }
