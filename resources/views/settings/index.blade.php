@@ -55,7 +55,7 @@
         @endcomponent
 
         {{-- Municipality Letter Section --}}
-        @component('settings.group', [
+        {{-- @component('settings.group', [
         'title'=> 'Municipality Letter',
         'description' => 'The values to be used in the letters written by municipality'
         ])
@@ -117,74 +117,13 @@
             ])
             @endcomponent
         </div>
-        @endcomponent
+        @endcomponent --}}
 
         {{-- Form Defaults Section --}}
-        @component('settings.group', [
-        'title'=> 'Form Defaults',
-        'description' => 'The following vales will be automatically filled in a new form'
-        ])
-        {{-- State --}}
-        <label class="font-weight-bolder">प्रदेश</label>
-        <select name="default_province_id" class="custom-select">
-            <option value="">OFF</option>
-            @foreach ($provinces as $province)
-            <option value="{{ $province->id }}" @if($province->id == settings()->get('default_province_id')) selected @endif>
-                {{ $province->name }}
-            </option>
-            @endforeach
-        </select>
-        <div class="my-3"></div>
-        {{-- District --}}
-        <div>
-            <label class="font-weight-bolder">जिल्ला</label>
-            <select name="default_district_id" class="custom-select">
-                <option value="">OFF</option>
-                @foreach ($districts as $district)
-                <option value="{{ $district->id }}" @if($district->id == settings()->get('default_district_id')) selected @endif>
-                    {{ $district->name }}
-                </option>
-                @endforeach
-            </select>
-        </div>
-        <div class="my-3"></div>
-        {{-- Municipality --}}
-        <div>
-            <label class="font-weight-bolder">न.पा./गा.वि.स.</label>
-            <select name="default_municipality_id" class="custom-select">
-                <option value="">OFF</option>
-                @foreach ($municipalities as $municipality)
-                <option value="{{ $municipality->id }}" @if($municipality->id == settings()->get('default_municipality_id')) selected @endif>
-                    {{ $municipality->name }}
-                </option>
-                @endforeach
-            </select>
-        </div>
-        @endcomponent
-
-        @component('settings.group', [
-        'title'=> 'Letter Settings',
-        'description' => ''
-        ])
-        @component('settings.input', [
-        'label' => 'Font Size in pixels',
-        'name' => 'letter_font_size',
-        'description' => ''
-        ])
-        @endcomponent
-        <div class="my-3"></div>
-        @component('settings.input', [
-        'label' => 'Additional Head Scripts',
-        'name' => 'letter_head_scripts',
-        'description' => '',
-        'type' => 'textarea'
-        ])
-        @endcomponent
-        @endcomponent
-
+{{--         
         <div class="form-group">
             <button type="submit" class="btn btn-indigo font-17px font-noto z-depth-0">Save</button>
-        </div>
+        </div> --}}
 
     </form>
 </div>
