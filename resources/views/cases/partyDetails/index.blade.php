@@ -21,8 +21,8 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*मुद्दा नं.</label>
-                            <input type="text" class="form-control p-4" style=""
-                                value="{{ $cases->case_number }}" disabled>
+                            <input type="text" class="form-control p-4" style="" value="{{ $cases->case_number }}"
+                                disabled>
                             <input type="hidden" name="cases_id" value="{{ $cases->id }}">
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
@@ -41,14 +41,20 @@
                                 value="{{ old('last_name', $partyDetail->last_name) }}">
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                            <label>*जन्म मिति </label>
+                            <label>*जन्म मिति(BS) </label>
                             <input type="text" name="dob" id="input-fiscal-year-start"
                                 class=" nepali-date form-control p-4" placeholder="Nepali YYYY-MM-DD"
                                 value="{{ old('dob', $partyDetail->dob) }}">
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
+                            <label>*जन्म मिति(AD) </label>
+                            <input type="date" name="dob" class="form-control p-4" placeholder="YYYY-MM-DD" id="dob"
+                                onchange="ageCalculate()" value="{{ old('dob', $partyDetail->dob) }}">
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*उमेर</label>
-                            <input type="number" class="form-control p-4" name="age"
+                            <input type="number" class="form-control p-4" name="age" id="myage"
                                 value="{{ old('age', $partyDetail->age) }}">
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
@@ -223,3 +229,31 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        function ageCalculate() {
+            
+            var today = new Date();
+            
+            var dob=document.getElementById("dob").value;
+            var d = new Date( dob );
+            var y1=d.getFullYear();
+            var m1=d.getMonth();
+            var d1=d.getDate();
+            
+            
+            var y2 = today.getFullYear();
+            var m2 = today.getMonth();
+            var m3 = today.getDate();
+            
+            if(m1>m2){
+                m2=m2+12;
+                y2=y2-1;
+            }
+
+            var year=y2-y1;
+            document.getElementById("myage").value=year;
+        }
+    </script>
+@endpush
