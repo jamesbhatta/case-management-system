@@ -108,7 +108,7 @@
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>*सम्पर्क नम्बर </label>
-                        <input type="text" class="form-control p-4" name="contact"
+                        <input type="text" class="form-control p-4" name="contact" maxlength="10"
                             value="{{ old('contact', $oppositParty->contact) }}">
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 form-group">
@@ -148,12 +148,12 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                         <label>*शिक्षा</label>
                         <select name="education" id="" class="form-control" style="height:50px">
-                            <option value="" disabled selected>कृपया जाति चयन गर्नुहोस्</option>
+                            <option value="" disabled selected>कृपया शिक्षा चयन गर्नुहोस्</option>
                             @isset($oppositParty->id)
                                 <option value="{{ $oppositParty->education }}" selected>
                                     {{ $oppositParty->education }}</option>
                             @endisset
-                            <option value="असाक्षर"@if (old('education')=="असाक्षर")selected @endif>असाक्षर</option>
+                            <option value="असाक्षर"@if (old('education')=="र्निरक्षर")selected @endif>र्निरक्षर</option>
                             <option value="साक्षर"@if (old('education')=="साक्षर")selected @endif>साक्षर</option>
                             <option value="माध्यमिक तह "@if (old('education')=="माध्यमिक तह")selected @endif>माध्यमिक तह </option>
                             <option value="एस.एल.सी"@if (old('education')=="एस.एल.सी")selected @endif>एस.एल.सी</option>
