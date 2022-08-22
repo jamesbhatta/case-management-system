@@ -83,8 +83,7 @@
                                 @endisset
                                 <option value="विवाहित" @if (old('marrige_status') == 'विवाहित') selected @endif>विवाहित</option>
                                 <option value="अविवाहित" @if (old('marrige_status') == 'अविवाहित') selected @endif>अविवाहित</option>
-                                <option value="सम्बन्ध बिछेदी" @if (old('marrige_status') == 'सम्बन्ध बिछेदी') selected @endif>सम्बन्ध
-                                    विच्छेद</option>
+                                <option value="सम्बन्ध बिछेदी" @if (old('marrige_status') == 'सम्बन्ध बिछेदी') selected @endif>सम्बन्ध विच्छेद</option>
                                 <option value="एकल" @if (old('marrige_status') == 'एकल') selected @endif>एकल</option>
                                 <option value="संगै बसेको" @if (old('marrige_status') == 'संगै बसेको') selected @endif>संगै बसेको
                                 </option>
@@ -99,7 +98,7 @@
                                     <option value="{{ $partyDetail->district }}" selected>
                                         {{ $partyDetail->district }}</option>
                                 @else
-                                    <option value="">प्रदेश छान्नुहोस्</option>
+                                    <option value="">जिल्ला छान्नुहोस्</option>
                                 @endisset
                                 @foreach ($districts as $district)
                                     <option value="{{ $district->name }}">{{ $district->name }}</option>
@@ -115,7 +114,7 @@
                                     <option value="{{ $partyDetail->municipality }}" selected>
                                         {{ $partyDetail->municipality }}</option>
                                 @else
-                                    <option value="">प्रदेश छान्नुहोस्</option>
+                                    <option value="">नगरपालिका/गाउँपालिका छान्नुहोस्</option>
                                 @endisset
                                 @foreach ($districts as $district)
                                     {{-- <option value="">{{$district->municipalities}}</option> --}}
