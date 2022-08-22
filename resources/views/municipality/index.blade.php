@@ -76,7 +76,6 @@
                     <tr>
                         <th>क्र.स.</th>
                         <th>न.पा./गा.वि.स.</th>
-                        <th>न.पा./गा.वि.स. को छेत्रफल</th>
                         <th>न.पा./गा.वि.स. वार्ड सांख्य</th>
                         <th>जिल्ला</th>
                     </tr>
@@ -86,7 +85,6 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $municipality->name }}</td>
-                        <td>{{ $municipality->area }}</td>
                         <td>{{ $municipality->number }}</td>
                         <td>{{ $municipality->district->name ?? '' }}</td>
                         <td>
