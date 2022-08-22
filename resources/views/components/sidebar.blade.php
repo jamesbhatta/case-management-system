@@ -18,13 +18,13 @@
                 @hasanyrole('super-admin|admin')
                     <li class="nav-item sub-nav">
                         <a class="nav-link" href="{{ route('cases.create') }}"><span class="mx-3"><i
-                                    class="fas fa-circle"></i></span>Add</a>
+                                    class="fas fa-circle"></i></span>थप्नुहोस्</a>
                     </li>
                 @endhasanyrole
                 @hasanyrole('super-admin|admin')
                     <li class="nav-item sub-nav">
                         <a class="nav-link" href="{{ route('cases.index') }}"><span class="mx-3"><i
-                                    class="fas fa-circle"></i></span>Manage</a>
+                                    class="fas fa-circle"></i></span>व्यवस्थापन</a>
                     </li>
                 @endhasanyrole
 

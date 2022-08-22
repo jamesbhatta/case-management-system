@@ -48,8 +48,8 @@
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*जन्म मिति(AD) </label>
-                            <input type="date" name="dob" class="form-control p-4" placeholder="YYYY-MM-DD" id="dob"
-                                onchange="ageCalculate()" value="{{ old('dob', $partyDetail->dob) }}">
+                            <input type="date" name="dob" class="form-control p-4" placeholder="YYYY-MM-DD"
+                                id="dob" onchange="ageCalculate()" value="{{ old('dob', $partyDetail->dob) }}">
                         </div>
 
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
@@ -60,10 +60,12 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*लिङ्ग</label>
                             <select name="gender" id="" class="form-control" style="height: 50px">
-                                <option value="" selected>कृपया लिङ्ग चयन गर्नुहोस्</option>
+
                                 @isset($partyDetail->id)
                                     <option value="{{ $partyDetail->gender }}" selected>
                                         {{ $partyDetail->gender }}</option>
+                                @else
+                                    <option value="" selected>कृपया लिङ्ग चयन गर्नुहोस्</option>
                                 @endisset
                                 <option value="महिला" @if (old('gender') == 'महिला') selected @endif>महिला</option>
                                 <option value="पुरुष" @if (old('gender') == 'पुरुष') selected @endif>पुरुष</option>
@@ -82,40 +84,47 @@
                                 <option value="विवाहित" @if (old('marrige_status') == 'विवाहित') selected @endif>विवाहित</option>
                                 <option value="अविवाहित" @if (old('marrige_status') == 'अविवाहित') selected @endif>अविवाहित</option>
                                 <option value="सम्बन्ध बिछेदी" @if (old('marrige_status') == 'सम्बन्ध बिछेदी') selected @endif>सम्बन्ध
-                                    बिछेदी</option>
+                                    विच्छेद</option>
                                 <option value="एकल" @if (old('marrige_status') == 'एकल') selected @endif>एकल</option>
                                 <option value="संगै बसेको" @if (old('marrige_status') == 'संगै बसेको') selected @endif>संगै बसेको
                                 </option>
                             </select>
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                            <label>*जिल्ला </label>
-                            <select name="district" id="" class="form-control" style="height: 50px">
-                                <option value="" disabled selected>कृपया जिल्ला चयन गर्नुहोस्</option>
+
+
+                        <div class="form-group col-xl-3 col-lg-4 col-md-6">
+                            <label for="select-district-id">*जिल्ला</label>
+                            <select id="select-district-id" class="custom-select" name="district" style="height: 50px">
                                 @isset($partyDetail->id)
                                     <option value="{{ $partyDetail->district }}" selected>
                                         {{ $partyDetail->district }}</option>
+                                @else
+                                    <option value="">प्रदेश छान्नुहोस्</option>
                                 @endisset
-                                @foreach ($districts as $item)
-                                    <option value="{{ $item->name }}" @if (old('district') == $item->name) selected @endif>
-                                        {{ $item->name }}</option>
+                                @foreach ($districts as $district)
+                                    <option value="{{ $district->name }}">{{ $district->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group col-xl-3 col-lg-4 col-md-6">
+                            <label for="select-municipality-id">*नगरपालिका/गाउँपालिका</label>
+                            <select name="municipality" id="select-municipality-id" class="custom-select"
+                                style="height: 50px">
 
-                        <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                            <label>*नगरपालिका/गाउपालिका </label>
-                            <select name="municipality" id="" class="form-control" style="height: 50px">
-                                <option value="" disabled selected>कृपया नगरपालिका/गाउपालिका चयन
-                                    गर्नुहोस्
-                                </option>
                                 @isset($partyDetail->id)
                                     <option value="{{ $partyDetail->municipality }}" selected>
                                         {{ $partyDetail->municipality }}</option>
+                                @else
+                                    <option value="">प्रदेश छान्नुहोस्</option>
                                 @endisset
-                                @foreach ($municipalities as $item)
-                                    <option value="{{ $item->name }}" @if (old('municipality') == $item->name) selected @endif>
-                                        {{ $item->name }}</option>
+                                @foreach ($districts as $district)
+                                    {{-- <option value="">{{$district->municipalities}}</option> --}}
+                                    @foreach ($district->municipalities as $item)
+                                        <option value="{{ $item->name }}"
+                                            data-municipality-name="{{ $district->name }}">{{ $item->name }}</option>
+                                        {{-- <option value="{{ $district->id }}" data-province-id="{{ $province->id }}">
+                                            {{ $district->name }}</option> --}}
+                                    @endforeach
                                 @endforeach
                             </select>
                         </div>
@@ -159,7 +168,7 @@
                                         {{ $partyDetail->religion }}</option>
                                 @endisset
                                 <option value="हिन्दु" @if (old('religion') == 'हिन्दु') selected @endif>हिन्दु</option>
-                                <option value="मुसलमान" @if (old('religion') == 'मुसलमान') selected @endif>मुसलमान
+                                <option value="मुस्लिम" @if (old('religion') == 'मुस्लिम') selected @endif>मुस्लिम
                                 </option>
                                 <option value="क्रिस्चियन" @if (old('religion') == 'क्रिस्चियन') selected @endif>क्रिस्चियन
                                 </option>
@@ -182,12 +191,13 @@
                                     तह </option>
                                 <option value="एस.एल.सी" @if (old('education') == 'एस.एल.सी') selected @endif>एस.एल.सी
                                 </option>
-                                <option value="Intermediate" @if (old('education') == 'Intermediate') selected @endif>
-                                    Intermediate</option>
+                                <option value="मध्यवर्ती" @if (old('education') == 'मध्यवर्ती') selected @endif>
+                                    मध्यवर्ती</option>
                                 <option value="स्नातक" @if (old('education') == 'स्नातक') selected @endif>स्नातक</option>
-                                <option value="Masters" @if (old('education') == 'Masters') selected @endif>Masters
+                                <option value="स्नातकोत्तर" @if (old('education') == 'स्नातकोत्तर') selected @endif>स्नातकोत्तर
                                 </option>
-                                <option value="PHD" @if (old('education') == 'PHD') selected @endif>PHD</option>
+                                <option value="पी.एच.डी." @if (old('education') == 'पी.एच.डी.') selected @endif>पी.एच.डी.
+                                </option>
                             </select>
                         </div>
 
@@ -211,12 +221,12 @@
                             <input type="number" class="form-control p-4" name="family_number"
                                 value="{{ old('family_number', $partyDetail->family_number) }}">
                         </div>
-                        <div class="col-xl-6  form-group">
+                        <div class="col-xl-3 col-lg-4 col-md-6  form-group">
                             <label>*परिवारमा अपाङ्गता भएका व्यक्तिहरूको सङ्ख्या</label>
                             <input type="number" class="form-control p-4" name="disable_family_number"
                                 value="{{ old('disable_family_number', $partyDetail->disable_family_number) }}">
                         </div>
-                        <div class="col-xl-4 form-group">
+                        <div class="col-xl-4 form-group mt-4">
 
                             <input type="submit" name="" id="" class="btn btn-info"
                                 value="सेभ गर्नुहोस्">
@@ -232,28 +242,37 @@
 
 @push('scripts')
     <script>
+        $(function() {
+
+            $('#select-district-id').change(function() {
+
+                filterOptions($(this).val(), '#select-municipality-id option', 'municipality-name');
+            });
+
+        });
+
         function ageCalculate() {
-            
+
             var today = new Date();
-            
-            var dob=document.getElementById("dob").value;
-            var d = new Date( dob );
-            var y1=d.getFullYear();
-            var m1=d.getMonth();
-            var d1=d.getDate();
-            
-            
+
+            var dob = document.getElementById("dob").value;
+            var d = new Date(dob);
+            var y1 = d.getFullYear();
+            var m1 = d.getMonth();
+            var d1 = d.getDate();
+
+
             var y2 = today.getFullYear();
             var m2 = today.getMonth();
             var m3 = today.getDate();
-            
-            if(m1>m2){
-                m2=m2+12;
-                y2=y2-1;
+
+            if (m1 > m2) {
+                m2 = m2 + 12;
+                y2 = y2 - 1;
             }
 
-            var year=y2-y1;
-            document.getElementById("myage").value=year;
+            var year = y2 - y1;
+            document.getElementById("myage").value = year;
         }
     </script>
 @endpush
