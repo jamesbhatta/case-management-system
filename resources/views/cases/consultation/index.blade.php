@@ -2,7 +2,13 @@
 @section('caseContent')
     <div class="card z-depth-0">
         <div class="card-body">
-            <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">परामर्श</label>
+            <div class="bg-light mt-3">
+                <label class="h3 font-weight-bold mt-3 mx-4">परामर्श</label>
+                (<b>मुद्दा नम्बर</b>: {{ $cases->case_number }})
+                (<b>मुद्दा प्रकार</b>: {{ $cases->case_type }})
+                (<b>मुद्दा स्थिति</b>: {{ $cases->case_status }})
+                <a href="{{ route('rejected.create', $cases) }}" class="btn btn-info float-right mx-5">Add</a>
+            </div>
             <div class="my-4">
                 <form
                     action="{{ $consultation->id ? route('consultation.update', $consultation) : route('consultation.store') }}"
@@ -16,8 +22,8 @@
                         @else
                             <div class="col-lg-4 form-group">
                                 <label> मुद्दा नं.</label>
-                                <input type="text" class="form-control p-4" name=""
-                                    value="{{ $cases->case_number }}" disabled>
+                                <input type="text" class="form-control p-4" name="" value="{{ $cases->case_number }}"
+                                    disabled>
                                 <input type="hidden" class="form-control p-4" name="cases_id" value="{{ $cases->id }}">
                                 <input type="hidden" class="form-control p-4" name="type" value="pramarsh">
                             </div>
@@ -60,6 +66,20 @@
                             
                             <a href="#" class="btn btn-info">सम्बन्धित कागजातहरू थप्नुहोस्</a>
                         </div> --}}
+                        <div class="col-lg-12">
+                            <label>परामर्श सम्बन्धित कागजात</label>
+
+                            <input type="file" class="form-control p-4">
+
+
+                        </div>
+                        <div id="new_chq" class="col-lg-12"></div>
+                        <input type="hidden" value="1" id="total_chq">
+                        <a href="#" class="btn btn-success mt-3 ml-3" onclick="add()"><i class="fa fa-plus"></i></a>
+                        <a href="#" class="btn btn-success mt-3" onclick="remove()"><i class="fa fa-trash"></i></a>
+
+
+
                     </div>
                     <input type="submit" name="" id="" class="btn btn-info" value="Submiit">
 
@@ -79,5 +99,20 @@
             }
 
         })
+
+        function add() {
+            var new_chq_no = parseInt($('#total_chq').val()) + 1;
+            var new_input = "<input type='file' class='form-control p-4 mt-3' id='new_" + new_chq_no + "'>";
+            $('#new_chq').append(new_input);
+            $('#total_chq').val(new_chq_no)
+        }
+
+        function remove() {
+            var last_chq_no = $('#total_chq').val();
+            if (last_chq_no > 1) {
+                $('#new_' + last_chq_no).remove();
+                $('#total_chq').val(last_chq_no - 1);
+            }
+        }
     </script>
 @endpush

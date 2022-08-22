@@ -6,9 +6,9 @@
                 <label class="h3 font-weight-bold mt-3 mx-4">पक्षको विवरणहरू
 
                 </label>
-                (<b>Case Number</b>:{{ $cases->case_number }})
-                (<b>Case Type</b>:{{ $cases->case_type }})
-                (<b>Case Status</b>:{{ $cases->case_status }})
+                (<b>मुद्दा नम्बर</b>: {{ $cases->case_number }})
+                (<b>मुद्दा प्रकार</b>: {{ $cases->case_type }})
+                (<b>मुद्दा स्थिति</b>: {{ $cases->case_status }})
             </div>
             <div class="my-4">
                 <form
@@ -48,8 +48,8 @@
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*जन्म मिति(AD) </label>
-                            <input type="date" name="dob" class="form-control p-4" placeholder="YYYY-MM-DD"
-                                id="dob" onchange="ageCalculate()" value="{{ old('dob', $partyDetail->dob) }}">
+                            <input type="date" name="ad_dob" class="form-control p-4" placeholder="YYYY-MM-DD"
+                                id="dob" onchange="ageCalculate()" value="{{ old('ad_dob', $partyDetail->dob) }}">
                         </div>
 
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
@@ -101,7 +101,7 @@
                                     <option value="">जिल्ला छान्नुहोस्</option>
                                 @endisset
                                 @foreach ($districts as $district)
-                                    <option value="{{ $district->name }}">{{ $district->name }}</option>
+                                    <option value="{{ $district->name }}" @if (old('district') == $district->name) selected @endif>{{ $district->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -120,7 +120,7 @@
                                     {{-- <option value="">{{$district->municipalities}}</option> --}}
                                     @foreach ($district->municipalities as $item)
                                         <option value="{{ $item->name }}"
-                                            data-municipality-name="{{ $district->name }}">{{ $item->name }}</option>
+                                            data-municipality-name="{{ $district->name }}" @if (old('municipality') == $item->name) selected @endif>{{ $item->name }}</option>
                                         {{-- <option value="{{ $district->id }}" data-province-id="{{ $province->id }}">
                                             {{ $district->name }}</option> --}}
                                     @endforeach
@@ -139,7 +139,7 @@
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>इमेल</label>
-                            <input type="text" class="form-control p-4" name="email"
+                            <input type="email" class="form-control p-4" name="email"
                                 value="{{ old('email', $partyDetail->email) }}">
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
@@ -183,7 +183,7 @@
                                     <option value="{{ $partyDetail->education }}" selected>
                                         {{ $partyDetail->education }}</option>
                                 @endisset
-                                <option value="असाक्षर" @if (old('education') == 'र्निरक्षर') selected @endif>र्निरक्षर
+                                <option value="असाक्षर" @if (old('education') == 'असाक्षर') selected @endif>असाक्षर
                                 </option>
                                 <option value="साक्षर" @if (old('education') == 'साक्षर') selected @endif>साक्षर</option>
                                 <option value="माध्यमिक तह " @if (old('education') == 'माध्यमिक तह') selected @endif>माध्यमिक

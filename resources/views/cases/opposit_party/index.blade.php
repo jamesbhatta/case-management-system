@@ -2,7 +2,15 @@
 @section('caseContent')
     <div class="card z-depth-0">
         <div class="card-body">
-            <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">विपक्षको विवरण</label>
+            <div class="mt-3 border-bottom">
+                <label class="h3 font-weight-bold mt-3 mx-4">विपक्षको विवरण
+
+                </label>
+                (<b>मुद्दा नम्बर</b>: {{ $cases->case_number }})
+                (<b>मुद्दा प्रकार</b>: {{ $cases->case_type }})
+                (<b>मुद्दा स्थिति</b>: {{ $cases->case_status }})
+            </div>
+           
             <div class="my-4">
                 <form
                     action="{{ $oppositParty->id ? route('opposit-party.update', $oppositParty) : route('opposit-party.store') }}"
@@ -84,7 +92,8 @@
                                 @endisset
                                 <option value="विवाहित" @if (old('marrige_status') == 'विवाहित') selected @endif>विवाहित</option>
                                 <option value="अविवाहित" @if (old('marrige_status') == 'अविवाहित') selected @endif>अविवाहित</option>
-                                <option value="सम्बन्ध बिछेदी" @if (old('marrige_status') == 'सम्बन्ध बिछेदी') selected @endif>सम्बन्ध विच्छेद</option>
+                                <option value="सम्बन्ध बिछेदी" @if (old('marrige_status') == 'सम्बन्ध बिछेदी') selected @endif>सम्बन्ध
+                                    विच्छेद</option>
                                 <option value="एकल" @if (old('marrige_status') == 'एकल') selected @endif>एकल</option>
                                 <option value="संगै बसेको" @if (old('marrige_status') == 'संगै बसेको') selected @endif>संगै बसेको
                                 </option>
@@ -169,7 +178,7 @@
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>इमेल</label>
-                            <input type="text" class="form-control p-4" name="email"
+                            <input type="email" class="form-control p-4" name="email"
                                 value="{{ old('email', $oppositParty->email) }}">
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
@@ -222,8 +231,10 @@
                                 <option value="मध्यवर्ती"@if (old('education') == 'मध्यवर्ती') selected @endif>
                                     मध्यवर्ती</option>
                                 <option value="स्नातक"@if (old('education') == 'स्नातक') selected @endif>स्नातक</option>
-                                <option value="स्नातकोत्तर"@if (old('education') == 'स्नातकोत्तर') selected @endif>स्नातकोत्तर</option>
-                                <option value="पी.एच.डी."@if (old('education') == 'पी.एच.डी.') selected @endif>पी.एच.डी.</option>
+                                <option value="स्नातकोत्तर"@if (old('education') == 'स्नातकोत्तर') selected @endif>स्नातकोत्तर
+                                </option>
+                                <option value="पी.एच.डी."@if (old('education') == 'पी.एच.डी.') selected @endif>पी.एच.डी.
+                                </option>
                             </select>
                         </div>
 

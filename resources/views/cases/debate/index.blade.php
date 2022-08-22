@@ -2,7 +2,14 @@
 @section('caseContent')
     <div class="card z-depth-0">
         <div class="card-body">
-            <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">बहस</label>
+            <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom"></label>
+            <div class="bg-light mt-3">
+                <label class="h3 font-weight-bold mt-3 mx-4">बहस</label>
+                (<b>मुद्दा नम्बर</b>: {{ $cases->case_number }})
+                (<b>मुद्दा प्रकार</b>: {{ $cases->case_type }})
+                (<b>मुद्दा स्थिति</b>: {{ $cases->case_status }})
+                <a href="{{ route('rejected.create', $cases) }}" class="btn btn-info float-right mx-5">Add</a>
+            </div>
             <div class="my-4">
                 <form
                     action="{{ $consultation->id ? route('debate.update', $consultation) : route('debate.store') }}"
