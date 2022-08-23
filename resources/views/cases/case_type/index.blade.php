@@ -63,11 +63,11 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="col-lg-12 form-group ">
-                                                   
+
                                                     <div class="row  p-3" style="height: auto">
                                                         <div class="form-check mx-3">
-                                                            <input class="form-check-input Personalevent" name="personal_event"
-                                                                type="checkbox"
+                                                            <input class="form-check-input Personalevent"
+                                                                name="personal_event" type="checkbox"
                                                                 @if ($caseType->type == 'जन्म दर्ता') checked @endif
                                                                 value="जन्म दर्ता" id="birthRegister">
                                                             <label class="form-check-label" for="birthRegister">
@@ -77,8 +77,8 @@
 
 
                                                         <div class="form-check mx-2">
-                                                            <input class="form-check-input Personalevent" name="personal_event"
-                                                                type="checkbox"
+                                                            <input class="form-check-input Personalevent"
+                                                                name="personal_event" type="checkbox"
                                                                 @if ($caseType->type == 'मृत्यु दर्ता') checked @endif
                                                                 value="मृत्यु दर्ता" id="deathRegister">
                                                             <label class="form-check-label" for="deathRegister">
@@ -87,8 +87,8 @@
                                                         </div>
 
                                                         <div class="form-check mx-2">
-                                                            <input class="form-check-input Personalevent" name="personal_event"
-                                                                type="checkbox"
+                                                            <input class="form-check-input Personalevent"
+                                                                name="personal_event" type="checkbox"
                                                                 @if ($caseType->type == 'बसाई सराई दर्ता') checked @endif
                                                                 value="बसाई सराई दर्ता" id="basaisarai">
                                                             <label class="form-check-label" for="basaisarai">
@@ -96,8 +96,8 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-check mx-2">
-                                                            <input class="form-check-input Personalevent" name="personal_event"
-                                                                type="checkbox"
+                                                            <input class="form-check-input Personalevent"
+                                                                name="personal_event" type="checkbox"
                                                                 @if ($caseType->type == 'विवाह दर्ता') checked @endif
                                                                 value="विवाह दर्ता" id="marrige">
                                                             <label class="form-check-label" for="marrige">
@@ -105,8 +105,8 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-check mx-2">
-                                                            <input class="form-check-input Personalevent" name="personal_event"
-                                                                type="checkbox"
+                                                            <input class="form-check-input Personalevent"
+                                                                name="personal_event" type="checkbox"
                                                                 @if ($caseType->type == 'सम्बन्ध बिछेद दर्ता') checked @endif
                                                                 value="सम्बन्ध बिछेद दर्ता" id="divorce">
                                                             <label class="form-check-label" for="divorce">
@@ -114,8 +114,8 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-check mx-2">
-                                                            <input class="form-check-input Personalevent" name="personal_event"
-                                                                type="checkbox"
+                                                            <input class="form-check-input Personalevent"
+                                                                name="personal_event" type="checkbox"
                                                                 @if ($caseType->type == 'नागरिकता') checked @endif
                                                                 value="नागरिकता" id="nagrita">
                                                             <label class="form-check-label" for="nagrita">
@@ -124,8 +124,8 @@
                                                         </div>
 
                                                         <div class="form-check mx-2">
-                                                            <input class="form-check-input Personalevent" name="personal_event"
-                                                                type="checkbox"
+                                                            <input class="form-check-input Personalevent"
+                                                                name="personal_event" type="checkbox"
                                                                 @if ($caseType->type == 'अन्य') checked @endif
                                                                 value="अन्य" id="anye">
                                                             <label class="form-check-label" for="anye">
@@ -186,8 +186,7 @@
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                        @if ($caseType->case_type == 'रिट') checked @endif value="रिट"
-                                        id="rit">
+                                        @if ($caseType->case_type == 'रिट') checked @endif value="रिट" id="rit">
                                     <label class="form-check-label" for="rit">
                                         रिट
                                     </label>
@@ -210,8 +209,7 @@
                                 </div>
                                 <div class="form-check mx-2">
                                     <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                        @if ($caseType->case_type == 'अन्य') checked @endif value="अन्य"
-                                        id="other">
+                                        @if ($caseType->case_type == 'अन्य') checked @endif value="अन्य" id="other">
                                     <label class="form-check-label" for="other">
                                         अन्य
                                     </label>

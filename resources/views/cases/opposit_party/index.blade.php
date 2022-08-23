@@ -221,7 +221,7 @@
                                     <option value="{{ $oppositParty->education }}" selected>
                                         {{ $oppositParty->education }}</option>
                                 @endisset
-                                <option value="असाक्षर"@if (old('education') == 'र्निरक्षर') selected @endif>र्निरक्षर
+                                <option value="निरक्षर"@if (old('education') == 'र्निरक्षर') selected @endif>र्निरक्षर
                                 </option>
                                 <option value="साक्षर"@if (old('education') == 'साक्षर') selected @endif>साक्षर</option>
                                 <option value="माध्यमिक तह "@if (old('education') == 'माध्यमिक तह') selected @endif>माध्यमिक तह
