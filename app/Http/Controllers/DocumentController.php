@@ -111,11 +111,6 @@ class DocumentController extends Controller
 
     public function destroy(Document $document)
     {
-        // return $document;
-        // $filePath = 'document/';
-        // File::delete($filePath.$document->document);
-        // $document->delete();
-        // return $document->document;
         Storage::delete($document->document);
         $document->delete();
         return redirect()->back()->with('success',"Removed");
