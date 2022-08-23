@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cases;
 use App\Consultation;
+use App\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -32,19 +33,26 @@ class ConsultationController extends Controller
             'related_people' => "nullable",
             'type' => "required",
         ]);
-        // if ($file = $request->file('document')) {
-        //     // return "hello";
-        //     $filePath = 'document/';
-        //     $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
-        //     $file->move($filePath, $Document);
-        //     $input['document'] = "$Document";
-        // }
-        if ($request->hasFile('image')) {
-            $datas['image'] = $request->file('image')->store('tourist-areas');
-        }
         Consultation::create($datas);
-        $cases = Cases::where('id', $request->cases_id)->get()[0];
+        $cons=Consultation::latest()->first();
 
+        foreach ($request->document as $item) {
+            // if ($request->hasFile('document')) {
+            $datas['document'] = $item->store('documents');
+            // }
+
+            Document::create([
+                'document' => $item,
+                'consultations_id' => $cons->id,
+                'type' => $request->type,
+            ]);
+        }
+
+        // if ($request->hasFile('image')) {
+        //     $datas['image'] = $request->file('image')->store('tourist-areas');
+        // }
+        $cases = Cases::where('id', $request->cases_id)->get()[0];
+        
         return redirect()->route('consultation.index', $cases)->with('success', "Added");
     }
 

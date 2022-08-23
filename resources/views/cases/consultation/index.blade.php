@@ -62,22 +62,20 @@
                                 value="{{ old('related_people', $consultation->related_people) }}">
 
                         </div>
-                        {{-- <div class="col-lg-6 form-group">
-                            
-                            <a href="#" class="btn btn-info">सम्बन्धित कागजातहरू थप्नुहोस्</a>
-                        </div> --}}
-                        {{-- <div class="col-lg-12">
-                            <label>परामर्श सम्बन्धित कागजात</label>
+                        <div class="col-lg-12 form-group">
 
-                            <input type="file" class="form-control p-4">
+                            <div class="wrapper">
+                                <div id="survey_options">
+                                    <input type="file" name="document[]" class="form-control form-control-lg"
+                                        size="50">
 
-
-                        </div> --}}
-                        {{-- <div id="new_chq" class="col-lg-12"></div>
-                        <input type="hidden" value="1" id="total_chq">
-                        <a href="#" class="btn btn-success mt-3 ml-3" onclick="add()"><i class="fa fa-plus"></i></a>
-                        <a href="#" class="btn btn-success mt-3" onclick="remove()"><i class="fa fa-trash"></i></a> --}}
-
+                                </div>
+                                <div class="controls">
+                                    <a href="#" id="add_more_fields"><i class="fa fa-plus"></i>Add More</a>
+                                    <a href="#" id="remove_fields"><i class="fa fa-plus"></i>Remove Field</a>
+                                </div>
+                            </div>
+                        </div>
 
 
                     </div>
@@ -93,6 +91,27 @@
 @endsection
 @push('scripts')
     <script>
+        var survey_options = document.getElementById('survey_options');
+        var add_more_fields = document.getElementById('add_more_fields');
+        var remove_fields = document.getElementById('remove_fields');
+
+        add_more_fields.onclick = function() {
+
+            var newField = document.createElement('input');
+            newField.setAttribute('type', 'file');
+            newField.setAttribute('name', 'document[]');
+            newField.setAttribute('class', 'form-control form-control-lg mt-3');
+            newField.setAttribute('siz', 50);
+            survey_options.appendChild(newField);
+        }
+
+        remove_fields.onclick = function() {
+
+            var input_tags = survey_options.getElementsByTagName('input');
+            if (input_tags.length > 2) {
+                survey_options.removeChild(input_tags[(input_tags.length) - 1]);
+            }
+        }
         $(function() {
             if ($('.fiscal-year-date')[0]) {
                 $('.fiscal-year-date').nepaliDatePicker({});
@@ -116,3 +135,34 @@
         }
     </script>
 @endpush
+
+
+<style>
+    input[type="text"]:focus {
+        outline: none;
+    }
+
+    .controls {
+        width: 294px;
+        margin: 15px auto;
+    }
+
+    #remove_fields {
+        float: right;
+    }
+
+    .controls a i.fa-minus {
+        margin-right: 5px;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 48px;
+        color: #232c3d;
+    }
+</style>

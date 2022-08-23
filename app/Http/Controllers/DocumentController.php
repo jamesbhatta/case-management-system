@@ -15,9 +15,11 @@ class DocumentController extends Controller
     public function index(Document $document, Consultation $consultation)
     {
         $cases = Cases::where('id', $consultation->cases_id)->get()[0];
+        
         if($consultation->type=="pramarsh"){
             $value="परामर्श";
-            $documents=Document::where('consultations_id',$consultation->id)->where('type','परामर्श')->get();
+            $documents=Document::where('consultations_id',$consultation->id)->where('type','pramarsh')->get();
+            
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         } elseif($consultation->type=="sahajikaran"){
             $value="सहजीकरण";

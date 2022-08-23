@@ -1,30 +1,6 @@
 @extends('cases.detail')
 @section('caseContent')
-    <div class="card z-depth-0">
-        <div class="card-body">
-            <label for="" class="h3 col-12 p-3 font-weight-bold border-bottom">{{$value}}  सम्बन्धित कागजात</label>
-            <div class="my-4">
-                <form action="{{route('document.store')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="col-lg-12 form-group">
-                    
-                        <input type="file" class="form-control p-3" style="height: 50px" name="document"
-                            value="">
-
-
-
-                    </div>
-                    <input type="hidden" name="consultations_id" value="{{$consultation->id}}">
-                    <input type="hidden" name="type" value="{{$value}}">
-                    <input type="submit" name="" id="" class="btn btn-info" value="Upload">
-
-                </form>
-
-
-            </div>
-        </div>
-    </div>
+   
 
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
         <div class="bg-light mt-3">
