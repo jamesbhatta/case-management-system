@@ -7,7 +7,7 @@
                 (<b>मुद्दा नम्बर</b>: {{ $cases->case_number }})
                 (<b>मुद्दा प्रकार</b>: {{ $cases->case_type }})
                 (<b>मुद्दा स्थिति</b>: {{ $cases->case_status }})
-                <a href="{{ route('rejected.create', $cases) }}" class="btn btn-info float-right mx-5">Add</a>
+                {{-- <a href="{{ route('rejected.create', $cases) }}" class="btn btn-info float-right mx-5">Add</a> --}}
             </div>
             <div class="my-4">
                 <form
@@ -66,17 +66,17 @@
                             
                             <a href="#" class="btn btn-info">सम्बन्धित कागजातहरू थप्नुहोस्</a>
                         </div> --}}
-                        <div class="col-lg-12">
+                        {{-- <div class="col-lg-12">
                             <label>परामर्श सम्बन्धित कागजात</label>
 
                             <input type="file" class="form-control p-4">
 
 
-                        </div>
-                        <div id="new_chq" class="col-lg-12"></div>
+                        </div> --}}
+                        {{-- <div id="new_chq" class="col-lg-12"></div>
                         <input type="hidden" value="1" id="total_chq">
                         <a href="#" class="btn btn-success mt-3 ml-3" onclick="add()"><i class="fa fa-plus"></i></a>
-                        <a href="#" class="btn btn-success mt-3" onclick="remove()"><i class="fa fa-trash"></i></a>
+                        <a href="#" class="btn btn-success mt-3" onclick="remove()"><i class="fa fa-trash"></i></a> --}}
 
 
 

@@ -258,7 +258,7 @@
                             <input type="number" class="form-control p-4" name="family_number"
                                 value="{{ old('family_number', $oppositParty->family_number) }}">
                         </div>
-                        <div class="col-xl-6 form-group">
+                        <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*परिवारमा अपाङ्गता भएका व्यक्तिहरूको सङ्ख्या</label>
                             <input type="number" class="form-control p-4" name="disable_family_number"
                                 value="{{ old('disable_family_number', $oppositParty->disable_family_number) }}">

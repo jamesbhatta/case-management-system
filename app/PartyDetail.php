@@ -8,27 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class PartyDetail extends Model
 {
     use HasFactory;
-    protected $fillable=[
+    protected $fillable = [
         'cases_id',
         'first_name',
-            'middle_name',
-            'last_name',
-            'dob',
-            'dob_ad',
-            'age',
-            'gender',
-            'marrige_status',
-            'district',
-            'municipality',
-            'ward',
-            'contact',
-            'email',
-            'cast',
-            'religion',
-            'education',
-            'disability_status',
-            'family_number',
-            'disable_family_number',
+        'middle_name',
+        'last_name',
+        'dob',
+        'dob_ad',
+        'age',
+        'gender',
+        'marrige_status',
+        'district',
+        'municipality',
+        'ward',
+        'contact',
+        'email',
+        'cast',
+        'religion',
+        'education',
+        'disability_status',
+        'family_number',
+        'disable_family_number',
     ];
 
     public function cases()
@@ -38,7 +38,7 @@ class PartyDetail extends Model
 
     protected static function booted()
     {
-        
+
         static::creating(function ($partyDetail) {
             $partyDetail->fillAdDates();
         });

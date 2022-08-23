@@ -7,7 +7,6 @@
                 (<b>मुद्दा नम्बर</b>: {{ $cases->case_number }})
                 (<b>मुद्दा प्रकार</b>: {{ $cases->case_type }})
                 (<b>मुद्दा स्थिति</b>: {{ $cases->case_status }})
-                <a href="{{ route('rejected.create', $cases) }}" class="btn btn-info float-right mx-5">Add</a>
             </div>
             <div class="my-4">
                 <form action="{{ $consultation->id ? route('judgement.update', $consultation) : route('judgement.store') }}"

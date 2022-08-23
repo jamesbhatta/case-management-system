@@ -30,7 +30,7 @@
                     @foreach ($partyDetails as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->first_name }} {{ $item->last_name }}</td>
+                            <td>{{ $item->first_name }} {{ $item->middle_name }} {{ $item->last_name }}</td>
                             <td>{{ $item->dob }}</td>
                             <td>{{ $item->gender }}</td>
                             <td>{{ $item->district }}</td>
