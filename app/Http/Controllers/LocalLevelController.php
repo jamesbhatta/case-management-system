@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cases;
 use App\Consultation;
+use App\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -22,23 +23,30 @@ class LocalLevelController extends Controller
 
     public function store(Request $request)
     {
-        $input=$request->validate([
+        $datas = $request->validate([
             'cases_id' => 'required',
-            'date'=>"required",
-            'recomandation'=>"nullable",
-            'description'=>"nullable",
-            'document'=>"nullable",
-            'related_people'=>"nullable",
-            'type'=>"required",
+            'date' => "required",
+            'recomandation' => "nullable",
+            'description' => "nullable",
+            'document' => "nullable",
+            'related_people' => "nullable",
+            'type' => "required",
         ]);
-        if ($file = $request->file('document')) {
-            // return "hello";
-            $filePath = 'document/';
-            $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($filePath, $Document);
-            $input['document'] = "$Document";
+        Consultation::create($datas);
+        $cons = Consultation::latest()->first();
+
+        foreach ($request->document as $item) {
+            // if ($request->hasFile('document')) {
+            $datas['document'] = $item->store('documents');
+            // }
+
+            Document::create([
+                'document' => $item,
+                'consultations_id' => $cons->id,
+                'type' => $request->type,
+            ]);
         }
-        Consultation::create($input);
+
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
         return redirect()->route('local-level.index', $cases)->with('success', "Added");

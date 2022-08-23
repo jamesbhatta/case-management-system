@@ -61,6 +61,23 @@
                                 value="{{ old('related_people', $consultation->related_people) }}">
 
                         </div>
+                        <div class="col-lg-12 form-group">
+                            <label>परामर्श सम्बन्धित कागजातहरू</label>
+                            <div class="wrapper">
+                                <div id="survey_options">
+
+                                    <input type="file" name="document[]" class="form-control form-control-lg"
+                                        size="50">
+
+                                </div>
+                                <div class="controls col-12">
+                                    <a href="#" id="remove_fields" class="btn btn-danger float-right"><i
+                                            class="fa fa-minus"></i></a>
+                                    <a href="#" id="add_more_fields" class="btn btn-success float-right"><i
+                                            class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <input type="submit" name="" id="" class="btn btn-info" value="Submiit">
 
@@ -74,6 +91,29 @@
 @endsection
 @push('scripts')
     <script>
+        var survey_options = document.getElementById('survey_options');
+        var add_more_fields = document.getElementById('add_more_fields');
+        var remove_fields = document.getElementById('remove_fields');
+
+        add_more_fields.onclick = function() {
+
+            var newField = document.createElement('input');
+            newField.setAttribute('type', 'file');
+            newField.setAttribute('name', 'document[]');
+            newField.setAttribute('class', 'form-control form-control-lg mt-3');
+            newField.setAttribute('siz', 50);
+            newField.setAttribute('id', 'documents');
+            survey_options.appendChild(newField);
+        }
+
+        remove_fields.onclick = function() {
+
+            var input_tags = survey_options.getElementsByTagName('input');
+
+            if (input_tags.length > 1) {
+                survey_options.removeChild(input_tags[(input_tags.length) - 1]);
+            }
+        }
         $(function() {
             if ($('.fiscal-year-date')[0]) {
                 $('.fiscal-year-date').nepaliDatePicker({});

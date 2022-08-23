@@ -63,16 +63,19 @@
 
                         </div>
                         <div class="col-lg-12 form-group">
-
+                            <label>परामर्श सम्बन्धित कागजातहरू</label>
                             <div class="wrapper">
                                 <div id="survey_options">
+
                                     <input type="file" name="document[]" class="form-control form-control-lg"
                                         size="50">
 
                                 </div>
-                                <div class="controls">
-                                    <a href="#" id="add_more_fields"><i class="fa fa-plus"></i>Add More</a>
-                                    <a href="#" id="remove_fields"><i class="fa fa-plus"></i>Remove Field</a>
+                                <div class="controls col-12">
+                                    <a href="#" id="remove_fields" class="btn btn-danger float-right"><i
+                                            class="fa fa-minus"></i></a>
+                                    <a href="#" id="add_more_fields" class="btn btn-success float-right"><i
+                                            class="fa fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -102,13 +105,15 @@
             newField.setAttribute('name', 'document[]');
             newField.setAttribute('class', 'form-control form-control-lg mt-3');
             newField.setAttribute('siz', 50);
+            newField.setAttribute('id', 'documents');
             survey_options.appendChild(newField);
         }
 
         remove_fields.onclick = function() {
-
+            
             var input_tags = survey_options.getElementsByTagName('input');
-            if (input_tags.length > 2) {
+            alert(input_tags.length);
+            if (input_tags.length > 1) {
                 survey_options.removeChild(input_tags[(input_tags.length) - 1]);
             }
         }
@@ -119,20 +124,7 @@
 
         })
 
-        function add() {
-            var new_chq_no = parseInt($('#total_chq').val()) + 1;
-            var new_input = "<input type='file' class='form-control p-4 mt-3' id='new_" + new_chq_no + "'>";
-            $('#new_chq').append(new_input);
-            $('#total_chq').val(new_chq_no)
-        }
-
-        function remove() {
-            var last_chq_no = $('#total_chq').val();
-            if (last_chq_no > 1) {
-                $('#new_' + last_chq_no).remove();
-                $('#total_chq').val(last_chq_no - 1);
-            }
-        }
+        
     </script>
 @endpush
 
@@ -140,19 +132,6 @@
 <style>
     input[type="text"]:focus {
         outline: none;
-    }
-
-    .controls {
-        width: 294px;
-        margin: 15px auto;
-    }
-
-    #remove_fields {
-        float: right;
-    }
-
-    .controls a i.fa-minus {
-        margin-right: 5px;
     }
 
     a {

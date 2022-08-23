@@ -23,58 +23,58 @@ class DocumentController extends Controller
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         } elseif($consultation->type=="sahajikaran"){
             $value="सहजीकरण";
-            $documents=Document::where('consultations_id',$consultation->id)->where('type','सहजीकरण')->get();
+            $documents=Document::where('consultations_id',$consultation->id)->where('type','sahajikaran')->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }elseif($consultation->type=="masyoda"){
             $value="मस्यौदा";
-            $documents=Document::where('consultations_id',$consultation->id)->where('type','मस्यौदा')->get();
+            $documents=Document::where('consultations_id',$consultation->id)->where('type','masyoda')->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }
         elseif($consultation->type=="debate"){
-            $value="बहस";
+            $value="debate";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }elseif($consultation->type=="melmilap"){
-            $value="मेलमिलाप";
+            $value="melmilap";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }elseif($consultation->type=="judgement"){
-            $value="फैसला कार्यान्वयन";
+            $value="judgement";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }elseif($consultation->type=="station"){
-            $value="प्रहरी कार्यालय";
+            $value="station";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }
         elseif($consultation->type=="districtCourt"){
-            $value="प्जिल्ला अदालत";
+            $value="districtCourt";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }elseif($consultation->type=="highCourt"){
-            $value="उच्च अदालत";
+            $value="highCourt";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }elseif($consultation->type=="supremeCourt"){
-            $value="सर्वोच्च अदालत";
+            $value="supremeCourt";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }elseif($consultation->type=="otherCourt"){
-            $value="अन्य अदालत";
+            $value="otherCourt";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }
         elseif($consultation->type=="localLevel"){
-            $value="स्थानीय तह";
+            $value="localLevel";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }elseif($consultation->type=="decision"){
-            $value="निर्णय भइसकेको";
+            $value="decision";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }
         elseif($consultation->type=="rejected"){
-            $value="अस्वीकार गरिएको";
+            $value="rejected";
             $documents=Document::where('consultations_id',$consultation->id)->where('type',$value)->get();
             return view('document.index', compact(['document', 'cases', 'consultation','documents','value']));
         }
