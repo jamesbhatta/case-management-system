@@ -6,18 +6,18 @@ use App\Cases;
 use App\Consultation;
 use App\Document;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
 
 class FacilitationController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type',"sahajikaran")->where('cases_id',$cases->id)->get();
-        return view('cases.facilation.list', compact(['cases','consultations']));
+        $consultations = Consultation::where('type', "sahajikaran")->where('cases_id', $cases->id)->get();
+        return view('cases.facilation.list', compact(['cases', 'consultations']));
     }
     public function create(Cases $cases, Consultation $consultation)
     {
-       
+
         return view('cases.facilation.index', compact(['cases', 'consultation']));
     }
 
@@ -33,7 +33,7 @@ class FacilitationController extends Controller
             'type' => "required",
         ]);
         Consultation::create($datas);
-        $cons=Consultation::latest()->first();
+        $cons = Consultation::latest()->first();
 
         foreach ($request->document as $item) {
             // if ($request->hasFile('document')) {
@@ -41,7 +41,7 @@ class FacilitationController extends Controller
             // }
 
             Document::create([
-                'document' => $item,
+                'document' => $datas['document'],
                 'consultations_id' => $cons->id,
                 'type' => $request->type,
             ]);
@@ -57,47 +57,47 @@ class FacilitationController extends Controller
 
     public function edit(Consultation $consultation)
     {
-        $cases=Cases::where('id',$consultation->cases_id)->get()[0];
+        $cases = Cases::where('id', $consultation->cases_id)->get()[0];
         return view('cases.facilation.index', compact(['cases', 'consultation']));
     }
 
     public function update(Request $request, Consultation $consultation)
     {
-        $input=$request->validate([
-           
-            'date'=>"required",
-            'recomandation'=>"nullable",
-            'description'=>"nullable",
-            'document'=>"nullable",
-            'related_people'=>"nullable",
-          
+        $input = $request->validate([
+
+            'date' => "required",
+            'recomandation' => "nullable",
+            'description' => "nullable",
+            'document' => "nullable",
+            'related_people' => "nullable",
+
         ]);
-        
-        if ($file = $request->file('document')) {
-            
-            // return "hello";
-            $filePath = 'document/';
-            File::delete($filePath.$consultation->document);
-            $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($filePath, $Document);
-            $input['document'] = "$Document";
-        }
+
+
         $consultation->update($input);
+
+        foreach ($request->document as $item) {
+            $datas['document'] = $item->store('documents');
+
+            Document::create([
+                'document' => $datas['document'],
+                'consultations_id' => $consultation->id,
+                'type' => $consultation->type,
+            ]);
+        }
 
         $cases = Cases::where('id', $consultation->cases_id)->get()[0];
 
         return redirect()->route('facilation.index', $cases)->with('success', "Updated");
     }
-    
+
     public function destroy(Consultation $consultation)
     {
-        if($consultation->document!=""){
+        if ($consultation->document != "") {
             $filePath = 'document/';
-            File::delete($filePath.$consultation->document);
+            File::delete($filePath . $consultation->document);
         }
         $consultation->delete();
-       return redirect()->back()->with('success', "Deleted");
+        return redirect()->back()->with('success', "Deleted");
     }
-
-    
 }

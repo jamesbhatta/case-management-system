@@ -35,25 +35,27 @@ class ConsultationController extends Controller
         ]);
         Consultation::create($datas);
         $cons=Consultation::latest()->first();
-
-        foreach ($request->document as $item) {
-            // if ($request->hasFile('document')) {
-            $datas['document'] = $item->store('documents');
-            // }
-
-            Document::create([
-                'document' => $item,
-                'consultations_id' => $cons->id,
-                'type' => $request->type,
-            ]);
+        if ($request->hasfile('document')) {
+            foreach ($request->file('document') as $item) {
+                $name=$item->getClientOriginalName();
+                $data[] = $name;  
+                // return $item;
+                // return $request->file('document');
+                    // return $image;
+                    $datas['document'] = $item->store('documents');
+                 
+                Document::create([
+                        'document' => $datas['document'],
+                        'consultations_id' => $cons->id,
+                        'type' => $request->type,
+                    ]);
+                }
+                return $data;
         }
 
-        // if ($request->hasFile('image')) {
-        //     $datas['image'] = $request->file('image')->store('tourist-areas');
-        // }
-        $cases = Cases::where('id', $request->cases_id)->get()[0];
-        
-        return redirect()->route('consultation.index', $cases)->with('success', "Added");
+        // $cases = Cases::where('id', $request->cases_id)->get()[0];
+
+        // return redirect()->route('consultation.index', $cases)->with('success', "Added");
     }
 
     public function edit(Consultation $consultation)
@@ -75,16 +77,14 @@ class ConsultationController extends Controller
 
         ]);
 
-       
+
         $consultation->update($input);
 
         foreach ($request->document as $item) {
-            // if ($request->hasFile('document')) {
             $datas['document'] = $item->store('documents');
-            // }
 
             Document::create([
-                'document' => $item,
+                'document' => $datas['document'],
                 'consultations_id' => $consultation->id,
                 'type' => $consultation->type,
             ]);

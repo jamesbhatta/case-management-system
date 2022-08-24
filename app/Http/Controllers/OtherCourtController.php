@@ -70,17 +70,18 @@ class OtherCourtController extends Controller
 
         ]);
 
-        if ($file = $request->file('document')) {
 
-            // return "hello";
-            $filePath = 'document/';
-            File::delete($filePath . $consultation->document);
-            $Document = date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($filePath, $Document);
-            $input['document'] = "$Document";
-        }
         $consultation->update($input);
 
+        foreach ($request->document as $item) {
+            $datas['document'] = $item->store('documents');
+
+            Document::create([
+                'document' => $datas['document'],
+                'consultations_id' => $consultation->id,
+                'type' => $consultation->type,
+            ]);
+        }
         $cases = Cases::where('id', $consultation->cases_id)->get()[0];
 
         return redirect()->route('other-court.index', $cases)->with('success', "Updated");
