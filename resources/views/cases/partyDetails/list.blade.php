@@ -31,7 +31,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->first_name }} {{ $item->middle_name }} {{ $item->last_name }}</td>
-                            <td>{{ $item->dob }}</td>
+                            <td>{{ $item->dob }} ({{$item->age}} Yrs)</td>
                             <td>{{ $item->gender }}</td>
                             <td>{{ $item->district }}</td>
                             <td>{{ $item->municipality }}</td>

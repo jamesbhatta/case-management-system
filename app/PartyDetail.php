@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -46,6 +47,10 @@ class PartyDetail extends Model
         static::updating(function ($partyDetail) {
             $partyDetail->fillAdDates();
         });
+    }
+
+    public function getAgeAttribute() {
+        return Carbon::parse(bs_to_ad($this->dob))->age;
     }
 
 

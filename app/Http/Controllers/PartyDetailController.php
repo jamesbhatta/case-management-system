@@ -47,8 +47,6 @@ class PartyDetailController extends Controller
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
         return redirect()->route('partydetail.index', $cases)->with('success', "पक्षको विवरण सफलतापूर्वक थपियो");
-
-       
     }
 
     public function create(Cases $cases, PartyDetail $partyDetail)

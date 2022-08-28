@@ -49,7 +49,7 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*जन्म मिति(AD) </label>
                             <input type="date" name="ad_dob" class="form-control p-4" placeholder="YYYY-MM-DD"
-                                id="dob" onchange="ageCalculate()" value="{{ old('ad_dob', $partyDetail->dob) }}">
+                                id="dob" value="{{ old('ad_dob', $partyDetail->dob) }}">
                         </div>
 
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
@@ -250,28 +250,6 @@
 
         });
 
-        function ageCalculate() {
-
-            var today = new Date();
-
-            var dob = document.getElementById("dob").value;
-            var d = new Date(dob);
-            var y1 = d.getFullYear();
-            var m1 = d.getMonth();
-            var d1 = d.getDate();
-
-
-            var y2 = today.getFullYear();
-            var m2 = today.getMonth();
-            var m3 = today.getDate();
-
-            if (m1 > m2) {
-                m2 = m2 + 12;
-                y2 = y2 - 1;
-            }
-
-            var year = y2 - y1;
-            document.getElementById("myage").value = year;
-        }
+       
     </script>
 @endpush
