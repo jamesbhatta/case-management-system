@@ -7,7 +7,11 @@ use App\District;
 use App\Municipality;
 use App\OppositParty;
 use App\PartyDetail;
+// use App\nepali_calendar;
 use Illuminate\Http\Request;
+
+// include ();
+
 
 class PartyDetailController extends Controller
 {
@@ -41,10 +45,10 @@ class PartyDetailController extends Controller
         ]);
         PartyDetail::create($data);
         $cases = Cases::where('id', $request->cases_id)->get()[0];
-        // return $cases;
-        // $partyDetails=PartyDetail::all();
-        // return view('cases.detail',compact(['cases','partyDetails']));
+
         return redirect()->route('partydetail.index', $cases)->with('success', "पक्षको विवरण सफलतापूर्वक थपियो");
+
+       
     }
 
     public function create(Cases $cases, PartyDetail $partyDetail)
