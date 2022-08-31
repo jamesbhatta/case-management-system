@@ -46,17 +46,11 @@
                                 class=" nepali-date form-control p-4" placeholder="Nepali YYYY-MM-DD"
                                 value="{{ old('dob', $partyDetail->dob) }}">
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                            <label>*जन्म मिति(AD) </label>
-                            <input type="date" name="ad_dob" class="form-control p-4" placeholder="YYYY-MM-DD"
-                                id="dob" value="{{ old('ad_dob', $partyDetail->dob) }}">
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                            <label>*उमेर</label>
-                            <input type="number" class="form-control p-4" name="age" id="myage"
+                       
+                      
+                            <input type="hidden" class="form-control p-4" name="age" id="myage"
                                 value="{{ old('age', $partyDetail->age) }}">
-                        </div>
+                      
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*लिङ्ग</label>
                             <select name="gender" id="" class="form-control" style="height: 50px">

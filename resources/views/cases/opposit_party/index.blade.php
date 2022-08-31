@@ -40,34 +40,18 @@
                             <input type="text" class="form-control p-4" name="last_name"
                                 value="{{ old('last_name', $oppositParty->last_name) }}">
                         </div>
-                        {{-- <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                        <label>*जन्म मिति </label>
-                        <input type="text" name="dob" id="input-fiscal-year-start"
-                            class=" nepali-date form-control p-4" placeholder="Nepali YYYY-MM-DD"
-                            value="{{ old('dob', $oppositParty->dob) }}">
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                        <label>*उमेर</label>
-                        <input type="number" class="form-control p-4" name="age"
-                            value="{{ old('age', $oppositParty->age) }}">
-                    </div> --}}
+                        
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*जन्म मिति(BS) </label>
                             <input type="text" name="dob" id="input-fiscal-year-start"
                                 class=" nepali-date form-control p-4" placeholder="Nepali YYYY-MM-DD"
                                 value="{{ old('dob', $oppositParty->dob) }}">
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                            <label>*जन्म मिति(AD) </label>
-                            <input type="date" name="dob" class="form-control p-4" placeholder="YYYY-MM-DD"
-                                id="dob" onchange="ageCalculate()" value="{{ old('dob', $oppositParty->dob) }}">
-                        </div>
-
-                        <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                            <label>*उमेर</label>
-                            <input type="number" class="form-control p-4" name="age" id="myage"
+                       
+                       
+                            <input type="hidden" class="form-control p-4" name="age" id="myage"
                                 value="{{ old('age', $oppositParty->age) }}">
-                        </div>
+                      
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
                             <label>*लिङ्ग</label>
                             <select name="gender" id="" class="form-control" style="height:50px">

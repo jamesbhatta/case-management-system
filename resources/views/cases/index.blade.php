@@ -368,7 +368,7 @@
         </div>
     </div>
 @endsection
-
+@push('scripts')
 <script>
     $("document").ready(function() {
         setTimeout(function() {
@@ -377,9 +377,20 @@
 
     });
 
+    $('.sifaris').on('change', function() {
+        // alert('dfs');
+            $('.sifaris').not(this).prop('checked', false);
+        });
+
+        $('.my_checkbox1').on('change', function() {
+        // alert('dfs');
+            $('.my_checkbox1').not(this).prop('checked', false);
+        });
+
     // function btn_clicked(text) {
     //     document.getElementById("txt1").innerHTML = text;
     //     document.getElementById("txt2").innerHTML = text;
     //     // ("helloo");
     // }
 </script>
+@endpush
