@@ -34,7 +34,7 @@ class CaseTypeController extends Controller
     public function edit(CaseType $caseType)
     {
         $cases = CaseType::where('cases_id', $caseType->cases_id)->get()[0];
-        $caseTypes = CaseType::get();
+       
         return view('cases.case_type.index', compact(['cases', 'caseType']));
     }
     
