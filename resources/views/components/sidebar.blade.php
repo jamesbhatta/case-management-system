@@ -66,29 +66,31 @@
                 </a>
             </li>
         @endhasrole
+        
+
 
         <li class="nav-item">
             <a href="#configuration" data-toggle="collapse" aria-expanded="false"
                 class="dropdown-toggle collapsed nav-link"><span class="text-default"><i
                         class="fas fa-tools"></i></span>@lang('navigation.configurations')</a>
             <ul class="list-unstyled collapse" id="configuration" style="">
-              
-                @can('province.*')
-                    <li class="nav-item pl-5 {{ setActive('province.*') }} sub-nav" >
+                @hasanyrole('super-admin|admin')
+                <li class="nav-item pl-5 {{ setActive('province.*') }} sub-nav" >
                         <a class="nav-link" href="{{ route('province.index') }}">@lang('navigation.province')</a>
                     </li>
-                @endcan
-                @can('district.*')
-                    <li class="nav-item pl-5 {{ setActive('district.*') }} sub-nav">
+                @endhasanyrole
+                @hasanyrole('super-admin|admin')
+                <li class="nav-item pl-5 {{ setActive('district.*') }} sub-nav">
                         <a class="nav-link" href="{{ route('district.index') }}">@lang('navigation.district')</a>
                     </li>
-                @endcan
-                @can('municipality.*')
-                    <li class="nav-item pl-5 {{ setActive('municipality.*') }} sub-nav">
+                @endhasanyrole
+                @hasanyrole('super-admin|admin')
+                <li class="nav-item pl-5 {{ setActive('municipality.*') }} sub-nav">
                         <a class="nav-link" href="{{ route('municipality.index') }}">@lang('navigation.municipality')</a>
                     </li>
-                @endcan
-             
+                @endhasanyrole
+
+                
 
             </ul>
         </li>
