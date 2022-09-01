@@ -7,10 +7,34 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function index(Cases $cases)
+    public function index(Request $request, Cases $cases)
     {
         $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->paginate(10);
         
+        // if ($request->filled('start') && $request->filled('end')){
+        //     $allCases= $allCases->whereBetween('date', [$request->start, $request->end]);
+        // }
+        // if($request->filled('status')){
+            
+        //     $allCases= $allCases->where('case_status',$request->status);
+           
+        // }
+        // if($request->filled('witness')){
+        //     $witness= $request->witness;
+            
+        //  $collection=collect($allCases);
+        //  $data= $collection->firstWhere('id', '1');
+        //  dd($data);
+        // }
+        // if($request->filled('type')){
+        //     return "type filter";
+        // }
+        // if($request->filled('search')){
+        //     return "mannual search";
+        // }
+        
+        // $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->paginate(10);
+       
         return view('report.index', compact(['allCases','cases']));
     }
 

@@ -100,7 +100,7 @@
                                         <div class="row border p-3" style="height: auto">
                                             <div class="form-check mx-3">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="नागरिकता" id="flexCheckDefault">
+                                                    value="नागरिकता" id="flexCheckDefault" @if ($cases->case_type == 'नागरिकता'|| old('case_type')=="नागरिकता") checked @endif>
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                     नागरिकता
                                                 </label>
@@ -109,7 +109,8 @@
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
                                                     value="व्यक्तिगत घटना" id="biyaktigatGhatna" data-toggle="modal"
-                                                    data-target="#exampleModal">
+                                                    data-target="#exampleModal"
+                                                    >
                                                 <label class="form-check-label" for="biyaktigatGhatna" data-toggle="modal"
                                                     data-target="#exampleModal">
                                                     व्यक्तिगत घटना
@@ -133,9 +134,9 @@
 
                                                                 <div class="row  p-3" style="height: auto">
                                                                     <div class="form-check mx-3">
-                                                                        <input class="form-check-input Personalevent"
-                                                                            name="personal_event" type="checkbox"
-                                                                            value="जन्म दर्ता" id="birthRegister">
+                                                                        <input class="form-check-input sifaris"
+                                                                            name="case_type" type="checkbox"
+                                                                            value="जन्म दर्ता" id="birthRegister" @if ($cases->case_type == 'जन्म दर्ता'|| old('case_type')=="जन्म दर्ता") checked @endif>
                                                                         <label class="form-check-label"
                                                                             for="birthRegister">
                                                                             जन्म दर्ता
@@ -144,9 +145,9 @@
 
 
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input Personalevent"
-                                                                            name="personal_event" type="checkbox"
-                                                                            value="मृत्यु दर्ता" id="deathRegister">
+                                                                        <input class="form-check-input sifaris"
+                                                                            name="case_type" type="checkbox"
+                                                                            value="मृत्यु दर्ता" id="deathRegister" @if ($cases->case_type == 'मृत्यु दर्ता'|| old('case_type')=="मृत्यु दर्ता") checked @endif>
                                                                         <label class="form-check-label"
                                                                             for="deathRegister">
                                                                             मृत्यु दर्ता
@@ -154,41 +155,41 @@
                                                                     </div>
 
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input Personalevent"
-                                                                            name="personal_event" type="checkbox"
-                                                                            value="बसाई सराई दर्ता" id="basaisarai">
+                                                                        <input class="form-check-input sifaris"
+                                                                            name="case_type" type="checkbox"
+                                                                            value="बसाई सराई दर्ता" id="basaisarai" @if ($cases->case_type == 'बसाई सराई दर्ता'|| old('case_type')=="बसाई सराई दर्ता") checked @endif>
                                                                         <label class="form-check-label" for="basaisarai">
                                                                             बसाई सराई दर्ता
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input Personalevent"
-                                                                            name="personal_event" type="checkbox"
-                                                                            value="विवाह दर्ता" id="marrige">
+                                                                        <input class="form-check-input sifaris"
+                                                                            name="case_type" type="checkbox"
+                                                                            value="विवाह दर्ता" id="marrige" @if ($cases->case_type == 'विवाह दर्ता'|| old('case_type')=="विवाह दर्ता") checked @endif>
                                                                         <label class="form-check-label" for="marrige">
                                                                             विवाह दर्ता
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input Personalevent"
-                                                                            name="personal_event" type="checkbox"
-                                                                            value="सम्बन्ध बिछेद दर्ता" id="divorce">
+                                                                        <input class="form-check-input sifaris"
+                                                                            name="case_type" type="checkbox"
+                                                                            value="सम्बन्ध बिछेद दर्ता" id="divorce" @if ($cases->case_type == 'सम्बन्ध बिछेद दर्ता'|| old('case_type')=="सम्बन्ध बिछेद दर्ता") checked @endif>
                                                                         <label class="form-check-label" for="divorce">
                                                                             सम्बन्ध बिछेद दर्ता
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input Personalevent"
-                                                                            name="personal_event" type="checkbox"
-                                                                            value="नागरिकता" id="nagrita">
+                                                                        <input class="form-check-input sifaris"
+                                                                            name="case_type" type="checkbox"
+                                                                            value="नागरिकता" id="nagrita" @if ($cases->case_type == 'नागरिकता'|| old('case_type')=="नागरिकता") checked @endif>
                                                                         <label class="form-check-label" for="nagrita">
                                                                             नागरिकता
                                                                         </label>
                                                                     </div>
 
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input Personalevent"
-                                                                            name="personal_event" type="checkbox"
+                                                                        <input class="form-check-input sifaris"
+                                                                            name="case_type" type="checkbox"
                                                                             value="अन्य" id="anye">
                                                                         <label class="form-check-label" for="anye">
                                                                             अन्य
@@ -207,7 +208,7 @@
                                             </div>
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="मानव बेचबिखन" id="manabBechbikhan">
+                                                    value="मानव बेचबिखन" id="manabBechbikhan" @if ($cases->case_type == 'मानव बेचबिखन'|| old('case_type')=="मानव बेचबिखन") checked @endif>
                                                 <label class="form-check-label" for="manabBechbikhan">
                                                     मानव बेचबिखन
                                                 </label>
@@ -215,56 +216,56 @@
 
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="यौनजन्य हिंसा" id="yonjanyeHinsa">
+                                                    value="यौनजन्य हिंसा" id="yonjanyeHinsa"  @if ($cases->case_type == 'यौनजन्य हिंसा'|| old('case_type')=="यौनजन्य हिंसा") checked @endif>
                                                 <label class="form-check-label" for="yonjanyeHinsa">
                                                     यौनजन्य हिंसा
                                                 </label>
                                             </div>
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="लैंगिक हिंसा" id="laingikHinsa">
+                                                    value="लैंगिक हिंसा" id="laingikHinsa" @if ($cases->case_type == 'लैंगिक हिंसा'|| old('case_type')=="लैंगिक हिंसा") checked @endif>
                                                 <label class="form-check-label" for="laingikHinsa">
                                                     लैंगिक हिंसा
                                                 </label>
                                             </div>
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="घरेलु हिंसा" id="GghareluHinsa">
+                                                    value="घरेलु हिंसा" id="GghareluHinsa" @if ($cases->case_type == 'घरेलु हिंसा'|| old('case_type')=="घरेलु हिंसा") checked @endif>
                                                 <label class="form-check-label" for="GghareluHinsa">
                                                     घरेलु हिंसा
                                                 </label>
                                             </div>
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="सम्पत्ति" id="sampati">
+                                                    value="सम्पत्ति" id="sampati" @if ($cases->case_type == 'सम्पत्ति'|| old('case_type')=="सम्पत्ति") checked @endif>
                                                 <label class="form-check-label" for="sampati">
                                                     सम्पत्ति
                                                 </label>
                                             </div>
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="रिट" id="rit">
+                                                    value="रिट" id="rit" @if ($cases->case_type == 'रिट'|| old('case_type')=="रिट") checked @endif>
                                                 <label class="form-check-label" for="rit">
                                                     रिट
                                                 </label>
                                             </div>
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="सम्बन्ध विच्छेद" id="sambandhBichhed">
+                                                    value="सम्बन्ध विच्छेद" id="sambandhBichhed" @if ($cases->case_type == 'सम्बन्ध विच्छेद'|| old('case_type')=="सम्बन्ध विच्छेद") checked @endif>
                                                 <label class="form-check-label" for="sambandhBichhed">
                                                     सम्बन्ध विच्छेद
                                                 </label>
                                             </div>
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="न्यायिक पुनरावलोकन" id="punarablokan">
+                                                    value="न्यायिक पुनरावलोकन" id="punarablokan" @if ($cases->case_type == 'न्यायिक पुनरावलोकन'|| old('case_type')=="न्यायिक पुनरावलोकन") checked @endif>
                                                 <label class="form-check-label" for="punarablokan">
                                                     न्यायिक पुनरावलोकन
                                                 </label>
                                             </div>
                                             <div class="form-check mx-2">
                                                 <input class="form-check-input sifaris" type="checkbox" name="case_type"
-                                                    value="अन्य" id="other">
+                                                    value="अन्य" id="other" @if ($cases->case_type == 'अन्य'|| old('case_type')=="अन्य") checked @endif>
                                                 <label class="form-check-label" for="other">
                                                     अन्य
                                                 </label>
@@ -278,7 +279,7 @@
                                     <div class="row border p-3" style="height: auto">
                                         <div class="form-check mx-3">
                                             <input class="form-check-input my_checkbox1" name="inform_to_org" type="checkbox"
-                                                value="सिफारिश" id="sifaris">
+                                                value="सिफारिश" id="sifaris" @if ($cases->inform_to_org == 'सिफारिश'|| old('case_type')=="सिफारिश") checked @endif>
                                             <label class="form-check-label" for="sifaris">
                                                 सिफारिश
                                             </label>
@@ -287,7 +288,7 @@
 
                                         <div class="form-check mx-2">
                                             <input class="form-check-input my_checkbox1" name="inform_to_org" type="checkbox"
-                                                value="पत्रपत्रिका" id="news">
+                                                value="पत्रपत्रिका" id="news" @if ($cases->inform_to_org == 'पत्रपत्रिका'|| old('case_type')=="पत्रपत्रिका") checked @endif>
                                             <label class="form-check-label" for="news">
                                                 पत्रपत्रिका
                                             </label>
@@ -295,7 +296,7 @@
 
                                         <div class="form-check mx-2">
                                             <input class="form-check-input my_checkbox1" name="inform_to_org" type="checkbox"
-                                                value="रेडियो" id="radio">
+                                                value="रेडियो" id="radio" @if ($cases->inform_to_org == 'रेडियो'|| old('case_type')=="रेडियो") checked @endif>
                                             <label class="form-check-label" for="radio">
                                                 रेडियो
                                             </label>
@@ -303,7 +304,7 @@
 
                                         <div class="form-check mx-2">
                                             <input class="form-check-input my_checkbox1" name="inform_to_org" type="checkbox"
-                                                value="साथीभाई/नातेदार" id="friends">
+                                                value="साथीभाई/नातेदार" id="friends" @if ($cases->inform_to_org == 'साथीभाई/नातेदार'|| old('case_type')=="साथीभाई/नातेदार") checked @endif>
                                             <label class="form-check-label" for="friends">
                                                 साथीभाई/नातेदार
                                             </label>
@@ -311,7 +312,7 @@
 
                                         <div class="form-check mx-2">
                                             <input class="form-check-input my_checkbox1" name="inform_to_org" type="checkbox"
-                                                value="वेबसाइट" id="website">
+                                                value="वेबसाइट" id="website" @if ($cases->inform_to_org == 'वेबसाइट'|| old('case_type')=="वेबसाइट") checked @endif>
                                             <label class="form-check-label" for="website">
                                                 वेबसाइट
                                             </label>
@@ -319,7 +320,7 @@
 
                                         <div class="form-check mx-2">
                                             <input class="form-check-input my_checkbox1" name="inform_to_org" type="checkbox"
-                                                value="कार्यक्रम" id="program">
+                                                value="कार्यक्रम" id="program" @if ($cases->inform_to_org == 'कार्यक्रम'|| old('case_type')=="कार्यक्रम") checked @endif>
                                             <label class="form-check-label" for="program">
                                                 कार्यक्रम
                                             </label>
@@ -327,7 +328,7 @@
 
                                         <div class="form-check mx-2">
                                             <input class="form-check-input my_checkbox1" name="inform_to_org" type="checkbox"
-                                                value="टिभी" id="tv">
+                                                value="टिभी" id="tv" @if ($cases->inform_to_org == 'टिभी'|| old('case_type')=="टिभी") checked @endif>
                                             <label class="form-check-label" for="tv">
                                                 टिभी
                                             </label>
@@ -335,7 +336,7 @@
 
                                         <div class="form-check mx-2">
                                             <input class="form-check-input my_checkbox1" name="inform_to_org" type="checkbox"
-                                                value="सामाजिक संजाल" id="social_media">
+                                                value="सामाजिक संजाल" id="social_media" @if ($cases->inform_to_org == 'सामाजिक संजाल'|| old('case_type')=="सामाजिक संजाल") checked @endif>
                                             <label class="form-check-label" for="social_media">
                                                 सामाजिक संजाल
                                             </label>
@@ -343,7 +344,7 @@
 
                                         <div class="form-check mx-2">
                                             <input class="form-check-input my_checkbox1" name="inform_to_org" type="checkbox"
-                                                value="अन्य" id="othr">
+                                                value="अन्य" id="othr" @if ($cases->inform_to_org == 'अन्य'|| old('case_type')=="अन्य") checked @endif>
                                             <label class="form-check-label" for="othr">
                                                 अन्य
                                             </label>
