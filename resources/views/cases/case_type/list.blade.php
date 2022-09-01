@@ -22,9 +22,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>
                             {{ $item->case_type }}
-                            @isset($item->personal_event)
-                                ({{ $item->personal_event }})
-                            @endisset
+                            
                         </td>
 
                         <td>

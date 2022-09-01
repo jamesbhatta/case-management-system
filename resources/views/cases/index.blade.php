@@ -107,12 +107,12 @@
                                             </div>
 
                                             <div class="form-check mx-2">
-                                                <input class="form-check-input sifaris" type="checkbox" name="case_type"
+                                                <input class="form-check-input " type="checkbox" name="case_type"
                                                     value="व्यक्तिगत घटना" id="biyaktigatGhatna" data-toggle="modal"
                                                     data-target="#exampleModal"
                                                     >
                                                 <label class="form-check-label" for="biyaktigatGhatna" data-toggle="modal"
-                                                    data-target="#exampleModal">
+                                                    data-target="#exampleModal" id="checked">
                                                     व्यक्तिगत घटना
                                                 </label>
                                             </div>
@@ -134,7 +134,7 @@
 
                                                                 <div class="row  p-3" style="height: auto">
                                                                     <div class="form-check mx-3">
-                                                                        <input class="form-check-input sifaris"
+                                                                        <input class="form-check-input sifaris" id="my_checkbox2"
                                                                             name="case_type" type="checkbox"
                                                                             value="जन्म दर्ता" id="birthRegister" @if ($cases->case_type == 'जन्म दर्ता'|| old('case_type')=="जन्म दर्ता") checked @endif>
                                                                         <label class="form-check-label"
@@ -145,7 +145,7 @@
 
 
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input sifaris"
+                                                                        <input class="form-check-input sifaris" id="my_checkbox2"
                                                                             name="case_type" type="checkbox"
                                                                             value="मृत्यु दर्ता" id="deathRegister" @if ($cases->case_type == 'मृत्यु दर्ता'|| old('case_type')=="मृत्यु दर्ता") checked @endif>
                                                                         <label class="form-check-label"
@@ -155,7 +155,7 @@
                                                                     </div>
 
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input sifaris"
+                                                                        <input class="form-check-input sifaris" id="my_checkbox2"
                                                                             name="case_type" type="checkbox"
                                                                             value="बसाई सराई दर्ता" id="basaisarai" @if ($cases->case_type == 'बसाई सराई दर्ता'|| old('case_type')=="बसाई सराई दर्ता") checked @endif>
                                                                         <label class="form-check-label" for="basaisarai">
@@ -163,7 +163,7 @@
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input sifaris"
+                                                                        <input class="form-check-input sifaris" id="my_checkbox2"
                                                                             name="case_type" type="checkbox"
                                                                             value="विवाह दर्ता" id="marrige" @if ($cases->case_type == 'विवाह दर्ता'|| old('case_type')=="विवाह दर्ता") checked @endif>
                                                                         <label class="form-check-label" for="marrige">
@@ -171,7 +171,7 @@
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input sifaris"
+                                                                        <input class="form-check-input sifaris" id="my_checkbox2"
                                                                             name="case_type" type="checkbox"
                                                                             value="सम्बन्ध बिछेद दर्ता" id="divorce" @if ($cases->case_type == 'सम्बन्ध बिछेद दर्ता'|| old('case_type')=="सम्बन्ध बिछेद दर्ता") checked @endif>
                                                                         <label class="form-check-label" for="divorce">
@@ -179,7 +179,7 @@
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input sifaris"
+                                                                        <input class="form-check-input sifaris" id="my_checkbox2"
                                                                             name="case_type" type="checkbox"
                                                                             value="नागरिकता" id="nagrita" @if ($cases->case_type == 'नागरिकता'|| old('case_type')=="नागरिकता") checked @endif>
                                                                         <label class="form-check-label" for="nagrita">
@@ -188,7 +188,7 @@
                                                                     </div>
 
                                                                     <div class="form-check mx-2">
-                                                                        <input class="form-check-input sifaris"
+                                                                        <input class="form-check-input sifaris" id="my_checkbox2"
                                                                             name="case_type" type="checkbox"
                                                                             value="अन्य" id="anye">
                                                                         <label class="form-check-label" for="anye">
@@ -201,7 +201,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">OK</button>
+                                                                data-dismiss="modal" onclick="myFunction()">OK</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -371,6 +371,13 @@
 @endsection
 @push('scripts')
 <script>
+    const checked = document.querySelector('#my_checkbox2:checked') !== null;
+        
+        if(checked){
+            document.getElementById("biyaktigatGhatna").checked = true;
+        }else{
+            document.getElementById("biyaktigatGhatna").checked = false;
+        }
     $("document").ready(function() {
         setTimeout(function() {
             $(".alert").remove();
@@ -379,19 +386,29 @@
     });
 
     $('.sifaris').on('change', function() {
-        // alert('dfs');
             $('.sifaris').not(this).prop('checked', false);
+            const checked = document.querySelector('#my_checkbox2:checked') !== null;
+        
+        if(checked){
+            document.getElementById("biyaktigatGhatna").checked = true;
+        }else{
+            document.getElementById("biyaktigatGhatna").checked = false;
+        }
         });
 
         $('.my_checkbox1').on('change', function() {
-        // alert('dfs');
             $('.my_checkbox1').not(this).prop('checked', false);
         });
 
-    // function btn_clicked(text) {
-    //     document.getElementById("txt1").innerHTML = text;
-    //     document.getElementById("txt2").innerHTML = text;
-    //     // ("helloo");
-    // }
+        function myFunction(){
+            const checked = document.querySelector('#my_checkbox2:checked') !== null;
+        
+        if(checked){
+            document.getElementById("biyaktigatGhatna").checked = true;
+        }else{
+            document.getElementById("biyaktigatGhatna").checked = false;
+        }
+        }
+
 </script>
 @endpush
