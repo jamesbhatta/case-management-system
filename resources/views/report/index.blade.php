@@ -252,7 +252,7 @@
         <div class="modal-content" style="height: 80vh;">
 
             <div style="heihtt:80vh; overflow: auto">
-                <h2 class="text-center mt-5" style="font-size:25pp; font-weight:bold">DALIT WOMEN RIGHT
+                <h2 class="col-12 text-center mt-5 " style="font-size:25pp; font-weight:bold">DALIT WOMEN RIGHT
                     FORUM
                     (DWRF)
                     NEPAL</h2>
@@ -352,11 +352,11 @@
             <div class="modal-content" style="height: 80vh;">
 
                 <div style="heihtt:80vh; overflow: auto" id="my_data">
-                    <h2 class="mt-5" style="font-size:25pp; font-weight:bold;margin-left:22vw">DALIT
+                    <h2 class="mt-5 col-12 text-center" style="font-size:25pp; font-weight:bold">DALIT
                         WOMEN
                         RIGHT FORUM (DWRF) NEPAL</h2>
-                    <h4 style="font-size:20pp;margin-left:35vw">Dhangadhi, Estd 2064</h4>
-                    <h5 for="" style="font-weight: normal;margin-left:40vw">मुद्दा अभिलेख</h5>
+                    <h4 class="col-12 text-center" style="font-size:20pp;">Dhangadhi, Estd 2064</h4>
+                    <h5 class="col-12 text-center" for="" style="font-weight: normal;">मुद्दा अभिलेख</h5>
                     <table class="table  mt-5" border="1"
                         style="border: 1px solid #f5f5f5; border-collapse: collapse;">
 
@@ -398,7 +398,7 @@
                                 @endif
 
                                 @if ($item->oppositParty->count() > 0)
-                                    परामर्श
+                                    
                                     @foreach ($item->oppositParty as $item1)
                                         <td>{{ $item1->first_name }} {{ $item1->middle_name }}
                                             {{ $item1->last_name }}
