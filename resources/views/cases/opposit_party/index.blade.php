@@ -42,7 +42,7 @@
                         </div>
                         
                         <div class="col-xl-3 col-lg-4 col-md-6 form-group">
-                            <label>*जन्म मिति(BS) </label>
+                            <label>*जन्म मिति</label>
                             <input type="text" name="dob" id="input-fiscal-year-start"
                                 class=" nepali-date form-control p-4" placeholder="Nepali YYYY-MM-DD"
                                 value="{{ old('dob', $oppositParty->dob) }}">

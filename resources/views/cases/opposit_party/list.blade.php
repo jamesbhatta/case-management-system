@@ -16,6 +16,7 @@
                         <th scope="col">#</th>
                         <th scope="col">नाम</th>
                         <th scope="col">जन्म मिति </th>
+                        <th scope="col">उमेर </th>
                         <th scope="col">लिङ्ग</th>
                         <th>जिल्ला </th>
                         <th>नगरपालिका/गाउपालिका </th>
@@ -31,6 +32,7 @@
                             <td>{{ $oppositpariy->cases_id }}</td>
                             <td>{{ $oppositpariy->first_name }} {{ $oppositpariy->last_name }}</td>
                             <td>{{ $oppositpariy->dob }}</td>
+                            <td>{{ $oppositpariy->age}} वर्ष</td>
                             <td>{{ $oppositpariy->gender }}</td>
                             <td>{{ $oppositpariy->district }}</td>
                             <td>{{ $oppositpariy->municipality }}</td>

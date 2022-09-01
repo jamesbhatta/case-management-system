@@ -17,7 +17,7 @@
                         <th scope="col">#</th>
                         <th scope="col">नाम</th>
                         <th scope="col">जन्म मिति </th>
-                        <th scope="col">Age </th>
+                        <th scope="col">उमेर </th>
                         <th scope="col">लिङ्ग</th>
                         <th>जिल्ला </th>
                         <th>नगरपालिका/गाउपालिका </th>
@@ -33,7 +33,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->first_name }} {{ $item->middle_name }} {{ $item->last_name }}</td>
                             <td>{{ $item->dob }}</td>
-                            <td>{{ $item->age}}</td>
+                            <td>{{ $item->age}} वर्ष</td>
                             <td>{{ $item->gender }}</td>
                             <td>{{ $item->district }}</td>
                             <td>{{ $item->municipality }}</td>
