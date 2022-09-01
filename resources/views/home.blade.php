@@ -22,7 +22,7 @@
                     @include('alerts.all')
                 </div>
 
-                @can('user.*')
+                
                     <div class="col-12">
 
                         <x-dashboard-count-tile :link="route('user.index')">
@@ -37,7 +37,7 @@
                     <div style="width: 100vw;height:50vh">
                         <canvas id="myChart" width="400" height="100"></canvas>
                     </div>
-                @endcan
+                
             </div>
         </div>
     </div>
