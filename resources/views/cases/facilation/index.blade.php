@@ -117,7 +117,11 @@
         }
         $(function() {
             if ($('.fiscal-year-date')[0]) {
-                $('.fiscal-year-date').nepaliDatePicker({});
+                $('.fiscal-year-date').nepaliDatePicker({
+                    ndpYear: true,
+                    ndpMonth: true,
+                    ndpYearCount: 10
+                });
             }
 
         })
