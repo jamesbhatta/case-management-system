@@ -32,21 +32,32 @@ class OtherCourtController extends Controller
             'related_people' => "nullable",
             'type' => "required",
         ]);
-        Consultation::create($datas);
-        $cons = Consultation::latest()->first();
 
-        foreach ($request->document as $item) {
-            // if ($request->hasFile('document')) {
-            $datas['document'] = $item->store('documents');
-            // }
+        $current_case = Cases::where('id', $request->cases_id)->first();
 
-            Document::create([
-                'document' => $item,
-                'consultations_id' => $cons->id,
-                'type' => $request->type,
+        $case_status = $current_case->case_status;
+        if ( $case_status == 'निर्णय भइसकेको' || $case_status == 'अस्वीकार गरिएको') {
+        } else {
+            $current_case->update([
+                'case_status' => 'अन्य अदालत'
             ]);
         }
 
+        Consultation::create($datas);
+        $cons = Consultation::latest()->first();
+        if ($request->hasfile('document')) {
+            foreach ($request->document as $item) {
+                // if ($request->hasFile('document')) {
+                $datas['document'] = $item->store('documents');
+                // }
+
+                Document::create([
+                    'document' => $item,
+                    'consultations_id' => $cons->id,
+                    'type' => $request->type,
+                ]);
+            }
+        }
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
         return redirect()->route('other-court.index', $cases)->with('success', "Added");

@@ -6,13 +6,13 @@ use App\Cases;
 use App\Consultation;
 use App\Document;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
 
 class SupremeCourtController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type', "supremeCourt")->where('cases_id',$cases->id)->get();
+        $consultations = Consultation::where('type', "supremeCourt")->where('cases_id', $cases->id)->get();
         return view('cases.supreme_court.list', compact(['cases', 'consultations']));
     }
     public function create(Cases $cases, Consultation $consultation)
@@ -32,21 +32,30 @@ class SupremeCourtController extends Controller
             'related_people' => "nullable",
             'type' => "required",
         ]);
-        Consultation::create($datas);
-        $cons = Consultation::latest()->first();
+        $current_case = Cases::where('id', $request->cases_id)->first();
 
-        foreach ($request->document as $item) {
-            // if ($request->hasFile('document')) {
-            $datas['document'] = $item->store('documents');
-            // }
-
-            Document::create([
-                'document' => $item,
-                'consultations_id' => $cons->id,
-                'type' => $request->type,
+        $case_status = $current_case->case_status;
+        if ($case_status == 'अन्य अदालत' || $case_status == 'निर्णय भइसकेको' || $case_status == 'अस्वीकार गरिएको') {
+        } else {
+            $current_case->update([
+                'case_status' => 'सर्वोच्च अदालत'
             ]);
         }
+        Consultation::create($datas);
+        $cons = Consultation::latest()->first();
+        if ($request->hasfile('document')) {
+            foreach ($request->document as $item) {
+                // if ($request->hasFile('document')) {
+                $datas['document'] = $item->store('documents');
+                // }
 
+                Document::create([
+                    'document' => $item,
+                    'consultations_id' => $cons->id,
+                    'type' => $request->type,
+                ]);
+            }
+        }
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
         return redirect()->route('supreme-court.index', $cases)->with('success', "Added");
@@ -89,9 +98,9 @@ class SupremeCourtController extends Controller
     }
     public function destroy(Consultation $consultation)
     {
-        if($consultation->document!=""){
+        if ($consultation->document != "") {
             $filePath = 'document/';
-            File::delete($filePath.$consultation->document);
+            File::delete($filePath . $consultation->document);
         }
         $consultation->delete();
         return redirect()->back()->with('success', "Deleted");

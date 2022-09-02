@@ -24,6 +24,7 @@ class ConsultationController extends Controller
     public function store(Request $request)
     {
 
+
         $datas = $request->validate([
             'cases_id' => 'required',
             'date' => "required",
@@ -33,29 +34,37 @@ class ConsultationController extends Controller
             'related_people' => "nullable",
             'type' => "required",
         ]);
+        $current_case = Cases::where('id', $request->cases_id)->first();
+
+        $case_status = $current_case->case_status;
+        if ($case_status == 'सहजीकरण' || $case_status == 'मस्यौदा' || $case_status == 'बहस' || $case_status == 'मेलमिलाप' || $case_status == 'फैसला कार्यान्वयन' || $case_status == 'प्रहरी कार्यालय' || $case_status == 'जिल्ला अदालत' || $case_status == 'उच्च अदालत' || $case_status == 'सर्वोच्च अदालत' || $case_status == 'अन्य अदालत' || $case_status == 'स्थानीय तह' || $case_status == 'निर्णय भइसकेको' || $case_status == 'अस्वीकार गरिएको') {
+        } else {
+            $current_case->update([
+                'case_status' => 'परामर्श'
+            ]);
+        }
         Consultation::create($datas);
-        $cons=Consultation::latest()->first();
+        $cons = Consultation::latest()->first();
         if ($request->hasfile('document')) {
             foreach ($request->file('document') as $item) {
-                $name=$item->getClientOriginalName();
-                $data[] = $name;  
-                // return $item;
-                // return $request->file('document');
-                    // return $image;
-                    $datas['document'] = $item->store('documents');
-                 
+                $name = $item->getClientOriginalName();
+                $data[] = $name;
+                $datas['document'] = $item->store('documents');
+
                 Document::create([
-                        'document' => $datas['document'],
-                        'consultations_id' => $cons->id,
-                        'type' => $request->type,
-                    ]);
-                }
-                return $data;
+                    'document' => $datas['document'],
+                    'consultations_id' => $cons->id,
+                    'type' => $request->type,
+                ]);
+            }
+            return $data;
         }
 
-        // $cases = Cases::where('id', $request->cases_id)->get()[0];
 
-        // return redirect()->route('consultation.index', $cases)->with('success', "Added");
+
+        $cases = Cases::where('id', $request->cases_id)->get()[0];
+
+        return redirect()->route('consultation.index', $cases)->with('success', "Added");
     }
 
     public function edit(Consultation $consultation)

@@ -32,13 +32,23 @@ class HighCourtController extends Controller
             'related_people' => "nullable",
             'type' => "required",
         ]);
+
+        $current_case= Cases::where('id',$request->cases_id)->first();
+
+        $case_status=$current_case->case_status;
+        if($case_status=='सर्वोच्च अदालत' || $case_status=='अन्य अदालत'  || $case_status=='निर्णय भइसकेको' || $case_status=='अस्वीकार गरिएको'){
+            
+        }else{
+            $current_case->update([
+                'case_status'=>'उच्च अदालत'
+            ]);
+        }
+
         Consultation::create($datas);
         $cons = Consultation::latest()->first();
-
+        if ($request->hasfile('document')) {
         foreach ($request->document as $item) {
-            // if ($request->hasFile('document')) {
             $datas['document'] = $item->store('documents');
-            // }
 
             Document::create([
                 'document' => $item,
@@ -46,7 +56,7 @@ class HighCourtController extends Controller
                 'type' => $request->type,
             ]);
         }
-
+    }
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
         return redirect()->route('high-court.index', $cases)->with('success', "Added");

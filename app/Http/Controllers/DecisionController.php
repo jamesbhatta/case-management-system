@@ -6,13 +6,13 @@ use App\Cases;
 use App\Consultation;
 use App\Document;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
 
 class DecisionController extends Controller
 {
     public function index(Cases $cases)
     {
-        $consultations = Consultation::where('type', "decision")->where('cases_id',$cases->id)->get();
+        $consultations = Consultation::where('type', "decision")->where('cases_id', $cases->id)->get();
         return view('cases.decision.list', compact(['cases', 'consultations']));
     }
 
@@ -33,21 +33,30 @@ class DecisionController extends Controller
             'related_people' => "nullable",
             'type' => "required",
         ]);
-        Consultation::create($datas);
-        $cons = Consultation::latest()->first();
 
-        foreach ($request->document as $item) {
-            // if ($request->hasFile('document')) {
-            $datas['document'] = $item->store('documents');
-            // }
+        $current_case = Cases::where('id', $request->cases_id)->first();
 
-            Document::create([
-                'document' => $item,
-                'consultations_id' => $cons->id,
-                'type' => $request->type,
+        $case_status = $current_case->case_status;
+        if ($case_status == 'अस्वीकार गरिएको') {
+        } else {
+            $current_case->update([
+                'case_status' => 'निर्णय भइसकेको'
             ]);
         }
 
+        Consultation::create($datas);
+        $cons = Consultation::latest()->first();
+        if ($request->hasfile('document')) {
+            foreach ($request->document as $item) {
+                $datas['document'] = $item->store('documents');
+
+                Document::create([
+                    'document' => $item,
+                    'consultations_id' => $cons->id,
+                    'type' => $request->type,
+                ]);
+            }
+        }
         $cases = Cases::where('id', $request->cases_id)->get()[0];
 
         return redirect()->route('decision.index', $cases)->with('success', "Added");
@@ -88,12 +97,12 @@ class DecisionController extends Controller
 
         return redirect()->route('decision.index', $cases)->with('success', "Updated");
     }
-    
+
     public function destroy(Consultation $consultation)
     {
-        if($consultation->document!=""){
+        if ($consultation->document != "") {
             $filePath = 'document/';
-            File::delete($filePath.$consultation->document);
+            File::delete($filePath . $consultation->document);
         }
         $consultation->delete();
         return redirect()->back()->with('success', "Deleted");

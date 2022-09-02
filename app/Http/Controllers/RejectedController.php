@@ -32,19 +32,30 @@ class RejectedController extends Controller
             'related_people' => "nullable",
             'type' => "required",
         ]);
+
+        $current_case = Cases::where('id', $request->cases_id)->first();
+
+        $case_status = $current_case->case_status;
+
+        $current_case->update([
+            'case_status' => 'अस्वीकार गरिएको'
+        ]);
+
+
         Consultation::create($datas);
         $cons = Consultation::latest()->first();
+        if ($request->hasfile('document')) {
+            foreach ($request->document as $item) {
+                // if ($request->hasFile('document')) {
+                $datas['document'] = $item->store('documents');
+                // }
 
-        foreach ($request->document as $item) {
-            // if ($request->hasFile('document')) {
-            $datas['document'] = $item->store('documents');
-            // }
-
-            Document::create([
-                'document' => $item,
-                'consultations_id' => $cons->id,
-                'type' => $request->type,
-            ]);
+                Document::create([
+                    'document' => $item,
+                    'consultations_id' => $cons->id,
+                    'type' => $request->type,
+                ]);
+            }
         }
 
         $cases = Cases::where('id', $request->cases_id)->get()[0];

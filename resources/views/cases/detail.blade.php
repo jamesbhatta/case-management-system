@@ -28,9 +28,7 @@
                 <li>
                     <a href="{{route('inform-to-party.index',$cases)}}" class="{{ setActive('inform-to-party.*') }}">पक्षलाई जानकारी</a>
                 </li>
-                {{-- <li>
-                    <a href="">वारिस</a>
-                </li> --}}
+
                 <li>
                     <a href="{{route('case-type.index',$cases)}}" class="{{ setActive('case-type.*') }}">मुद्दाको किसिम</a>
                 </li>
@@ -56,6 +54,9 @@
                     <a href="{{route('judgement.index',$cases)}}" class="{{ setActive('judgement.*') }}">फैसला कार्यान्वयन</a>
                 </li>
                 <li>
+                    <a href="{{route('local-level.index',$cases)}}" class="{{ setActive('local-level.*') }}">स्थानीय तह</a>
+                </li>
+                <li>
                     <a href="{{route('police-station.index',$cases)}}" class="{{ setActive('police-station.*') }}">प्रहरी कार्यालय</a>
                 </li>
                 <li>
@@ -69,9 +70,6 @@
                 </li>
                 <li>
                     <a href="{{route('other-court.index',$cases)}}" class="{{ setActive('other-court.*') }}">अन्य अदालत</a>
-                </li>
-                <li>
-                    <a href="{{route('local-level.index',$cases)}}" class="{{ setActive('local-level.*') }}">स्थानीय तह</a>
                 </li>
                 <li>
                     <a href="{{route('decision.index',$cases)}}" class="{{ setActive('decision.*') }}">निर्णय भइसकेको</a>
