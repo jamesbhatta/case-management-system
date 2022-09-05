@@ -11,14 +11,14 @@ class ReportController extends Controller
     {
         $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->paginate(10);
         
-        // if ($request->filled('start') && $request->filled('end')){
-        //     $allCases= $allCases->whereBetween('date', [$request->start, $request->end]);
-        // }
-        // if($request->filled('status')){
+        if ($request->filled('start') && $request->filled('end')){
+            $allCases= $allCases->whereBetween('date', [$request->start, $request->end]);
+        }
+        if($request->filled('status')){
             
-        //     $allCases= $allCases->where('case_status',$request->status);
+            $allCases= $allCases->where('case_status',$request->status);
            
-        // }
+        }
         // if($request->filled('witness')){
         //     $witness= $request->witness;
             

@@ -456,16 +456,16 @@
 </div>
 </div>
 
-<script>
+<script type="application/javascript">
     function report_print() {
 
-        var prtContent = document.getElementById("my_data");
+       var prtContent = document.getElementById("my_data");
         var WinPrint = window.open();
         WinPrint.document.write(prtContent.outerHTML);
         WinPrint.document.close();
         WinPrint.focus();
         WinPrint.print();
-        WinPrint.close();
+        WinPrint.onafterprint=()=>WinPrint.close();
     }
 
     function appendCaseStstus(status) {
