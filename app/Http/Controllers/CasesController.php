@@ -18,7 +18,7 @@ class CasesController extends Controller
     {
 
         Cases::create($request->validate([
-            'case_number' => "required",
+            'case_number' => "required|unique:cases",
             'date' => "required",
             'case_status' => "required",
             'case_type' => 'required',
@@ -42,8 +42,9 @@ class CasesController extends Controller
 
     public function update(Request $request, Cases $cases)
     {
+        // return $cases;
         $cases->update($request->validate([
-            'case_number' => "required",
+            'case_number' => "required|unique:cases,case_number,".$cases->id,
             'date' => "required",
             'case_status' => "required",
             'case_type' => 'required',

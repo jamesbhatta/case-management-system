@@ -178,14 +178,14 @@
                                                                             सम्बन्ध बिछेद दर्ता
                                                                         </label>
                                                                     </div>
-                                                                    <div class="form-check mx-2">
+                                                                    <!-- <div class="form-check mx-2">
                                                                         <input class="form-check-input sifaris" id="my_checkbox2"
                                                                             name="case_type" type="checkbox"
                                                                             value="नागरिकता" id="nagrita" @if ($cases->case_type == 'नागरिकता'|| old('case_type')=="नागरिकता") checked @endif>
-                                                                        <label class="form-check-label" for="nagrita">
+                                                                        <label class="form-check-label" for="nagritaa">
                                                                             नागरिकता
                                                                         </label>
-                                                                    </div>
+                                                                    </div> -->
 
                                                                     <div class="form-check mx-2">
                                                                         <input class="form-check-input sifaris" id="my_checkbox2"
