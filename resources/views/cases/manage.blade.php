@@ -1,4 +1,4 @@
-@extends('layouts.app')
+    @extends('layouts.app')
 
 @section('content')
     <div class="container-fluid">
@@ -48,7 +48,7 @@
                     <a href="{{ route('cases.create') }}" class="btn btn-primary z-depth-0"> <i
                             class="fa fa-plus mr-2"></i>Add</a>
                    
-                <button class="btn btn-primary z-depth-0" onclick="report_print()">Generate report</button>
+                
                 </div>
             </div>
             <div class="card z-depth-0 font-noto overflow-auto">
