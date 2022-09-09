@@ -72,7 +72,7 @@
 
                         @forelse($allCases as $key=> $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>{{$loop->remaining+1 }}</td>
                                 <td>{{ $item->case_number }}</td>
                                 <td>{{ $item->date }}</td>
                                 <td>{{ $item->case_status }}</td>

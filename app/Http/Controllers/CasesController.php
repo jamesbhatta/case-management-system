@@ -11,7 +11,7 @@ class CasesController extends Controller
     public function index(Cases $cases)
     {
         // $allCases = Cases::with(['partyDetail', 'oppositParty', 'informToParty', 'caseType'])->paginate(10);
-        $allCases = Cases::with(['partyDetail', 'oppositParty', 'informToParty', 'caseType'])->orderBy('created_at','desc')->paginate(10);
+        $allCases = Cases::with(['partyDetail', 'oppositParty', 'informToParty', 'caseType'])->orderBy('created_at','desc')->paginate(20);
         return view('cases.manage', compact(['allCases', 'cases']));
     }
 
@@ -20,7 +20,7 @@ class CasesController extends Controller
 
         Cases::create($request->validate([
             'case_number' => "required|unique:cases",
-            'date' => "required",
+            'date' => "required|date",
             'case_status' => "required",
             'case_type' => 'required',
             'inform_to_org' => "required"
@@ -50,7 +50,7 @@ class CasesController extends Controller
         // return $cases;
         $cases->update($request->validate([
             'case_number' => "required|unique:cases,case_number,".$cases->id,
-            'date' => "required",
+            'date' => "required|date",
             'case_status' => "required",
             'case_type' => 'required',
             'inform_to_org' => "required"
