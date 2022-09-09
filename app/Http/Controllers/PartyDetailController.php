@@ -34,7 +34,7 @@ class PartyDetailController extends Controller
             'district' => "required|max:40",
             'municipality' => "required|max:60",
             'ward' => "required",
-            'contact' => "required|digits:10",
+            'contact' => "required|min:10",
             'email' => "nullable|max:70|email",
             'cast' => "required|max:15",
             'religion' => "required|max:15",

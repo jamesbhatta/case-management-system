@@ -25,7 +25,11 @@ class CasesController extends Controller
             'inform_to_org' => "required"
         ]));
 
-        return redirect()->back()->with('success', "मुद्दा सफलतापूर्वक दर्ता भयो");
+        $case_id=Cases::where('case_number',$request->case_number)->first();
+
+        // return redirect()->back()->with('success', "मुद्दा सफलतापूर्वक दर्ता भयो");
+        // 
+        return redirect()->route('partydetail.index', $case_id->id)->with('success', "मुद्दा सफलतापूर्वक दर्ता भयो");
     }
 
     public function destroy(Cases $cases)
