@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Cases;
+use App\User;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
     public function index(Request $request, Cases $cases)
     {
-        $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->paginate(10);
+        $users = User::orderBy('name')->get();
+        $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->paginate(100);
         
         if ($request->filled('start') && $request->filled('end')){
             $allCases= $allCases->whereBetween('date', [$request->start, $request->end]);
@@ -35,12 +37,14 @@ class ReportController extends Controller
         
         // $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->paginate(10);
        
-        return view('report.index', compact(['allCases','cases']));
+        return view('report.index', compact(['allCases','cases','users']));
     }
 
     public function search(Request $request,Cases $cases)
     {
         
+        $users = User::orderBy('name')->get();
+
         // $allCases=Cases::with('partyDetail')->with('oppositParty')->with('informToParty')->with('caseType')->where('case_number',$request->case_data)->orWhere('case_status',$request->case_data)->get();
         // return $cases;
         $allCases = Cases::with('partyDetail')->with('oppositParty')->with('informToParty')
@@ -61,15 +65,17 @@ class ReportController extends Controller
                 })
                 ->orWhereHas('caseType', function ($q) {
                     $q->where('case_type','like','%'. request('search').'%');
+                })
+                ->orWhereHas('userId', function ($q) {
+                    $q->where('user_id', request('user_id'));
                 });
-                
             // ->orWhere('')
         })
         // ->where('case_number',$request->case_data)
         // ->orWhere('case_status',$request->case_data)
         ->get();
         // return $allCases;
-        return view('report.index', compact(['allCases','cases']));
+        return view('report.index', compact(['allCases','cases','users']));
     }
     
     public function dateFilter(Request $request,Cases $cases)
@@ -105,5 +111,13 @@ class ReportController extends Controller
         })->get();
 
         return view('report.index', compact(['allCases','cases']));
+    }
+    public function UserId($userId,Cases $cases)
+    {
+        $users = User::orderBy('name')->get();
+
+        $allCases = Cases::where('user_id',$userId)->get();
+
+        return view('report.index', compact(['allCases','cases','users']));
     }
 }

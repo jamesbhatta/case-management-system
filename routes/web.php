@@ -69,6 +69,7 @@ Route::group(
         Route::get('status/{key}', [ReportController::class, 'caseStatus'])->name('status.caseStatus');
         Route::get('witness/{witness}', [ReportController::class, 'witness'])->name('witness.witness');
         Route::get('type/{type}', [ReportController::class, 'caseType'])->name('type.caseType');
+        Route::get('userId/{userId}', [ReportController::class, 'userId'])->name('user.userId');
 
 
         // cases
