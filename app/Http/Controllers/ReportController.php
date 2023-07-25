@@ -15,7 +15,7 @@ class ReportController extends Controller
             ->with('oppositParty')
             ->with('informToParty')
             ->with('caseType')
-            ->paginate(100);
+            ->get();
 
         if ($request->filled('start') && $request->filled('end')) {
             $allCases = $allCases->whereBetween('date', [$request->start, $request->end]);
@@ -89,7 +89,7 @@ class ReportController extends Controller
             ->with('informToParty')
             ->with('caseType')
             ->whereBetween('date', [$request->start, $request->end])
-            ->paginate(10);
+            ->get();
         // return $cases;
         return view('report.index', compact(['allCases', 'cases', 'users']));
     }
@@ -103,7 +103,7 @@ class ReportController extends Controller
             ->with('informToParty')
             ->with('caseType')
             ->where('case_status', $key)
-            ->paginate(10);
+            ->get();
         return view('report.index', compact(['allCases', 'cases', 'users']));
     }
 
