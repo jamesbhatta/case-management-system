@@ -51,7 +51,7 @@
                 
                 </div>
             </div>
-            <div class="card z-depth-0 font-noto overflow-auto">
+            <div class="card z-depth-0 font-noto overflow-auto" style="white-space: nowrap;">
                 <table class="table table-hover table-borderless">
                     <thead class="thead-light">
                         <tr>
@@ -142,7 +142,26 @@
 
     </tbody>
 </table>
-{{ $allCases->links('pagination::bootstrap-4') }}
+<div class="d-flex justify-content-between">
+    <div>
+        <p class="text-sm text-gray-700 leading-5">
+            {!! __('Showing') !!}
+            @if ($allCases->firstItem())
+                <span class="font-medium">{{ $allCases->firstItem() }}</span>
+                {!! __('to') !!}
+                <span class="font-medium">{{ $allCases->lastItem() }}</span>
+            @else
+                {{ $allCases->count() }}
+            @endif
+            {!! __('of') !!}
+            <span class="font-medium">{{ $allCases->total() }}</span>
+            {!! __('results') !!}
+        </p>
+    </div>
+    <div>
+        {{ $allCases->links('pagination::bootstrap-4') }}
+    </div>
+</div>
 {{-- ================== --}}
 <div id="my_data" style="display: none">
     <table border="1" style="border: 1px solid #f5f5f5; border-collapse: collapse;">
@@ -231,7 +250,9 @@
 <script>
     $(function() {
         if ($('.fiscal-year-date')[0]) {
-            $('.fiscal-year-date').nepaliDatePicker({});
+            $('.fiscal-year-date').nepaliDatePicker({
+                ndpYearCount: 200
+            });
         }
 
     })

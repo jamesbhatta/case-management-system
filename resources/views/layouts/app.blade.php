@@ -89,10 +89,9 @@
 
             if ($('.nepali-date')[0]) {
                 $('.nepali-date').nepaliDatePicker({
-                    disableDaysAfter: 1,
                     ndpYear: true,
                     ndpMonth: true,
-                    ndpYearCount: 10
+                    ndpYearCount: 200
                 });
             }
 

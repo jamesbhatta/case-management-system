@@ -11,7 +11,7 @@ class CasesController extends Controller
     public function index(Cases $cases)
     {
         // $allCases = Cases::with(['partyDetail', 'oppositParty', 'informToParty', 'caseType'])->paginate(10);
-        $allCases = Cases::with(['partyDetail', 'oppositParty', 'informToParty', 'caseType'])->orderBy('created_at','desc')->paginate(20);
+        $allCases = Cases::with(['partyDetail', 'oppositParty', 'informToParty', 'caseType'])->latest()->paginate(50);
         return view('cases.manage', compact(['allCases', 'cases']));
     }
 

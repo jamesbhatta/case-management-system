@@ -277,7 +277,7 @@ Route::group(
 
 Route::group(
     [
-        'middleware' => ['auth', 'role:admin']
+        'middleware' => ['auth', 'role:super-admin|admin']
     ],
     function () {
         // ==============================

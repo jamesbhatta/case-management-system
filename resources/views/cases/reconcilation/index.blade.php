@@ -109,7 +109,7 @@
             $('.fiscal-year-date').nepaliDatePicker({
                 ndpYear: true,
                 ndpMonth: true,
-                ndpYearCount: 10
+                ndpYearCount: 200
             });
         }
 
