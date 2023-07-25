@@ -43,4 +43,8 @@ class Cases extends Model
             $this->date_ad = bs_to_ad($this->date);
         }
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
